@@ -11,11 +11,9 @@ import {
   Truck,
   HeartHandshake,
   ClipboardList,
-  Building2,
   Pill,
   ArrowRight,
   CheckCircle2,
-  ChevronDown,
   ChevronRight,
   ExternalLink,
   AlertTriangle,
@@ -23,17 +21,23 @@ import {
   HandCoins,
   Landmark,
   PackageCheck,
+  TrendingUp,
+  BarChart3,
+  Timer,
+  DollarSign,
+  BookOpen,
+  FolderOpen,
 } from "lucide-react";
 
 /* ─── Anchor sections ─── */
 const SECTIONS = [
   { id: "start-here", label: "Start Here" },
   { id: "here2assist", label: "Here2Assist®" },
-  { id: "coverage", label: "Coverage, PA & Appeals" },
   { id: "financial", label: "Financial Support" },
+  { id: "coverage", label: "Coverage, PA & Appeals" },
   { id: "foundation-care", label: "Foundation Care® & Ordering" },
   { id: "transition", label: "Transition of Care" },
-  { id: "pharmacist", label: "Pharmacist/PHDM Tools" },
+  { id: "pharmacist", label: "Pharmacists" },
   { id: "contact", label: "Contact & Downloads" },
 ] as const;
 
@@ -126,9 +130,9 @@ export function PatientSupportPage() {
           <p className="text-white/70 text-[13px] tracking-wide uppercase mb-4">For US Healthcare Professionals</p>
           <h1 className="text-white text-[32px] md:text-[40px] lg:text-[48px] font-[800] leading-[1.1] mb-5 max-w-[720px]">
             Patient Support &amp; Access
-      
+
           </h1>
-          
+
 
           {/* CTA row */}
           <div className="flex flex-wrap gap-3 mb-8">
@@ -253,13 +257,14 @@ export function PatientSupportPage() {
                 cta="Download Form"
                 onCtaClick={() => scrollTo("here2assist")}
               />
+              {/* CHANGE C: Updated Card 2 CTA and secondary text */}
               <StepCard
                 num={2}
                 icon={<ShieldCheck size={28} />}
                 title="Use coverage, PA and appeals tools"
-                desc="Access tools for prior authorization, appeals, and benefit verification."
-                cta="View Tools"
-                onCtaClick={() => scrollTo("coverage")}
+                desc="For PA/coverage questions, FRDs can help offices navigate next steps."
+                cta="Get access support now"
+                onCtaClick={() => {/* Opens Request form preselected to FRD */}}
               />
               <StepCard
                 num={3}
@@ -290,15 +295,33 @@ export function PatientSupportPage() {
       <Divider />
 
       {/* ─── 4 HERE2ASSIST ─── */}
+      {/* CHANGE D: Enrollment moved to top, added FRD CTA and branding copy */}
       <section id="here2assist" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
           <SectionLabel>Program Overview</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Takeda Oncology Here2Assist®
           </h2>
-          <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
+          <p className="text-[#1B2430]/70 text-[16px] mb-4 max-w-[600px]">
             A comprehensive support program to help appropriate patients access ICLUSIG.
           </p>
+          <p className="text-[#0A8F8A] text-[15px] font-[500] mb-10 max-w-[700px]">
+            Here2Assist provides coverage support and financial support services; for access/reimbursement questions, connect with an FRD.
+          </p>
+
+          {/* CHANGE D1: Enrollment steps moved to TOP */}
+          <div className="bg-[#F5F7FA] border-2 border-[#0A8F8A]/30 rounded-lg p-6 md:p-8 mb-10">
+            <h3 className="text-[#0B3A5C] text-[22px] font-[700] mb-5">Enrollment is simple</h3>
+            <ol className="space-y-4 mb-6">
+              <EnrollStep num={1} text="Download and print the Enrollment Form" />
+              <EnrollStep num={2} text="Complete and sign with your patient" />
+              <EnrollStep num={3} text="Fax form + insurance card + prescription to: 1-844-269-3038" />
+            </ol>
+            <div className="flex flex-wrap gap-3">
+              <Btn variant="primary" icon={<Download size={16} />}>Download Enrollment Form</Btn>
+              <Btn variant="secondary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support now</Btn>
+            </div>
+          </div>
 
           {/* 4-item icon list */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
@@ -320,101 +343,63 @@ export function PatientSupportPage() {
             />
           </div>
 
-          {/* Enrollment steps */}
-          <div className="bg-[#F5F7FA] border border-[#E3E8EF] rounded-lg p-6 md:p-8 mb-8">
-            <h3 className="text-[#0B3A5C] text-[20px] font-[700] mb-5">Enrollment is simple</h3>
-            <ol className="space-y-4 mb-6">
-              <EnrollStep num={1} text="Download and print the Enrollment Form" />
-              <EnrollStep num={2} text="Complete and sign with your patient" />
-              <EnrollStep num={3} text="Fax form + insurance card + prescription to: 1-844-269-3038" />
-            </ol>
-          </div>
-
           <div className="flex flex-wrap gap-3">
-            <Btn variant="primary" icon={<Download size={16} />}>Download Enrollment Form</Btn>
             <Btn variant="secondary" icon={<Copy size={16} />}>Copy fax number: 1-844-269-3038</Btn>
             <Btn variant="secondary" icon={<Phone size={16} />}>Call Here2Assist®</Btn>
           </div>
         </div>
       </section>
 
-      {/* ─── 5 COVERAGE, PA & APPEALS ─── */}
-      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
-          <SectionLabel>Coverage Tools</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Coverage, PA and appeals support
-          </h2>
-          <p className="text-[#0A8F8A] text-[18px] font-[600] mb-8">Appeals support tools</p>
-
-          {/* Download tiles */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 min-[1345px]:grid-cols-4 gap-5 mb-12">
-            <DownloadTile
-              title="PA submission checklist"
-              desc="Use when submitting a prior authorization request"
-            />
-            <DownloadTile
-              title="Peer-to-peer checklist"
-              desc="Use to prepare for a peer-to-peer review call"
-            />
-            <DownloadTile
-              title="Letter of medical necessity template"
-              desc="Use to support prior authorization and appeals"
-            />
-            <DownloadTile
-              title="Appeal letter template"
-              desc="Use to draft a formal appeal of a coverage denial"
-            />
-          </div>
-
-          {/* FAQ accordion */}
-          <h3 className="text-[#1B2430] text-[20px] font-[700] mb-5">Frequently asked questions</h3>
-          <div className="space-y-3">
-            <AccordionItem q="What commonly causes delays?">
-              Common causes include incomplete prior authorization forms, missing clinical documentation,
-              or incorrect pharmacy routing. Ensure all required fields are completed and supporting
-              documents are attached when submitting.
-            </AccordionItem>
-            <AccordionItem q="When should I submit an appeal?">
-              Submit an appeal promptly after receiving a denial. Most payers allow 30–60 days.
-              Use the appeal letter template and include all relevant clinical rationale and
-              supporting literature.
-            </AccordionItem>
-            <AccordionItem q="Who do I contact for additional support?">
-              Contact Here2Assist at 1-844-HERE-2-ASSIST (Mon–Fri 8am–8pm ET) for personalized
-              guidance on coverage, PA, and appeals processes.
-            </AccordionItem>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 6 FINANCIAL SUPPORT ─── */}
+      {/* ─── 5 FINANCIAL SUPPORT (MOVED UP per Change E) ─── */}
       <section id="financial" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
           <SectionLabel>Financial Assistance</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Financial support pathways
           </h2>
-          <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
+          <p className="text-[#1B2430]/70 text-[16px] mb-6 max-w-[600px]">
             For eligible patients — multiple programs may help reduce out-of-pocket costs.
           </p>
 
+          {/* CHANGE F3: Affordability metric placeholder callout */}
+          <div className="bg-[#E8F5F4] border border-[#0A8F8A]/20 rounded-lg px-5 py-3 mb-10 flex items-center gap-3">
+            <DollarSign size={18} className="text-[#0A8F8A] flex-shrink-0" />
+            <div>
+              <p className="text-[#1B2430] text-[15px] font-[600]">
+                Over [XX%] of patients pay [$x-$x] out of pocket. <span className="text-[#1B2430]/50 text-[13px] font-[400]">[PLACEHOLDER—pending PVA analytics + approval]</span>
+              </p>
+              <p className="text-[#1B2430]/40 text-[11px]">Placeholder data and text to be changed</p>
+            </div>
+          </div>
+
+          {/* CHANGE F1/F2: Updated tiles */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Tile 1: Copay support — primary */}
             <FinanceCard
               icon={<HandCoins size={28} className="text-[#0A8F8A]" />}
               title="Copay support"
-              desc="Eligible commercially insured patients may pay as little as $0 per month. Terms and conditions apply."
+              desc={<>Eligible commercially insured patients may pay as little as $0. <span className="text-[#1B2430]/40 text-[12px]">[PLACEHOLDER—final approved language required]</span></>}
             />
-            <FinanceCard
-              icon={<HeartHandshake size={28} className="text-[#0A8F8A]" />}
-              title="Patient assistance"
-              desc="Uninsured or underinsured patients may qualify for free medication through Takeda's patient assistance program."
-            />
-            <FinanceCard
-              icon={<Landmark size={28} className="text-[#0A8F8A]" />}
-              title="Independent foundations"
-              desc="Here2Assist can help identify independent charitable foundations that may offer additional financial support."
-            />
+            {/* Tile 2: Patient assistance — reduced prominence */}
+            <div className="border border-[#E3E8EF] rounded-lg p-6">
+              <span className="mb-4 block"><HeartHandshake size={28} className="text-[#0A8F8A]" /></span>
+              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">Patient assistance</h3>
+              <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-2">
+                Uninsured or underinsured patients may qualify for free medication through Takeda's patient assistance program.
+              </p>
+              <p className="text-[#1B2430]/40 text-[12px] italic">
+                [PAP prominence to be aligned with hub strategy; keep high-level only]
+              </p>
+            </div>
+            {/* Tile 3: Additional support options (replaces Independent foundations) */}
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+              <span className="mb-4 block"><Landmark size={28} className="text-[#0A8F8A]" /></span>
+              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">Additional support options</h3>
+              <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-5 flex-1">
+                For guidance on available support pathways, contact an FRD.
+              </p>
+              <Btn variant="primary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support now</Btn>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -424,44 +409,166 @@ export function PatientSupportPage() {
         </div>
       </section>
 
-      {/* ─── 7 FOUNDATION CARE & ORDERING ─── */}
-      <section id="foundation-care" className="bg-white scroll-mt-14">
-        {/* Navy callout band */}
-        <div style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
-          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-10 md:py-14">
-            <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
-            <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-              Foundation Care® and ordering ICLUSIG
-            </h2>
-            <p className="text-white/80 text-[16px] mb-6 max-w-[600px]">
-              Where to send the prescription — ordering and dispensing information.
+      {/* ─── 6 COVERAGE, PA & APPEALS (was section 5, now after Financial) ─── */}
+      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+          <SectionLabel>Coverage Tools</SectionLabel>
+          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+            Coverage, PA and appeals support
+          </h2>
+
+          {/* CHANGE G2: Coverage confidence snapshot */}
+          <div className="mb-12">
+            <h3 className="text-[#0B3A5C] text-[20px] font-[700] mb-2">Coverage confidence</h3>
+            <p className="text-[#1B2430]/60 text-[14px] mb-6">Based on claims experience</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-3">
+              <StatCard
+                icon={<TrendingUp size={22} className="text-[#0A8F8A]" />}
+                label="Coverage success"
+                value="~[8 out of 10 / XX%]"
+                desc="ICLUSIG commercial new starts are ultimately covered."
+              />
+              <StatCard
+                icon={<BarChart3 size={22} className="text-[#0A8F8A]" />}
+                label="PA approval"
+                value="[XX%]"
+                desc="New patient PA approval rate."
+              />
+              <StatCard
+                icon={<Timer size={22} className="text-[#0A8F8A]" />}
+                label="Speed to therapy"
+                value="[XX days]"
+                desc="Time to first fill (target ≤ 10 days)."
+              />
+              <StatCard
+                icon={<DollarSign size={22} className="text-[#0A8F8A]" />}
+                label="Affordability"
+                value="[XX%]"
+                desc="Pay $0–$1 out of pocket."
+              />
+            </div>
+            <p className="text-[#1B2430]/40 text-[12px] italic">Final metrics pending validation and approval.</p>
+          </div>
+
+          <p className="text-[#0A8F8A] text-[18px] font-[600] mb-8">Appeals support tools</p>
+
+          {/* CHANGE G1/G3: Updated download tiles */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 min-[1345px]:grid-cols-3 gap-5 mb-12">
+            {/* PA submission checklist with disclaimer */}
+            <div
+              className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
+            >
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
+                <FileText size={20} className="text-[#0A8F8A]" />
+              </div>
+              <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">PA submission checklist</h4>
+              <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-2 flex-1">Use when submitting a prior authorization request</p>
+              <p className="text-amber-600 text-[12px] font-[500] mb-4 italic">Placeholder, may remove</p>
+              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
+                <Download size={14} /> Download
+              </button>
+            </div>
+            {/* LMN template — brand-agnostic label */}
+            <div
+              className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
+            >
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
+                <FileText size={20} className="text-[#0A8F8A]" />
+              </div>
+              <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">Letter of medical necessity template</h4>
+              <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-1 flex-1">Use to support prior authorization and appeals</p>
+              <p className="text-[#1B2430]/40 text-[12px] mb-4">Brand-agnostic tool hosted on Here2Assist.</p>
+              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
+                <ExternalLink size={14} /> View on Here2Assist
+              </button>
+            </div>
+            {/* Appeal letter template — brand-agnostic label */}
+            <div
+              className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
+              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
+            >
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
+                <FileText size={20} className="text-[#0A8F8A]" />
+              </div>
+              <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">Appeal letter template</h4>
+              <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-1 flex-1">Use to draft a formal appeal of a coverage denial</p>
+              <p className="text-[#1B2430]/40 text-[12px] mb-4">Brand-agnostic tool hosted on Here2Assist.</p>
+              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
+                <ExternalLink size={14} /> View on Here2Assist
+              </button>
+            </div>
+          </div>
+
+          {/* CHANGE G4: Replaced FAQ with single "Need help?" panel */}
+          <div className="bg-white border border-[#E3E8EF] rounded-lg p-6 md:p-8">
+            <h3 className="text-[#0B3A5C] text-[20px] font-[700] mb-3">Need help with a PA, coverage, or an appeal?</h3>
+            <p className="text-[#1B2430]/70 text-[15px] mb-6 max-w-[600px]">
+              Connect with an FRD for access &amp; reimbursement support or Here2Assist for enrollment/support services.
             </p>
-            <Btn variant="primary" onClick={() => scrollTo("foundation-care")}>View Ordering Instructions</Btn>
+            <div className="flex flex-wrap gap-3">
+              <Btn variant="primary" onClick={() => {/* Dead link for now */}}>Get access support now</Btn>
+              <Btn variant="secondary" onClick={() => scrollTo("here2assist")}>Enroll in Here2Assist</Btn>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7 FOUNDATION CARE & ORDERING ─── */}
+      {/* CHANGE H4: Unified background color */}
+      <section id="foundation-care" className="scroll-mt-14" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
+        {/* Navy callout band */}
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-10 md:py-14">
+          <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
+          <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+            Foundation Care® and ordering ICLUSIG
+          </h2>
+          <p className="text-white/80 text-[16px] mb-6 max-w-[600px]">
+            Where to send the prescription — ordering and dispensing information.
+          </p>
+
+          {/* CHANGE H1: MID dispensing guidance callout */}
+          <div className="bg-white/10 border border-white/20 rounded-lg px-5 py-3 mb-8">
+            <p className="text-white text-[14px] leading-[1.6]">
+              If an account will dispense through their MID, ordering is completed through Foundation Care.{" "}
+              <span className="text-white/50 text-[12px]">[WORDING TBD—pending Elliot/Greg confirmation]</span>
+            </p>
+          </div>
+
+          {/* CHANGE H3: Text paragraphs above cards */}
+          <div className="space-y-4 mb-10">
+            <p className="text-white/90 text-[15px] leading-[1.7]">
+              ICLUSIG may be purchased directly from our distribution partner* and dispensed through accounts that have a medically integrated pharmacy.
+            </p>
+            <p className="text-white/90 text-[15px] leading-[1.7]">
+              ICLUSIG can be filled through AcariaHealth. If your institution does not have medically integrated dispensing capabilities or chooses not to fill a ICLUSIG prescription through your medically integrated pharmacy, ICLUSIG may be ordered and filled through AcariaHealth. Sending an ICLUSIG prescription to a pharmacy that is either not your institution's medically integrated pharmacy or an alternate pharmacy may result in delay or nonfulfillment of the prescription.
+            </p>
           </div>
         </div>
 
-        {/* Two cards */}
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-12 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Two cards — CHANGE H4: same background */}
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 pb-12 md:pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* AcariaHealth */}
-            <div className="border border-[#E3E8EF] rounded-lg overflow-hidden">
-              <div className="bg-[#0B3A5C] px-6 py-4">
+            <div className="border border-white/20 rounded-lg overflow-hidden">
+              <div className="bg-white/10 px-6 py-4">
                 <h3 className="text-white text-[18px] font-[700]">
                   AcariaHealth
                 </h3>
                 <p className="text-white/70 text-[13px]">Exclusive integrated specialty pharmacy</p>
               </div>
               <div className="p-6">
-                <ContactLine icon={<Phone size={16} />} label="Phone" value="833-442-8911" />
+                <ContactLineWhite icon={<Phone size={16} />} label="Phone" value="833-442-8911" />
                 <div className="mt-5 space-y-3">
-                  <h4 className="text-[#1B2430] text-[15px] font-[600]">Two ways to order:</h4>
+                  <h4 className="text-white text-[15px] font-[600]">Two ways to order:</h4>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-[#0A8F8A] mt-0.5 flex-shrink-0" />
-                    <span className="text-[#1B2430] text-[15px]">E-prescribe to AcariaHealth</span>
+                    <span className="text-white text-[15px]">E-prescribe to AcariaHealth</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-[#0A8F8A] mt-0.5 flex-shrink-0" />
-                    <span className="text-[#1B2430] text-[15px]">Use referral form + fax as directed</span>
+                    <span className="text-white text-[15px]">Use referral form + fax as directed</span>
                   </div>
                 </div>
                 {/* Warning */}
@@ -477,7 +584,7 @@ export function PatientSupportPage() {
             </div>
 
             {/* Foundation Care */}
-            <div className="border border-[#E3E8EF] rounded-lg overflow-hidden">
+            <div className="border border-white/20 rounded-lg overflow-hidden">
               <div className="bg-[#0A8F8A] px-6 py-4">
                 <h3 className="text-white text-[18px] font-[700]">
                   Foundation Care
@@ -485,14 +592,19 @@ export function PatientSupportPage() {
                 <p className="text-white/70 text-[13px]">ICLUSIGDirect Purchase Program</p>
               </div>
               <div className="p-6">
-                <ContactLine icon={<Phone size={16} />} label="Phone" value="833-291-2773" />
-                <p className="text-[#1B2430]/70 text-[14px] mt-5 mb-6 max-w-[400px]">
+                <ContactLineWhite icon={<Phone size={16} />} label="Phone" value="833-291-2773" />
+                <p className="text-white/70 text-[14px] mt-5 mb-6 max-w-[400px]">
                   Distribution partner resources for purchasing and access. Contact Foundation Care
                   for information about ICLUSIGDirect and institutional ordering.
                 </p>
                 <Btn variant="primary">Request Foundation Care / ICLUSIGDirect Information</Btn>
               </div>
             </div>
+          </div>
+
+          {/* CHANGE H3: FRD CTA button */}
+          <div className="flex justify-center">
+            <Btn variant="secondary-light" onClick={() => {/* Opens Request form preselected to FRD */}}>Contact an FRD</Btn>
           </div>
         </div>
       </section>
@@ -523,52 +635,82 @@ export function PatientSupportPage() {
               </div>
             </div>
 
-            {/* Right: download card */}
+            {/* CHANGE I1/I2: Replaced toolkit download with placeholder module */}
             <div className="lg:w-[320px] flex-shrink-0">
-              <div className="bg-white border border-[#E3E8EF] rounded-lg p-6" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                <div className="w-12 h-12 rounded-lg bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
-                  <Download size={24} className="text-[#0A8F8A]" />
+              <div className="bg-white border-2 border-dashed border-[#E3E8EF] rounded-lg p-6" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+                <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mb-4">
+                  <AlertTriangle size={24} className="text-amber-500" />
                 </div>
                 <h3 className="text-[#1B2430] text-[18px] font-[700] mb-2">
-                  Transition-of-Care Toolkit
+                  Transition of care resources (in development)
                 </h3>
-                <p className="text-[#1B2430]/60 text-[14px] mb-5">
-                  Comprehensive guide for managing the inpatient-to-outpatient handoff for ICLUSIG patients.
+                <p className="text-[#1B2430]/60 text-[14px] mb-3">
+                  [PLACEHOLDER - exploring the minimum transition-of-care content that can be approved (USRC)]
                 </p>
-                <Btn variant="primary" full icon={<Download size={16} />}>Download</Btn>
+                <p className="text-[#1B2430]/40 text-[12px] italic">
+                  Will consult with Dr. Jabbour on inputs and approval pathway.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── 9 PHARMACIST / PHDM TOOLS ─── */}
+      {/* ─── 9 PHARMACISTS ─── */}
+      {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
       <section id="pharmacist" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
           <SectionLabel>Pharmacy Resources</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            For pharmacists and pharmacy decision-makers (PHDMs)
+            Pharmacists
           </h2>
+          {/* CHANGE J2: Purpose copy */}
           <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
-            Resources to support formulary decisions, procurement, and patient access.
+            Resources to support dosing adjustments, access workflows, and procurement.
           </p>
 
+          {/* CHANGE J1: Updated cards with explicit resource links */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <PharmCard
-              icon={<ShieldCheck size={28} className="text-[#0A8F8A]" />}
-              title="Appeals & coverage tools"
-              desc="Access prior authorization templates, appeal letter guides, and peer-to-peer preparation checklists."
-            />
-            <PharmCard
-              icon={<Building2 size={28} className="text-[#0A8F8A]" />}
-              title="Ordering / procurement overview"
-              desc="Foundation Care and AcariaHealth ordering pathways, formulary information, and distribution details."
-            />
-            <PharmCard
-              icon={<Stethoscope size={28} className="text-[#0A8F8A]" />}
-              title="Request support"
-              desc="Connect with a Takeda Oncology representative for personalized assistance with your pharmacy needs."
-            />
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+              <span className="mb-4 block"><BookOpen size={28} className="text-[#0A8F8A]" /></span>
+              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-3">Dosing & adverse event resources</h3>
+              <ul className="space-y-2 mb-6 flex-1">
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Dosing guides (CML + Ph+ ALL)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Adverse event management / dose adjustment resources</span>
+                </li>
+              </ul>
+              <Btn variant="secondary">View Dosing Resources</Btn>
+            </div>
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+              <span className="mb-4 block"><FolderOpen size={28} className="text-[#0A8F8A]" /></span>
+              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-3">Formulary kit & ordering</h3>
+              <ul className="space-y-2 mb-6 flex-1">
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Summary sheet</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Billing/coding guide</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Product monograph</span>
+                </li>
+              </ul>
+              <Btn variant="secondary">View Formulary Kit</Btn>
+            </div>
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+              <span className="mb-4 block"><Stethoscope size={28} className="text-[#0A8F8A]" /></span>
+              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">Request support</h3>
+              <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-6 flex-1">Connect with a Takeda Oncology representative for personalized assistance with your pharmacy needs.</p>
+              <Btn variant="secondary">Request Resources</Btn>
+            </div>
           </div>
         </div>
       </section>
@@ -748,69 +890,27 @@ function EnrollStep({ num, text }: { num: number; text: string }) {
   );
 }
 
-/* ── Download tile ── */
-function DownloadTile({ title, desc }: { title: string; desc: string }) {
+/* ── Stat card (for Coverage confidence) ── */
+function StatCard({ icon, label, value, desc }: { icon: React.ReactNode; label: string; value: string; desc: string }) {
   return (
-    <div
-      className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
-      style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
-    >
-      <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
-        <FileText size={20} className="text-[#0A8F8A]" />
+    <div className="bg-white border border-[#E3E8EF] rounded-lg p-5" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
+      <div className="flex items-center gap-2 mb-3">
+        {icon}
+        <span className="text-[#1B2430]/50 text-[12px] font-[600] uppercase tracking-wide">{label}</span>
       </div>
-      <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">{title}</h4>
-      <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-5 flex-1">{desc}</p>
-      <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
-        <Download size={14} /> Download
-      </button>
-    </div>
-  );
-}
-
-/* ── Accordion item ── */
-function AccordionItem({ q, children }: { q: string; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="bg-white border border-[#E3E8EF] rounded-lg overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left min-h-[48px] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#0A8F8A]"
-        aria-expanded={open}
-      >
-        <span className="text-[#1B2430] text-[15px] font-[600] pr-4">{q}</span>
-        <ChevronDown
-          size={18}
-          className={`text-[#0A8F8A] flex-shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-      {open && (
-        <div className="px-5 pb-4 border-t border-[#E3E8EF]">
-          <p className="text-[#1B2430]/70 text-[14px] leading-[1.7] pt-4">{children}</p>
-        </div>
-      )}
+      <p className="text-[#0B3A5C] text-[24px] font-[800] mb-1">{value}</p>
+      <p className="text-[#1B2430]/60 text-[13px] leading-[1.5]">{desc}</p>
     </div>
   );
 }
 
 /* ── Finance card ── */
-function FinanceCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
+function FinanceCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: React.ReactNode }) {
   return (
     <div className="border border-[#E3E8EF] rounded-lg p-6">
       <span className="mb-4 block">{icon}</span>
       <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">{title}</h3>
       <p className="text-[#1B2430]/60 text-[14px] leading-[1.6]">{desc}</p>
-    </div>
-  );
-}
-
-/* ── Pharmacist card ── */
-function PharmCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: string }) {
-  return (
-    <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
-      <span className="mb-4 block">{icon}</span>
-      <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">{title}</h3>
-      <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-6 flex-1">{desc}</p>
-      <Btn variant="secondary">Request Resources</Btn>
     </div>
   );
 }
