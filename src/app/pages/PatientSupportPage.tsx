@@ -41,6 +41,7 @@ const SECTIONS = [
 export function PatientSupportPage() {
   const [activeSection, setActiveSection] = useState<string>(SECTIONS[0].id);
   const navRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [navStuck, setNavStuck] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -76,13 +77,13 @@ export function PatientSupportPage() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  /* Sticky detection */
+  /* Sticky detection — observe a sentinel above the nav, not the nav itself */
   useEffect(() => {
-    const el = navRef.current;
+    const el = sentinelRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => setNavStuck(!entry.isIntersecting),
-      { threshold: 1, rootMargin: "-1px 0px 0px 0px" }
+      { threshold: 0 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -144,6 +145,9 @@ export function PatientSupportPage() {
           </div>
         </div>
       </section>
+
+      {/* Sentinel for sticky detection */}
+      <div ref={sentinelRef} className="h-0 w-full" aria-hidden="true" />
 
       {/* ─── 2 STICKY ANCHOR NAV ─── */}
       <div
