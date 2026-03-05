@@ -302,9 +302,7 @@ export function PatientSupportPage() {
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Takeda Oncology Here2Assist®
           </h2>
-          <p className="text-[#1B2430]/70 text-[16px] mb-4 max-w-[600px]">
-            A comprehensive support program to help appropriate patients access ICLUSIG.
-          </p>
+
           <p className="text-[#0A8F8A] text-[15px] font-[500] mb-10 max-w-[700px]">
             Here2Assist provides coverage support and financial support services; for access/reimbursement questions, connect with an FRD.
           </p>
@@ -419,8 +417,7 @@ export function PatientSupportPage() {
 
           {/* CHANGE G2: Coverage confidence snapshot */}
           <div className="mb-12">
-            <h3 className="text-[#0B3A5C] text-[20px] font-[700] mb-2">Coverage confidence</h3>
-            <p className="text-[#1B2430]/60 text-[14px] mb-6">Based on claims experience</p>
+          
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-3">
               <StatCard
                 icon={<TrendingUp size={22} className="text-[#0A8F8A]" />}
@@ -524,18 +521,8 @@ export function PatientSupportPage() {
           <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Foundation Care® and ordering ICLUSIG
           </h2>
-          <p className="text-white/80 text-[16px] mb-6 max-w-[600px]">
-            Where to send the prescription — ordering and dispensing information.
-          </p>
 
-          {/* CHANGE H1: MID dispensing guidance callout */}
-          <div className="bg-white/10 border border-white/20 rounded-lg px-5 py-3 mb-8">
-            <p className="text-white text-[14px] leading-[1.6]">
-              If an account will dispense through their MID, ordering is completed through Foundation Care.{" "}
-              <span className="text-white/50 text-[12px]">[WORDING TBD—pending Elliot/Greg confirmation]</span>
-            </p>
-          </div>
-
+         
           {/* CHANGE H3: Text paragraphs above cards */}
           <div className="space-y-4 mb-10">
             <p className="text-white/90 text-[15px] leading-[1.7]">
