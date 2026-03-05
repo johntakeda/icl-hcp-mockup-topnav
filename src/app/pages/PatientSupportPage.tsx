@@ -99,7 +99,7 @@ export function PatientSupportPage() {
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col overflow-x-hidden">
+    <div className="flex-1 flex flex-col overflow-x-clip">
       {/* ─── 1 HERO ─── */}
       <section
         className="w-full relative"
@@ -146,8 +146,14 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 2 STICKY ANCHOR NAV ─── */}
-      <div ref={navRef} className="sticky top-0 z-30 bg-white border-b border-[#E3E8EF]"
-        style={{ boxShadow: navStuck ? "0 2px 8px rgba(0,0,0,0.06)" : "none" }}
+      <div
+        ref={navRef}
+        className="sticky top-0 z-30 transition-colors duration-300"
+        style={{
+          backgroundColor: navStuck ? "#0E1E38" : "#ffffff",
+          borderBottom: navStuck ? "1px solid rgba(255,255,255,0.1)" : "1px solid #E3E8EF",
+          boxShadow: navStuck ? "0 2px 12px rgba(0,0,0,0.2)" : "none",
+        }}
       >
         <div className="relative max-w-[1200px] mx-auto">
           <div
@@ -160,14 +166,18 @@ export function PatientSupportPage() {
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
-                  className={`
-                    whitespace-nowrap px-4 py-3 text-[13px] md:text-[14px] font-[600] border-b-[3px] transition-colors
-                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]
-                    ${activeSection === id
-                      ? "border-[#0A8F8A] text-[#0A8F8A]"
-                      : "border-transparent text-[#1B2430]/60 hover:text-[#1B2430]"
-                    }
-                  `}
+                  className="whitespace-nowrap px-4 py-3 text-[13px] md:text-[14px] font-[600] border-b-[3px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]"
+                  style={
+                    activeSection === id
+                      ? {
+                          color: navStuck ? "#ffffff" : "#0A8F8A",
+                          borderBottomColor: navStuck ? "#ffffff" : "#0A8F8A",
+                        }
+                      : {
+                          color: navStuck ? "rgba(255,255,255,0.5)" : "rgba(27,36,48,0.6)",
+                          borderBottomColor: "transparent",
+                        }
+                  }
                 >
                   {label}
                 </button>
@@ -182,16 +192,29 @@ export function PatientSupportPage() {
           >
             <div
               className="h-full w-20"
-              style={{ background: "linear-gradient(to right, transparent, white 70%)" }}
+              style={{
+                background: navStuck
+                  ? "linear-gradient(to right, transparent, #0E1E38 70%)"
+                  : "linear-gradient(to right, transparent, white 70%)",
+              }}
             />
             <button
               onClick={scrollNavRight}
-              className="absolute right-2 flex items-center gap-1 bg-white/90 rounded-full pl-2.5 pr-1.5 py-1 cursor-pointer hover:bg-white transition-colors"
-              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.10)", animation: "nudge-right 1.5s ease-in-out infinite" }}
+              className="absolute right-2 flex items-center gap-1 rounded-full pl-2.5 pr-1.5 py-1 cursor-pointer transition-colors"
+              style={{
+                backgroundColor: navStuck ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.9)",
+                boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
+                animation: "nudge-right 1.5s ease-in-out infinite",
+              }}
               aria-label="Scroll to see more menu items"
             >
-              <span className="text-[10px] font-[500] text-[#1B2430]/50 whitespace-nowrap">More</span>
-              <ChevronRight size={14} className="text-[#0A8F8A]" />
+              <span
+                className="text-[10px] font-[500] whitespace-nowrap"
+                style={{ color: navStuck ? "rgba(255,255,255,0.6)" : "rgba(27,36,48,0.5)" }}
+              >
+                More
+              </span>
+              <ChevronRight size={14} className={navStuck ? "text-white" : "text-[#0A8F8A]"} />
             </button>
           </div>
         </div>
