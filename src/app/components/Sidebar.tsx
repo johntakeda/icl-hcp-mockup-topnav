@@ -256,7 +256,7 @@ export function Sidebar({ onClose, isDrawer = false }: SidebarProps) {
       </div>
 
       {/* Nav items */}
-      <nav className="px-4 flex flex-col flex-1 overflow-y-auto">
+      <nav className="px-6 flex flex-col flex-1 overflow-y-auto">
         {navItems.map((item) => {
           const isOpen = hoveredMenu === item.label;
           return (
@@ -270,7 +270,7 @@ export function Sidebar({ onClose, isDrawer = false }: SidebarProps) {
               onMouseLeave={scheduleClose}
             >
               <button
-                className={`flex items-center justify-between w-full py-3 px-2 text-[14px] font-[600] transition-colors text-left rounded-t-lg ${
+                className={`flex items-center justify-between w-full py-3 px-4 text-[14px] font-[600] transition-colors text-left rounded-t-lg ${
                   isOpen ? "text-[#237EBF] bg-[#F9FAFB]" : "text-[#0F1E38]"
                 }`}
               >
@@ -283,7 +283,7 @@ export function Sidebar({ onClose, isDrawer = false }: SidebarProps) {
                 />
               </button>
               {isOpen && (
-                <div className="bg-white rounded-b-lg px-2">
+                <div className="bg-white rounded-b-lg px-4">
                   <div className="border-t border-[#E5E7EB]">
                     {renderChildren(item)}
                   </div>
