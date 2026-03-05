@@ -1,0 +1,452 @@
+- generic [active] [ref=e1]:
+  - list [ref=e2]:
+    - listitem [ref=e3]:
+      - link "skip to Main Content" [ref=e4] [cursor=pointer]:
+        - /url: "#maincontent"
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - navigation "Super Utility" [ref=e9]
+      - navigation "Utility" [ref=e11]:
+        - menu [ref=e12]:
+          - menuitem "Important Safety Information" [ref=e13]:
+            - link "Important Safety Information" [ref=e14] [cursor=pointer]:
+              - /url: "#isi"
+          - menuitem "Prescribing Information" [ref=e15]:
+            - button "Prescribing Information" [ref=e16] [cursor=pointer]:
+              - text: Prescribing Information
+              - img
+          - menuitem "Medical Information" [ref=e17]:
+            - link "Medical Information" [ref=e18] [cursor=pointer]:
+              - /url: https://www.oncologymedinfo.com/
+          - menuitem "Patient/Caregiver Site" [ref=e19]:
+            - link "Patient/Caregiver Site" [ref=e20] [cursor=pointer]:
+              - /url: https://www.iclusig.com/
+      - link "ICLUSIG® (ponatinib)" [ref=e22] [cursor=pointer]:
+        - /url: https://test-iclusig-hcp-v2.pantheonsite.io/
+        - img "ICLUSIG® (ponatinib) logo." [ref=e23]
+      - navigation "Primary" [ref=e26]:
+        - menu [ref=e29]:
+          - menuitem "ICLUSIG for Ph+ ALL" [ref=e30]:
+            - button "ICLUSIG for Ph+ ALL" [ref=e31] [cursor=pointer]:
+              - text: ICLUSIG for Ph+ ALL
+              - img
+          - menuitem "ICLUSIG for CML" [ref=e32]:
+            - button "ICLUSIG for CML" [ref=e33] [cursor=pointer]:
+              - text: ICLUSIG for CML
+              - img
+          - menuitem "Efficacy" [ref=e34]:
+            - button "Efficacy" [ref=e35] [cursor=pointer]:
+              - text: Efficacy
+              - img
+          - menuitem "Safety Profile" [ref=e36]:
+            - button "Safety Profile" [ref=e37] [cursor=pointer]:
+              - text: Safety Profile
+              - img
+          - menuitem "Dosing" [ref=e38]:
+            - button "Dosing" [ref=e39] [cursor=pointer]:
+              - text: Dosing
+              - img
+          - menuitem "Support & Resources" [ref=e40]:
+            - button "Support & Resources" [ref=e41] [cursor=pointer]:
+              - text: Support & Resources
+              - img
+          - menuitem "Request a Rep" [ref=e42]:
+            - link "Request a Rep" [ref=e43] [cursor=pointer]:
+              - /url: /request-a-rep
+    - main [ref=e44]:
+      - article [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e53]:
+            - heading "ICLUSIG (ponatinib) delivered clinically meaningful responses in Ph+ ALL1,2" [level=1] [ref=e54]:
+              - strong [ref=e55]:
+                - text: ICLUSIG (ponatinib) delivered clinically meaningful responses in Ph+ ALL
+                - superscript [ref=e56]: 1,2
+            - paragraph [ref=e58]:
+              - strong [ref=e59]:
+                - text: PACE trial studied TKI-resistant or intolerant patients with mutations, including T315I
+                - superscript [ref=e60]: 1,2
+          - generic [ref=e62]:
+            - navigation [ref=e64]:
+              - list [ref=e65]:
+                - listitem [ref=e66]:
+                  - link "Trial design" [ref=e67] [cursor=pointer]:
+                    - /url: "#trialdesign"
+                - listitem [ref=e68]:
+                  - link "Response rates for Ph+ ALL" [ref=e69] [cursor=pointer]:
+                    - /url: "#responserates"
+            - heading "ICLUSIG monotherapy helped difficult-to-treat patients with Ph+ ALL achieve a response1,2" [level=2] [ref=e72]:
+              - generic [ref=e73]:
+                - text: ICLUSIG monotherapy helped difficult-to-treat patients with Ph+ ALL achieve a response
+                - superscript [ref=e74]: 1,2
+            - heading "PACE TRIAL DESIGN" [level=3] [ref=e77]
+            - generic [ref=e79]:
+              - paragraph [ref=e80]:
+                - text: The PACE trial for ICLUSIG was a single-arm, open-label, international, multicenter, phase 2 trial in adult patients with CML or Ph+ ALL, resistant or intolerant
+                - superscript [ref=e81]: a
+                - text: to 2 TKIs, or who had the T315I mutation regardless of prior TKI use. Primary endpoint for Ph+ ALL was MaHR by 6 months.
+                - superscript [ref=e82]: 1,2
+              - paragraph [ref=e83]:
+                - text: In PACE, the starting dose of ICLUSIG (ponatinib) was 45 mg administered orally once daily, given as a single agent. Median duration of follow-up for the Ph+ ALL cohort was 6 months.
+                - superscript [ref=e84]: "2"
+                - text: Patients with uncontrolled hypertriglyceridemia and patients with clinically significant or active cardiovascular disease, including any history of clinically significant atrial/ventricular arrhythmias or history of myocardial infarction, unstable angina, or congestive heart failure within the 3 months prior to the first dose of ICLUSIG (ponatinib), were excluded.
+                - superscript [ref=e85]: 1,2
+            - paragraph [ref=e88]:
+              - superscript [ref=e89]: a
+              - text: Resistance in Ph+ ALL was defined as failure to achieve either a MaHR (by 1 month in Ph+ ALL), loss of MaHR (at any time), or development of a kinase domain mutation in the absence of a complete MaHR while on prior TKI therapy. Intolerance was defined as the discontinuation of prior TKI therapy due to toxicities despite optimal management in the absence of MaHR for patients with Ph+ ALL.
+              - superscript [ref=e90]: "1"
+            - heading "PATIENT CHARACTERISTICS" [level=3] [ref=e93]
+            - paragraph [ref=e96]:
+              - text: In the PACE clinical trial, the vast majority of study patients (84%) were TKI-resistant and 69% of patients had the T315I mutation.
+              - superscript [ref=e97]: "3"
+            - figure [ref=e404]:
+              - img "Patient characteristics of participants in the PACE Trial for Ph+ ALL." [ref=e406]
+            - complementary [ref=e102]:
+              - generic [ref=e103]:
+                - img "69%." [ref=e407]
+                - blockquote [ref=e105]:
+                  - text: of Ph+ALL patients were T315I+ in the PACE trial.
+                  - superscript [ref=e106]: "3"
+            - separator [ref=e109]
+          - generic [ref=e111]:
+            - heading "PATIENTS TAKING ICLUSIG REACHED IMPORTANT MARKERS OF RESPONSE1" [level=2] [ref=e114]:
+              - generic [ref=e115]:
+                - text: PATIENTS TAKING ICLUSIG REACHED IMPORTANT MARKERS OF RESPONSE
+                - superscript [ref=e116]: "1"
+            - 'figure "Median time to MaHR 0.7 months (range: 0.4-6.0 months)1 Median duration of MaHR 3.5 months (range: 1.9-13.7 months)1 Median duration of follow-up for the Ph+ ALL cohort was 6 months.4 aThe primary endpoint for Ph+ ALL of MaHR by 6 months combined complete hematologic responses (CHR) and no evidence of leukemia.1 bCHR: WBC ≤ institutional ULN; ANC ≥1000/mm3; platelets ≥100,000/mm3; no blasts or promyelocytes in peripheral blood; bone marrow blasts ≤5; <5% myelocytes plus metamyelocytes in peripheral blood; basophils <5% in peripheral blood; and no extramedullary involvement (including no hepatomegaly or splenomegaly).1" [ref=e119]':
+              - 'img "41% (95% CI: 24, 59) achieved MaHR by 6 months (n=32). The primary efficacy endpoint for Ph+ ALL was MaHR by 6 months." [ref=e409]'
+              - generic [ref=e120]:
+                - list [ref=e121]:
+                  - listitem [ref=e122]:
+                    - generic [ref=e123]:
+                      - text: "Median time to MaHR 0.7 months (range: 0.4-6.0 months)"
+                      - superscript [ref=e124]: "1"
+                  - listitem [ref=e125]:
+                    - generic [ref=e126]:
+                      - text: "Median duration of MaHR 3.5 months (range: 1.9-13.7 months)"
+                      - superscript [ref=e127]: "1"
+                  - listitem [ref=e128]:
+                    - generic [ref=e129]:
+                      - text: Median duration of follow-up for the Ph+ ALL cohort was 6 months.
+                      - superscript [ref=e130]: "4"
+                - generic [ref=e132]:
+                  - superscript [ref=e133]: a
+                  - text: The primary endpoint for Ph+ ALL of MaHR by 6 months combined complete hematologic responses (CHR) and no evidence of leukemia.
+                  - superscript [ref=e134]: "1"
+                  - superscript [ref=e135]: b
+                  - text: "CHR: WBC ≤ institutional ULN; ANC ≥1000/mm"
+                  - superscript [ref=e136]: "3"
+                  - text: ; platelets ≥100,000/mm
+                  - superscript [ref=e137]: "3"
+                  - text: ; no blasts or promyelocytes in peripheral blood; bone marrow blasts ≤5; <5% myelocytes plus metamyelocytes in peripheral blood; basophils <5% in peripheral blood; and no extramedullary involvement (including no hepatomegaly or splenomegaly).
+                  - superscript [ref=e138]: "1"
+          - generic [ref=e140]:
+            - heading "Cytogenetic responses at any time4" [level=4] [ref=e143]:
+              - generic [ref=e144]:
+                - text: Cytogenetic responses at any time
+                - superscript [ref=e145]: "4"
+            - 'heading "RESPONSE RATES FOR Ph+ ALL: ICLUSIG DELIVERED CLINICALLY MEANINGFUL RESPONSES4" [level=2] [ref=e148]':
+              - generic [ref=e149]:
+                - text: "RESPONSE RATES FOR Ph+ ALL: ICLUSIG DELIVERED CLINICALLY MEANINGFUL RESPONSES"
+                - superscript [ref=e150]: "4"
+            - figure [ref=e410]:
+              - img "38% of CCyR patients and 47% of MCyR patients had a cytogenetic response at any time." [ref=e412]
+            - complementary [ref=e155]:
+              - paragraph [ref=e159]:
+                - text: When TKI resistance occurs, prescribing ICLUSIG as part of your treatment regimen may help appropriate patients achieve a response.
+                - superscript [ref=e160]: 1,2
+          - generic [ref=e162]:
+            - generic [ref=e165]:
+              - generic [ref=e166]:
+                - heading "Review the safety profile in resistant/intolerant Ph+ ALL" [level=3] [ref=e167]
+                - link "Explore PACE safety data in Ph+ ALL" [ref=e169] [cursor=pointer]:
+                  - /url: /safety/ph-positive-all-pace-trial
+                  - generic [ref=e170]: Explore PACE safety data in Ph+ ALL
+                  - img [ref=e171]
+              - generic [ref=e173]:
+                - heading "See the convenient dosing schedule for ICLUSIG" [level=3] [ref=e174]
+                - link "Explore dosing overview" [ref=e176] [cursor=pointer]:
+                  - /url: /dosing
+                  - generic [ref=e177]: Explore dosing overview
+                  - img [ref=e178]
+            - paragraph [ref=e182]: ANC=absolute neutrophil count; AP-CML=accelerated-phase chronic myeloid leukemia; CCyR=complete cytogenetic response; CHR=complete hematologic response; MaHR=major hematological response; MCyR=major cytogenetic response; Ph+ ALL=Philadelphia chromosome-positive acute lymphoblastic leukemia; TKI=tyrosine kinase inhibitor; ULN=upper limit of normal for the lab; WBC=white blood cell.
+    - generic [ref=e184]:
+      - generic [ref=e185]:
+        - generic [ref=e186]:
+          - generic [ref=e188]:
+            - heading "IMPORTANT SAFETY INFORMATION, INDICATION, AND USAGE" [level=2] [ref=e189]
+            - link "Expand +" [ref=e413] [cursor=pointer]:
+              - /url: "#isi"
+              - generic [ref=e414]: Expand
+              - text: +
+          - generic [ref=e190]:
+            - generic [ref=e191]:
+              - generic [ref=e192]:
+                - heading [level=3] [ref=e193]:
+                  - strong [ref=e194]: "WARNING: ARTERIAL OCCLUSIVE EVENTS, VENOUS THROMBOEMBOLIC EVENTS, HEART FAILURE, and HEPATOTOXICITY"
+                - paragraph [ref=e195]:
+                  - emphasis [ref=e196]:
+                    - strong [ref=e197]: See full prescribing information for complete boxed warning.
+                - list [ref=e198]:
+                  - listitem [ref=e199]:
+                    - strong [ref=e201]: Arterial occlusive events (AOEs), including fatalities, have occurred in ICLUSIG-treated patients. AOEs included fatal myocardial infarction, stroke, stenosis of large arterial vessels of the brain, severe peripheral vascular disease, and the need for urgent revascularization procedures. Patients with and without cardiovascular risk factors, including patients age 50 years or younger, experienced these events. Monitor for evidence of AOEs. Interrupt or discontinue ICLUSIG based on severity. Consider benefit-risk to guide a decision to restart ICLUSIG.
+                  - listitem [ref=e202]:
+                    - strong [ref=e204]: Venous thromboembolic events (VTEs) have occurred in ICLUSIG-treated patients. Monitor for evidence of VTEs. Interrupt or discontinue ICLUSIG based on severity.
+                  - listitem [ref=e205]:
+                    - strong [ref=e207]: Heart failure, including fatalities, occurred in ICLUSIG-treated patients. Monitor for heart failure and manage patients as clinically indicated. Interrupt or discontinue ICLUSIG for new or worsening heart failure.
+                  - listitem [ref=e208]:
+                    - strong [ref=e210]: Hepatotoxicity, liver failure and death have occurred in ICLUSIG-treated patients. Monitor liver function tests. Interrupt or discontinue ICLUSIG based on severity.
+              - heading [level=3] [ref=e211]: WARNINGS AND PRECAUTIONS
+              - paragraph [ref=e212]:
+                - strong [ref=e213]: "Arterial Occlusive Events (AOEs):"
+                - text: AOEs, including fatalities, have occurred in patients who received ICLUSIG. These included cardiovascular, cerebrovascular, and peripheral vascular events, and occurred in patients with and without cardiovascular risk factors. Monitor for evidence of AOEs. Interrupt, then resume at the same or decreased dose, or discontinue ICLUSIG based on recurrence/severity. Consider benefit-risk before restarting ICLUSIG.
+              - paragraph [ref=e214]:
+                - strong [ref=e215]: "Venous Thromboembolic Events (VTEs):"
+                - text: Serious or severe VTEs have occurred in patients who received ICLUSIG, including events such as deep vein thrombosis, embolism, pulmonary embolism, superficial vein thrombosis, thrombosis, jugular vein thrombosis, superficial thrombophlebitis, retinal vein occlusion, and retinal vein thrombosis with vision loss. Monitor for evidence of VTEs. Interrupt, then resume at the same or decreased dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e216]:
+                - strong [ref=e217]: "Heart Failure:"
+                - text: Fatal, serious, or severe heart failure events have occurred, including increased brain natriuretic peptide (BNP), left ventricular hypertrophy, left ventricular dysfunction, congestive cardiac failure, cardiac failure, left atrial dilatation, and decreased ejection fraction. Monitor for signs or symptoms of heart failure and manage as clinically indicated. Interrupt, then resume at reduced dose, or discontinue ICLUSIG for new or worsening heart failure.
+              - paragraph [ref=e218]:
+                - strong [ref=e219]: "Hepatotoxicity:"
+                - text: ICLUSIG can cause hepatotoxicity, including liver failure and death. Fulminant hepatic failure leading to death has occurred. The most frequent hepatotoxic events were elevations of ALT, AST, GGT, bilirubin, and alkaline phosphatase, and decreased albumin and blood fibrinogen. Monitor liver function tests at baseline, then at least monthly or as clinically indicated. Interrupt, then resume at a reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e220]:
+                - strong [ref=e221]: "Hypertension:"
+                - text: Serious or severe hypertension, including hypertensive crisis, has occurred. Patients may require urgent intervention for hypertension with confusion, headache, chest pain, or shortness of breath. Monitor blood pressure at baseline and as clinically indicated and manage as clinically indicated. Interrupt, dose reduce, or discontinue ICLUSIG if hypertension is not medically controlled. For significant worsening, labile or treatment-resistant hypertension, interrupt ICLUSIG and consider evaluating for renal artery stenosis.
+                - strong [ref=e222]: "Pancreatitis:"
+                - text: Serious or severe pancreatitis has occurred. Elevations of lipase and amylase also occurred. In the majority of cases that led to dose modification or treatment discontinuation, pancreatitis resolved within 2-3 weeks. Monitor serum lipase every 2 weeks for the first 2 months and then monthly or as clinically indicated. Consider additional serum lipase monitoring in patients with a history of pancreatitis or alcohol abuse. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on severity. Evaluate for pancreatitis when lipase elevation is accompanied by abdominal symptoms.
+              - paragraph [ref=e223]:
+                - strong [ref=e224]: "Increased Toxicity in Newly Diagnosed Chronic Phase CML:"
+                - text: In a prospective randomized clinical trial in the first-line treatment of newly diagnosed patients with CP-CML, single agent ICLUSIG increased the risk of serious adverse reactions. The trial was halted for safety. ICLUSIG is not indicated and is not recommended for the treatment of patients with newly diagnosed CP-CML.
+              - paragraph [ref=e225]:
+                - strong [ref=e226]: "Neuropathy:"
+                - text: Peripheral and cranial neuropathy occurred in ICLUSIG-treated patients, including Grade 3 or 4 events. Monitor for symptoms such as hypoesthesia, hyperesthesia, paresthesia, discomfort, a burning sensation, neuropathic pain, or weakness. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e227]:
+                - strong [ref=e228]: "Ocular Toxicity:"
+                - text: Serious or severe ocular toxicities leading to blindness and blurred vision have occurred. The most frequent ocular toxicities were dry eye, blurred vision, and eye pain. Retinal toxicities included retinal vein occlusion, retinal hemorrhage, age-related macular degeneration, arteriosclerotic retinopathy, retinal vascular disorder, macular edema, and vitreous floaters. Conduct comprehensive eye exams at baseline and periodically during treatment.
+              - paragraph [ref=e229]:
+                - strong [ref=e230]: "Hemorrhage:"
+                - text: Fatal and serious hemorrhages have occurred. Intracranial hemorrhage, gastrointestinal hemorrhage, and subdural hematoma were the most frequently reported serious hemorrhages. Most hemorrhages occurred in patients with Grade 4 thrombocytopenia. Monitor for hemorrhage and manage as clinically indicated. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e231]:
+                - strong [ref=e232]: "Fluid Retention:"
+                - text: Fatal and serious events, including one instance of fatal brain edema and serious events of pleural effusion, pericardial effusion, angioedema have occurred. The most frequent occurrences of fluid retention in patients who received ICLUSIG were peripheral edema, pleural effusion, hydrothorax, pericardial effusion, and peripheral swelling. Monitor for fluid retention and manage as clinically indicated. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+                - strong [ref=e233]: "Cardiac Arrhythmias:"
+                - text: Cardiac arrhythmias, including ventricular and atrial arrhythmias, tachycardia, bradycardia, cardio-respiratory arrest, syncope, atrial fibrillation, and supraventricular tachycardia, have occurred, including some patients with serious or severe (Grade 3 or 4) events leading to hospitalization. Monitor for signs and symptoms suggestive of slow heart rate (fainting, dizziness) or rapid heart rate (chest pain, palpitations, or dizziness) and manage patients as clinically indicated. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e234]:
+                - strong [ref=e235]: "Myelosuppression:"
+                - text: Grade 3 or 4 neutropenia, thrombocytopenia, and anemia have occurred. Obtain complete blood counts every 2 weeks for the first 3 months and then monthly or as clinically indicated. Interrupt ICLUSIG if ANC <1 × 10⁹/L or platelets <50 × 10⁹/L, and resume when ANC ≥1.5 × 10⁹/L and platelets ≥75 × 10⁹/L, at same or reduced dose.
+                - strong [ref=e236]: "Tumor Lysis Syndrome (TLS):"
+                - text: Serious TLS has occurred. Ensure adequate hydration and treat elevated uric acid prior to initiating ICLUSIG.
+                - strong [ref=e237]: "Reversible Posterior Leukoencephalopathy Syndrome (RPLS):"
+                - text: RPLS has been reported. Patients can present with hypertension, seizure, headache, decreased alertness, altered mental functioning, vision loss, and other visual and neurological disturbances. MRI is necessary to confirm diagnosis. Interrupt ICLUSIG until resolution. The safety of resumption of ICLUSIG upon resolution of RPLS is unknown.
+              - paragraph [ref=e238]:
+                - strong [ref=e239]: "Impaired Wound Healing and Gastrointestinal Perforation:"
+                - text: Impaired wound healing occurred in patients receiving ICLUSIG. Withhold ICLUSIG for at least 1 week before elective surgery and for at least 2 weeks after major surgery until adequate wound healing. Gastrointestinal perforation or fistula have occurred. Permanently discontinue ICLUSIG in patients with gastrointestinal perforation.
+              - paragraph [ref=e240]:
+                - strong [ref=e241]: "Embryo-Fetal Toxicity:"
+                - text: ICLUSIG can cause fetal harm when administered to pregnant women. Advise pregnant women of the potential risk to the fetus. Females of reproductive potential should use effective contraception during treatment with ICLUSIG and for 3 weeks after the last dose.
+              - heading [level=3] [ref=e242]: ADVERSE REACTIONS
+              - paragraph [ref=e243]: "The most common adverse reactions (occurring in >20% of patients) are:"
+              - list [ref=e244]:
+                - listitem [ref=e245]: "ICLUSIG as a single agent: rash and related conditions, arthralgia, abdominal pain, fatigue, headache, constipation, hypertension, dry skin, hepatotoxicity, fluid retention and edema, pyrexia, pancreatitis/lipase elevation, nausea, hemorrhage, anemia, AOEs, and cardiac arrythmias. The most common Grade 3 or 4 laboratory abnormalities (>20%) are platelet count decreased, neutrophil cell count decreased, and white blood cell decreased."
+                - listitem [ref=e246]: "ICLUSIG in combination with chemotherapy: hepatotoxicity, arthralgia, rash and related conditions, headache, pyrexia, abdominal pain, constipation, fatigue, nausea, oral mucositis, hypertension, pancreatitis/lipase elevation, neuropathy peripheral, hemorrhage, febrile neutropenia, fluid retention and edema, vomiting, paresthesia, and cardiac arrhythmias. The most common Grade 3 or 4 laboratory abnormalities (>20%) are decreased white blood cell count, decreased neutrophil cell count, decreased platelet count, decreased lymphocyte cell count, decreased hemoglobin, increased lipase, and increased alanine aminotransferase."
+              - heading [level=3] [ref=e247]: To report SUSPECTED ADVERSE REACTIONS, contact Takeda Pharmaceuticals at 1-844-817-6468 or FDA at 1-800-FDA-1088 or www.fda.gov/medwatch.
+              - heading [level=3] [ref=e248]: DRUG INTERACTIONS
+              - paragraph [ref=e249]:
+                - strong [ref=e250]: "Strong CYP3A Inhibitors:"
+                - text: Avoid coadministration or reduce ICLUSIG dose if coadministration cannot be avoided.
+                - strong [ref=e251]: "Strong CYP3A Inducers:"
+                - text: Avoid coadministration.
+              - heading [level=3] [ref=e252]: USE IN SPECIFIC POPULATIONS
+              - paragraph [ref=e253]:
+                - strong [ref=e254]: "Lactation:"
+                - text: Advise women not to breastfeed during treatment with ICLUSIG and for 1 week following last dose.
+              - paragraph [ref=e255]:
+                - strong [ref=e256]: "Females and Males of Reproductive Potential:"
+                - text: Verify pregnancy status of females of reproductive potential prior to initiating ICLUSIG. Ponatinib may impair fertility in females, and it is not known if these effects are reversible.
+              - paragraph [ref=e257]:
+                - strong [ref=e258]: "Pre-existing Hepatic Impairment:"
+                - text: For patients with CP-CML, AP-CML, BP-CML, and Ph+ ALL receiving monotherapy, reduce the starting dose of ICLUSIG to 30 mg orally once daily for patients with pre-existing hepatic impairment. For patients with newly diagnosed Ph+ ALL, no dosage adjustment is recommended when administering ICLUSIG to patients with mild hepatic impairment.
+              - heading [level=3] [ref=e259]:
+                - text: Please see full
+                - strong [ref=e260]: Prescribing Information
+                - text: ", including Boxed Warning."
+            - generic [ref=e262]:
+              - heading [level=3] [ref=e263]: INDICATIONS AND USAGE
+              - paragraph [ref=e264]:
+                - text: ICLUSIG
+                - strong [ref=e265]:
+                  - superscript [ref=e266]: ®
+                - text: "is indicated for the treatment of adult patients with:"
+              - paragraph [ref=e267]: Philadelphia Chromosome-Positive Acute Lymphoblastic Leukemia (Ph+ ALL)
+              - list [ref=e268]:
+                - listitem [ref=e269]: Newly diagnosed Ph+ ALL, in combination with chemotherapy. This indication is approved under accelerated approval based on minimal residual disease (MRD)-negative complete remission (CR) at the end of induction. Continued approval for this indication may be contingent upon verification of clinical benefit in a confirmatory trial(s).
+                - listitem [ref=e270]: As monotherapy in Ph+ ALL for whom no other kinase inhibitors are indicated or T315I-positive Ph+ ALL.
+              - paragraph [ref=e271]: Chronic Myeloid Leukemia (CML)
+              - list [ref=e272]:
+                - listitem [ref=e273]: Chronic phase (CP) CML with resistance or intolerance to at least two prior kinase inhibitors.
+                - listitem [ref=e274]: Accelerated phase (AP) or blast phase (BP) CML for whom no other kinase inhibitors are indicated.
+                - listitem [ref=e275]: T315I-positive CML (chronic phase, accelerated phase, or blast phase).
+              - paragraph [ref=e276]: "Limitations of Use: ICLUSIG is not indicated and is not recommended for the treatment of patients with newly diagnosed CP-CML."
+        - complementary [ref=e277]:
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - heading "IMPORTANT SAFETY INFORMATION" [level=2] [ref=e280]
+              - generic [ref=e281]:
+                - 'heading "WARNING: ARTERIAL OCCLUSIVE EVENTS, VENOUS THROMBOEMBOLIC EVENTS, HEART FAILURE, and HEPATOTOXICITY" [level=3] [ref=e282]':
+                  - strong [ref=e283]: "WARNING: ARTERIAL OCCLUSIVE EVENTS, VENOUS THROMBOEMBOLIC EVENTS, HEART FAILURE, and HEPATOTOXICITY"
+                - paragraph [ref=e284]:
+                  - emphasis [ref=e285]:
+                    - strong [ref=e286]: See full prescribing information for complete boxed warning.
+                - list [ref=e287]:
+                  - listitem [ref=e288]:
+                    - strong [ref=e290]: Arterial occlusive events (AOEs), including fatalities, have occurred in ICLUSIG-treated patients. AOEs included fatal myocardial infarction, stroke, stenosis of large arterial vessels of the brain, severe peripheral vascular disease, and the need for urgent revascularization procedures. Patients with and without cardiovascular risk factors, including patients age 50 years or younger, experienced these events. Monitor for evidence of AOEs. Interrupt or discontinue ICLUSIG based on severity. Consider benefit-risk to guide a decision to restart ICLUSIG.
+                  - listitem [ref=e291]:
+                    - strong [ref=e293]: Venous thromboembolic events (VTEs) have occurred in ICLUSIG-treated patients. Monitor for evidence of VTEs. Interrupt or discontinue ICLUSIG based on severity.
+                  - listitem [ref=e294]:
+                    - strong [ref=e296]: Heart failure, including fatalities, occurred in ICLUSIG-treated patients. Monitor for heart failure and manage patients as clinically indicated. Interrupt or discontinue ICLUSIG for new or worsening heart failure.
+                  - listitem [ref=e297]:
+                    - strong [ref=e299]: Hepatotoxicity, liver failure and death have occurred in ICLUSIG-treated patients. Monitor liver function tests. Interrupt or discontinue ICLUSIG based on severity.
+              - heading "WARNINGS AND PRECAUTIONS" [level=3] [ref=e300]
+              - paragraph [ref=e301]:
+                - strong [ref=e302]: "Arterial Occlusive Events (AOEs):"
+                - text: AOEs, including fatalities, have occurred in patients who received ICLUSIG. These included cardiovascular, cerebrovascular, and peripheral vascular events, and occurred in patients with and without cardiovascular risk factors. Monitor for evidence of AOEs. Interrupt, then resume at the same or decreased dose, or discontinue ICLUSIG based on recurrence/severity. Consider benefit-risk before restarting ICLUSIG.
+              - paragraph [ref=e303]:
+                - strong [ref=e304]: "Venous Thromboembolic Events (VTEs):"
+                - text: Serious or severe VTEs have occurred in patients who received ICLUSIG, including events such as deep vein thrombosis, embolism, pulmonary embolism, superficial vein thrombosis, thrombosis, jugular vein thrombosis, superficial thrombophlebitis, retinal vein occlusion, and retinal vein thrombosis with vision loss. Monitor for evidence of VTEs. Interrupt, then resume at the same or decreased dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e305]:
+                - strong [ref=e306]: "Heart Failure:"
+                - text: Fatal, serious, or severe heart failure events have occurred, including increased brain natriuretic peptide (BNP), left ventricular hypertrophy, left ventricular dysfunction, congestive cardiac failure, cardiac failure, left atrial dilatation, and decreased ejection fraction. Monitor for signs or symptoms of heart failure and manage as clinically indicated. Interrupt, then resume at reduced dose, or discontinue ICLUSIG for new or worsening heart failure.
+              - paragraph [ref=e307]:
+                - strong [ref=e308]: "Hepatotoxicity:"
+                - text: ICLUSIG can cause hepatotoxicity, including liver failure and death. Fulminant hepatic failure leading to death has occurred. The most frequent hepatotoxic events were elevations of ALT, AST, GGT, bilirubin, and alkaline phosphatase, and decreased albumin and blood fibrinogen. Monitor liver function tests at baseline, then at least monthly or as clinically indicated. Interrupt, then resume at a reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e309]:
+                - strong [ref=e310]: "Hypertension:"
+                - text: Serious or severe hypertension, including hypertensive crisis, has occurred. Patients may require urgent intervention for hypertension with confusion, headache, chest pain, or shortness of breath. Monitor blood pressure at baseline and as clinically indicated and manage as clinically indicated. Interrupt, dose reduce, or discontinue ICLUSIG if hypertension is not medically controlled. For significant worsening, labile or treatment-resistant hypertension, interrupt ICLUSIG and consider evaluating for renal artery stenosis.
+                - strong [ref=e311]: "Pancreatitis:"
+                - text: Serious or severe pancreatitis has occurred. Elevations of lipase and amylase also occurred. In the majority of cases that led to dose modification or treatment discontinuation, pancreatitis resolved within 2-3 weeks. Monitor serum lipase every 2 weeks for the first 2 months and then monthly or as clinically indicated. Consider additional serum lipase monitoring in patients with a history of pancreatitis or alcohol abuse. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on severity. Evaluate for pancreatitis when lipase elevation is accompanied by abdominal symptoms.
+              - paragraph [ref=e312]:
+                - strong [ref=e313]: "Increased Toxicity in Newly Diagnosed Chronic Phase CML:"
+                - text: In a prospective randomized clinical trial in the first-line treatment of newly diagnosed patients with CP-CML, single agent ICLUSIG increased the risk of serious adverse reactions. The trial was halted for safety. ICLUSIG is not indicated and is not recommended for the treatment of patients with newly diagnosed CP-CML.
+              - paragraph [ref=e314]:
+                - strong [ref=e315]: "Neuropathy:"
+                - text: Peripheral and cranial neuropathy occurred in ICLUSIG-treated patients, including Grade 3 or 4 events. Monitor for symptoms such as hypoesthesia, hyperesthesia, paresthesia, discomfort, a burning sensation, neuropathic pain, or weakness. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e316]:
+                - strong [ref=e317]: "Ocular Toxicity:"
+                - text: Serious or severe ocular toxicities leading to blindness and blurred vision have occurred. The most frequent ocular toxicities were dry eye, blurred vision, and eye pain. Retinal toxicities included retinal vein occlusion, retinal hemorrhage, age-related macular degeneration, arteriosclerotic retinopathy, retinal vascular disorder, macular edema, and vitreous floaters. Conduct comprehensive eye exams at baseline and periodically during treatment.
+              - paragraph [ref=e318]:
+                - strong [ref=e319]: "Hemorrhage:"
+                - text: Fatal and serious hemorrhages have occurred. Intracranial hemorrhage, gastrointestinal hemorrhage, and subdural hematoma were the most frequently reported serious hemorrhages. Most hemorrhages occurred in patients with Grade 4 thrombocytopenia. Monitor for hemorrhage and manage as clinically indicated. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e320]:
+                - strong [ref=e321]: "Fluid Retention:"
+                - text: Fatal and serious events, including one instance of fatal brain edema and serious events of pleural effusion, pericardial effusion, angioedema have occurred. The most frequent occurrences of fluid retention in patients who received ICLUSIG were peripheral edema, pleural effusion, hydrothorax, pericardial effusion, and peripheral swelling. Monitor for fluid retention and manage as clinically indicated. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+                - strong [ref=e322]: "Cardiac Arrhythmias:"
+                - text: Cardiac arrhythmias, including ventricular and atrial arrhythmias, tachycardia, bradycardia, cardio-respiratory arrest, syncope, atrial fibrillation, and supraventricular tachycardia, have occurred, including some patients with serious or severe (Grade 3 or 4) events leading to hospitalization. Monitor for signs and symptoms suggestive of slow heart rate (fainting, dizziness) or rapid heart rate (chest pain, palpitations, or dizziness) and manage patients as clinically indicated. Interrupt, then resume at the same or reduced dose, or discontinue ICLUSIG based on recurrence/severity.
+              - paragraph [ref=e323]:
+                - strong [ref=e324]: "Myelosuppression:"
+                - text: Grade 3 or 4 neutropenia, thrombocytopenia, and anemia have occurred. Obtain complete blood counts every 2 weeks for the first 3 months and then monthly or as clinically indicated. Interrupt ICLUSIG if ANC <1 × 10⁹/L or platelets <50 × 10⁹/L, and resume when ANC ≥1.5 × 10⁹/L and platelets ≥75 × 10⁹/L, at same or reduced dose.
+                - strong [ref=e325]: "Tumor Lysis Syndrome (TLS):"
+                - text: Serious TLS has occurred. Ensure adequate hydration and treat elevated uric acid prior to initiating ICLUSIG.
+                - strong [ref=e326]: "Reversible Posterior Leukoencephalopathy Syndrome (RPLS):"
+                - text: RPLS has been reported. Patients can present with hypertension, seizure, headache, decreased alertness, altered mental functioning, vision loss, and other visual and neurological disturbances. MRI is necessary to confirm diagnosis. Interrupt ICLUSIG until resolution. The safety of resumption of ICLUSIG upon resolution of RPLS is unknown.
+              - paragraph [ref=e327]:
+                - strong [ref=e328]: "Impaired Wound Healing and Gastrointestinal Perforation:"
+                - text: Impaired wound healing occurred in patients receiving ICLUSIG. Withhold ICLUSIG for at least 1 week before elective surgery and for at least 2 weeks after major surgery until adequate wound healing. Gastrointestinal perforation or fistula have occurred. Permanently discontinue ICLUSIG in patients with gastrointestinal perforation.
+              - paragraph [ref=e329]:
+                - strong [ref=e330]: "Embryo-Fetal Toxicity:"
+                - text: ICLUSIG can cause fetal harm when administered to pregnant women. Advise pregnant women of the potential risk to the fetus. Females of reproductive potential should use effective contraception during treatment with ICLUSIG and for 3 weeks after the last dose.
+              - heading "ADVERSE REACTIONS" [level=3] [ref=e331]
+              - paragraph [ref=e332]: "The most common adverse reactions (occurring in >20% of patients) are:"
+              - list [ref=e333]:
+                - listitem [ref=e334]: "ICLUSIG as a single agent: rash and related conditions, arthralgia, abdominal pain, fatigue, headache, constipation, hypertension, dry skin, hepatotoxicity, fluid retention and edema, pyrexia, pancreatitis/lipase elevation, nausea, hemorrhage, anemia, AOEs, and cardiac arrythmias. The most common Grade 3 or 4 laboratory abnormalities (>20%) are platelet count decreased, neutrophil cell count decreased, and white blood cell decreased."
+                - listitem [ref=e335]: "ICLUSIG in combination with chemotherapy: hepatotoxicity, arthralgia, rash and related conditions, headache, pyrexia, abdominal pain, constipation, fatigue, nausea, oral mucositis, hypertension, pancreatitis/lipase elevation, neuropathy peripheral, hemorrhage, febrile neutropenia, fluid retention and edema, vomiting, paresthesia, and cardiac arrhythmias. The most common Grade 3 or 4 laboratory abnormalities (>20%) are decreased white blood cell count, decreased neutrophil cell count, decreased platelet count, decreased lymphocyte cell count, decreased hemoglobin, increased lipase, and increased alanine aminotransferase."
+              - heading "To report SUSPECTED ADVERSE REACTIONS, contact Takeda Pharmaceuticals at 1-844-817-6468 or FDA at 1-800-FDA-1088 or www.fda.gov/medwatch." [level=3] [ref=e336]:
+                - text: To report SUSPECTED ADVERSE REACTIONS, contact Takeda Pharmaceuticals at 1-844-817-6468 or FDA at 1-800-FDA-1088 or
+                - link "www.fda.gov/medwatch" [ref=e337] [cursor=pointer]:
+                  - /url: https://www.fda.gov/safety/medwatch-fda-safety-information-and-adverse-event-reporting-program
+                - text: .
+              - heading "DRUG INTERACTIONS" [level=3] [ref=e338]
+              - paragraph [ref=e339]:
+                - strong [ref=e340]: "Strong CYP3A Inhibitors:"
+                - text: Avoid coadministration or reduce ICLUSIG dose if coadministration cannot be avoided.
+                - strong [ref=e341]: "Strong CYP3A Inducers:"
+                - text: Avoid coadministration.
+              - heading "USE IN SPECIFIC POPULATIONS" [level=3] [ref=e342]
+              - paragraph [ref=e343]:
+                - strong [ref=e344]: "Lactation:"
+                - text: Advise women not to breastfeed during treatment with ICLUSIG and for 1 week following last dose.
+              - paragraph [ref=e345]:
+                - strong [ref=e346]: "Females and Males of Reproductive Potential:"
+                - text: Verify pregnancy status of females of reproductive potential prior to initiating ICLUSIG. Ponatinib may impair fertility in females, and it is not known if these effects are reversible.
+              - paragraph [ref=e347]:
+                - strong [ref=e348]: "Pre-existing Hepatic Impairment:"
+                - text: For patients with CP-CML, AP-CML, BP-CML, and Ph+ ALL receiving monotherapy, reduce the starting dose of ICLUSIG to 30 mg orally once daily for patients with pre-existing hepatic impairment. For patients with newly diagnosed Ph+ ALL, no dosage adjustment is recommended when administering ICLUSIG to patients with mild hepatic impairment.
+              - heading "Please see full Prescribing Information, including Boxed Warning." [level=3] [ref=e349]:
+                - text: Please see full
+                - link "Prescribing Information" [ref=e350] [cursor=pointer]:
+                  - /url: https://www.iclusig.com/hcp/sites/default/files/2022-10/ICLUSIG-Prescribing-Information.pdf
+                  - strong [ref=e351]: Prescribing Information
+                - text: ", including Boxed Warning."
+            - generic [ref=e353]:
+              - heading "INDICATIONS AND USAGE" [level=3] [ref=e354]
+              - paragraph [ref=e355]:
+                - text: ICLUSIG
+                - strong [ref=e356]:
+                  - superscript [ref=e357]: ®
+                - text: "is indicated for the treatment of adult patients with:"
+              - paragraph [ref=e358]: Philadelphia Chromosome-Positive Acute Lymphoblastic Leukemia (Ph+ ALL)
+              - list [ref=e359]:
+                - listitem [ref=e360]:
+                  - text: Newly diagnosed Ph+ ALL, in combination with chemotherapy.
+                  - text: This indication is approved under accelerated approval based on minimal residual disease (MRD)-negative complete remission (CR) at the end of induction. Continued approval for this indication may be contingent upon verification of clinical benefit in a confirmatory trial(s).
+                - listitem [ref=e361]: As monotherapy in Ph+ ALL for whom no other kinase inhibitors are indicated or T315I-positive Ph+ ALL.
+              - paragraph [ref=e362]: Chronic Myeloid Leukemia (CML)
+              - list [ref=e363]:
+                - listitem [ref=e364]: Chronic phase (CP) CML with resistance or intolerance to at least two prior kinase inhibitors.
+                - listitem [ref=e365]: Accelerated phase (AP) or blast phase (BP) CML for whom no other kinase inhibitors are indicated.
+                - listitem [ref=e366]: T315I-positive CML (chronic phase, accelerated phase, or blast phase).
+              - paragraph [ref=e367]: "Limitations of Use: ICLUSIG is not indicated and is not recommended for the treatment of patients with newly diagnosed CP-CML."
+            - group [ref=e369]:
+              - generic "Show References" [ref=e370] [cursor=pointer]:
+                - img [ref=e372]
+                - text: Show References
+      - contentinfo [ref=e375]:
+        - navigation "Footer" [ref=e377]:
+          - menu [ref=e378]:
+            - menuitem "Contact Us|" [ref=e379]:
+              - link "Contact Us" [ref=e380] [cursor=pointer]:
+                - /url: https://www.takedaoncology.com/en/about/contact-us
+              - text: "|"
+            - menuitem "Terms of Use|" [ref=e381]:
+              - link "Terms of Use" [ref=e382] [cursor=pointer]:
+                - /url: https://www.takeda.com/terms-of-use
+              - text: "|"
+            - menuitem "Privacy Notice|" [ref=e383]:
+              - link "Privacy Notice" [ref=e384] [cursor=pointer]:
+                - /url: https://www.takeda.com/privacy-notice
+              - text: "|"
+            - menuitem "Cookie Policy|" [ref=e385]:
+              - link "Cookie Policy" [ref=e386] [cursor=pointer]:
+                - /url: https://www.takeda.com/cookie-policy/
+              - text: "|"
+            - menuitem "Site Map|" [ref=e387]:
+              - link "Site Map" [ref=e388] [cursor=pointer]:
+                - /url: /site-map
+              - text: "|"
+            - menuitem "Takedaoncology.com|" [ref=e389]:
+              - link "Takedaoncology.com" [ref=e390] [cursor=pointer]:
+                - /url: https://www.takedaoncology.com
+              - text: "|"
+            - menuitem "Medical Information" [ref=e391]:
+              - link "Medical Information" [ref=e392] [cursor=pointer]:
+                - /url: https://www.oncologymedinfo.com/
+        - link "Takeda" [ref=e395] [cursor=pointer]:
+          - /url: https://www.takedaoncology.com
+          - img "Takeda logo." [ref=e396]
+        - generic [ref=e398]:
+          - paragraph [ref=e399]:
+            - text: TAKEDA and the TAKEDA logo are registered trademarks of Takeda Pharmaceutical Company Limited. ICLUSIG
+            - subscript [ref=e400]
+            - text: and the ICLUSIG logo are registered trademarks of ARIAD Pharmaceuticals, Inc. HERE2ASSIST and the HERE2ASSIST logo
+            - superscript [ref=e401]
+            - text: are registered trademarks of Millennium Pharmaceuticals, Inc.
+            - text: ©2026 Takeda Pharmaceuticals U.S.A., Inc. All rights reserved.
+          - paragraph [ref=e402]: 3/26 US-ICL-0267

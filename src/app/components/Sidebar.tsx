@@ -13,11 +13,11 @@ const cmlItem: NavItem = {
   label: "CML",
   accentColor: "#237EBF",
   children: [
-    { text: "Unmet Needs in CML" },
-    { text: "T315I Mutation" },
-    { text: "Mechanism of Action" },
-    { text: "CML PACE Study Data" },
-    { text: "CML OPTIC Study Data" },
+    { text: "Unmet Needs in CML", href: "/cml/unmet-needs" },
+    { text: "T315I Mutation", href: "/cml/t315i-mutation" },
+    { text: "Mechanism of Action", href: "/cml/mechanism-of-action" },
+    { text: "CML PACE Study Data", href: "/efficacy/cml-pace-trial" },
+    { text: "CML OPTIC Study Data", href: "/efficacy/cml-optic-trial" },
   ],
 };
 
@@ -25,10 +25,10 @@ const phAllItem: NavItem = {
   label: "Ph+ ALL",
   accentColor: "#2E8762",
   children: [
-    { text: "Unmet Needs in Ph+ ALL" },
-    { text: "Ph+ ALL PhALLCON 1L Study Data" },
-    { text: "Ph+ ALL PACE Study Data" },
-    { text: "Mechanism of Action" },
+    { text: "Unmet Needs in Ph+ ALL", href: "/ph-all/unmet-needs" },
+    { text: "Ph+ ALL PhALLCON 1L Study Data", href: "/ph-all/first-line" },
+    { text: "Ph+ ALL PACE Study Data", href: "/efficacy/ph-all-pace-trial" },
+    { text: "Mechanism of Action", href: "/cml/mechanism-of-action" },
   ],
 };
 
@@ -36,41 +36,41 @@ const navItems: NavItem[] = [
   {
     label: "Efficacy",
     children: [
-      { text: "CML OPTIC Trial Efficacy" },
-      { text: "CML PACE Trial Efficacy" },
-      { text: "Ph+ ALL PhALLCON Trial Efficacy in Newly Diagnosed" },
-      { text: "Ph+ ALL PACE Trial Efficacy" },
+      { text: "CML OPTIC Trial Efficacy", href: "/efficacy/cml-optic-trial" },
+      { text: "CML PACE Trial Efficacy", href: "/efficacy/cml-pace-trial" },
+      { text: "Ph+ ALL PhALLCON Trial Efficacy in Newly Diagnosed", href: "/ph-all/first-line#efficacy" },
+      { text: "Ph+ ALL PACE Trial Efficacy", href: "/efficacy/ph-all-pace-trial" },
     ],
   },
   {
     label: "Safety Profile",
     children: [
-      { text: "Safety in CML OPTIC Trial" },
-      { text: "Safety in CML PACE Trial" },
-      { text: "Safety in Newly Diagnosed Ph+ ALL PhALLCON Trial" },
-      { text: "Safety in Ph+ ALL PACE Trial" },
+      { text: "Safety in CML OPTIC Trial", href: "/safety/cml-optic-trial" },
+      { text: "Safety in CML PACE Trial", href: "/safety/cml-pace-trial" },
+      { text: "Safety in Newly Diagnosed Ph+ ALL PhALLCON Trial", href: "/ph-all/first-line#safety" },
+      { text: "Safety in Ph+ ALL PACE Trial", href: "/safety/ph-all-pace-trial" },
     ],
   },
   {
     label: "Dosing and Administration",
     children: [
-      { text: "Dosing Overview" },
-      { text: "CP-CML Optimized Dosing" },
-      { text: "Newly Diagnosed Ph+ ALL Dosing" },
+      { text: "Dosing Overview", href: "/dosing" },
+      { text: "CP-CML Optimized Dosing", href: "/dosing/cml-optimized" },
+      { text: "Newly Diagnosed Ph+ ALL Dosing", href: "/ph-all/first-line#dosing" },
     ],
   },
   {
     label: "Access and Patient Support",
     children: [
       { text: "Patient Support", href: "/patient-support" },
-      { text: "Here2Assist", href: "/patient-support" },
+      { text: "Here2Assist", href: "/support/here2assist" },
       { text: "Patient Profiles" },
     ],
   },
   {
     label: "Resources and Expert Perspectives",
     children: [
-      { text: "Download Resources" },
+      { text: "Download Resources", href: "/support/resources" },
       { text: "HCP and Patient Videos" },
       { text: "Patient Profiles" },
     ],
