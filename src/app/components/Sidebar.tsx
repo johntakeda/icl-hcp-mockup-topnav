@@ -193,7 +193,7 @@ export function Sidebar({ onClose, isDrawer = false }: SidebarProps) {
       {/* CTA Buttons */}
       <div className="px-6 flex flex-col gap-3 mb-6">
         <button className="h-11 rounded-lg border-2 border-[#c6a000] text-[#0F1E38] text-[15px] font-[600] hover:bg-[#c6a000]/10 transition-colors px-4 text-left">
-          Get Started
+          Get Started / Request Rep
         </button>
 
         {/* CML */}
