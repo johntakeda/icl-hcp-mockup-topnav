@@ -8,7 +8,7 @@ import { ChevronRight } from "lucide-react";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 px-4 md:px-8 lg:px-12"
+      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -120,7 +120,7 @@ export function CmlT315iMutationPage() {
       <HeroBanner />
 
       {/* Literature review findings */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
             Reviews of the clinical literature showed that:
@@ -184,7 +184,7 @@ export function CmlT315iMutationPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="ICLUSIG 5-year safety data in CP-CML"
@@ -202,7 +202,7 @@ export function CmlT315iMutationPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8">
+      <section className="px-4 md:px-16 xl:px-20 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           CCyR=complete cytogenetic response; CML=chronic myeloid leukemia;
           CP-CML=chronic phase chronic myeloid leukemia; MCyR=major cytogenetic

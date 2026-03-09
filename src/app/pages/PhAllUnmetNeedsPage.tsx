@@ -9,7 +9,7 @@ import sixtyEightPie from "@/imports/pages/ph-all/1l-ph-all-sixty-eight-percent-
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 md:py-14 px-4 md:px-8 lg:px-12"
+      className="w-full py-10 md:py-14 lg:pt-40 px-4 md:px-16 xl:px-20"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -29,7 +29,7 @@ function HeroBanner() {
 function AnchorNav() {
   return (
     <nav className="border-b border-[#E3E8EF] bg-white">
-      <div className="px-4 md:px-8 lg:px-12">
+      <div className="px-4 md:px-16 xl:px-20">
         <ul className="flex gap-6 max-w-4xl">
           <li>
             <a
@@ -93,7 +93,7 @@ export function PhAllUnmetNeedsPage() {
       <AnchorNav />
 
       {/* Section 1: Mutational burden */}
-      <section id="frontline" className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section id="frontline" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             Ph+ ALL is an aggressive disease with a high mutational burden
@@ -133,7 +133,7 @@ export function PhAllUnmetNeedsPage() {
       </section>
 
       {/* 68% statistic section */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start mb-8">
             {/* Pie chart image */}
@@ -165,7 +165,7 @@ export function PhAllUnmetNeedsPage() {
       </section>
 
       {/* Key message callout */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl">
           <div
             className="rounded-lg p-6 md:p-8"
@@ -181,7 +181,7 @@ export function PhAllUnmetNeedsPage() {
       </section>
 
       {/* Footnotes for section 1 */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8">
+      <section className="px-4 md:px-16 xl:px-20 pb-8">
         <div className="max-w-4xl space-y-3">
           <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed">
             <sup>*</sup>Based on findings from a phase II, single-arm,
@@ -210,7 +210,7 @@ export function PhAllUnmetNeedsPage() {
       </section>
 
       {/* Section 2: MRD-negative CR */}
-      <section id="mrd-negative" className="px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-[#F5F7FA]">
+      <section id="mrd-negative" className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-8">
             MRD-negative CR is a stringent composite endpoint combining both
@@ -299,7 +299,7 @@ export function PhAllUnmetNeedsPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Redefining treatment in 1st-line Ph+ ALL"
@@ -317,7 +317,7 @@ export function PhAllUnmetNeedsPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8">
+      <section className="px-4 md:px-16 xl:px-20 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           ANC=absolute neutrophil count; cDNA=complementary DNA; CR=complete
           remission; mcL=microliter; MRD=minimal residual disease;

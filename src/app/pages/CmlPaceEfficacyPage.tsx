@@ -16,7 +16,7 @@ import paceDurationMahr from "@/imports/pages/efficacy/PACE-median-duration-of-M
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 px-4 md:px-8 lg:px-12"
+      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -35,7 +35,7 @@ function HeroBanner() {
 function AnchorNav() {
   return (
     <nav className="w-full bg-[#F5F7FA] border-b border-[#E3E8EF]">
-      <div className="px-4 md:px-8 lg:px-12 max-w-4xl">
+      <div className="px-4 md:px-16 xl:px-20 max-w-4xl">
         <ul className="flex flex-wrap gap-x-6 gap-y-2 py-3 text-[13px] md:text-[14px] font-[600] text-[#237EBF]">
           <li>
             <a href="#trialdesign" className="hover:underline">
@@ -93,7 +93,7 @@ export function CmlPaceEfficacyPage() {
       <AnchorNav />
 
       {/* ---- Trial Design ---- */}
-      <section id="trialdesign" className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section id="trialdesign" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[800] uppercase tracking-wide mb-6">
             PACE Trial Design
@@ -198,7 +198,7 @@ export function CmlPaceEfficacyPage() {
       </section>
 
       {/* ---- Patient Characteristics ---- */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-[#F5F7FA]">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[800] uppercase tracking-wide mb-4">
             Patient Characteristics
@@ -248,7 +248,7 @@ export function CmlPaceEfficacyPage() {
       </section>
 
       {/* ---- Response Rates CP-CML ---- */}
-      <section id="responserates" className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section id="responserates" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[18px] md:text-[22px] lg:text-[26px] font-[800] uppercase leading-tight mb-2">
             In PACE, TKI-resistant patients achieved deep, clinically significant
@@ -313,7 +313,7 @@ export function CmlPaceEfficacyPage() {
       </section>
 
       {/* ---- Safety CTA ---- */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-[#F5F7FA]">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]">
         <div className="max-w-4xl">
           <h3 className="text-[#1B2430] text-[16px] md:text-[18px] font-[700] mb-3">
             Review the safety profile of ICLUSIG in PACE
@@ -329,7 +329,7 @@ export function CmlPaceEfficacyPage() {
       </section>
 
       {/* ---- Advanced Disease ---- */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[18px] md:text-[22px] lg:text-[26px] font-[800] uppercase leading-tight mb-6">
             ICLUSIG demonstrated efficacy in AP- and BP-CML patients with
@@ -403,7 +403,7 @@ export function CmlPaceEfficacyPage() {
       </section>
 
       {/* ---- CTA Cards ---- */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-[#F5F7FA]">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="An established safety profile CP-CML"
@@ -421,7 +421,7 @@ export function CmlPaceEfficacyPage() {
       </section>
 
       {/* ---- Abbreviations ---- */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 pt-4">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 pt-4">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           AOE=arterial occlusive events; AP-CML=accelerated-phase chronic myeloid
           leukemia; BP-CML=blast-phase chronic myeloid leukemia;

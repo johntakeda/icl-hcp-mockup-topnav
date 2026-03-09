@@ -54,7 +54,7 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
 
   return (
     <div
-      className="fixed bottom-0 right-0 z-50 transition-transform duration-500 ease-in-out w-full lg:w-[calc(100%-304px)]"
+      className="fixed bottom-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out w-full"
       style={{
         transform: visible ? "translateY(0)" : "translateY(100%)",
         fontFamily: "Inter, system-ui, sans-serif",

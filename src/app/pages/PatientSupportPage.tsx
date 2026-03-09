@@ -35,7 +35,7 @@ const SECTIONS = [
   { id: "here2assist", label: "Here2Assist®" },
   { id: "financial", label: "Financial Support" },
   { id: "coverage", label: "Coverage, PA & Appeals" },
-  { id: "foundation-care", label: "Foundation Care® & Ordering" },
+  { id: "foundation-care", label: "Ordering" },
   { id: "transition", label: "Transition of Care" },
   { id: "pharmacist", label: "Pharmacists" },
   { id: "contact", label: "Contact & Downloads" },
@@ -126,7 +126,7 @@ export function PatientSupportPage() {
             background: "linear-gradient(135deg, rgba(11,58,92,0.92) 0%, rgba(10,47,74,0.85) 50%, rgba(10,47,74,0.7) 100%)",
           }}
         />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20 lg:py-24">
+        <div className="relative z-10 px-6 md:px-16 xl:px-20 py-20 md:py-28 lg:pt-48 lg:pb-32">
           <p className="text-white/70 text-[13px] tracking-wide uppercase mb-4">For US Healthcare Professionals</p>
           <h1 className="text-white text-[32px] md:text-[40px] lg:text-[48px] font-[800] leading-[1.1] mb-5 max-w-[720px]">
             Patient Support &amp; Access
@@ -153,39 +153,59 @@ export function PatientSupportPage() {
       {/* Sentinel for sticky detection */}
       <div ref={sentinelRef} className="h-0 w-full" aria-hidden="true" />
 
-      {/* ─── 2 STICKY ANCHOR NAV ─── */}
+      {/* ─── 2 FLOATING PILL SUB-NAV ─── */}
       <div
         ref={navRef}
-        className="sticky top-0 z-30 transition-colors duration-300"
-        style={{
-          backgroundColor: navStuck ? "#0E1E38" : "#ffffff",
-          borderBottom: navStuck ? "1px solid rgba(255,255,255,0.1)" : "1px solid #E3E8EF",
-          boxShadow: navStuck ? "0 2px 12px rgba(0,0,0,0.2)" : "none",
-        }}
+        className="sticky top-14 lg:top-[88px] z-30 flex justify-end px-4 md:px-16 xl:px-20 py-3 pointer-events-none"
       >
-        <div className="relative max-w-[1200px] mx-auto">
+        <div
+          className="pointer-events-auto relative"
+          style={{
+            maxWidth: "calc(100vw - 32px)",
+          }}
+        >
           <div
             ref={scrollContainerRef}
-            className="overflow-x-auto scrollbar-hide"
+            className="flex items-center gap-0.5 px-2 py-1.5 overflow-x-auto scrollbar-hide transition-all duration-300"
             onScroll={checkOverflow}
+            style={{
+              background: navStuck
+                ? "rgba(14, 30, 56, 0.92)"
+                : "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+              border: navStuck
+                ? "1px solid rgba(255, 255, 255, 0.12)"
+                : "1px solid rgba(255, 255, 255, 0.5)",
+              borderRadius: "16px",
+              boxShadow: navStuck
+                ? "0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.08)"
+                : "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.6)",
+            }}
           >
-            <nav className="flex min-w-max px-6 md:px-10 lg:px-16" aria-label="Page sections">
+            <nav className="flex items-center gap-0.5 min-w-max" aria-label="Page sections">
               {SECTIONS.map(({ id, label }) => (
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
-                  className="whitespace-nowrap px-4 py-3 text-[13px] md:text-[14px] font-[600] border-b-[3px] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]"
-                  style={
+                  className={`whitespace-nowrap px-3 xl:px-4 py-2 rounded-xl text-[13px] xl:text-[14px] font-[500] transition-all ${
                     activeSection === id
-                      ? {
-                          color: navStuck ? "#ffffff" : "#0A8F8A",
-                          borderBottomColor: navStuck ? "#ffffff" : "#0A8F8A",
-                        }
-                      : {
-                          color: navStuck ? "rgba(255,255,255,0.5)" : "rgba(27,36,48,0.6)",
-                          borderBottomColor: "transparent",
-                        }
-                  }
+                      ? navStuck
+                        ? "bg-white/[0.15]"
+                        : "bg-black/[0.06]"
+                      : navStuck
+                        ? "hover:bg-white/[0.08]"
+                        : "hover:bg-black/[0.03]"
+                  }`}
+                  style={{
+                    color: navStuck
+                      ? activeSection === id
+                        ? "rgba(255,255,255,1)"
+                        : "rgba(255,255,255,0.55)"
+                      : activeSection === id
+                        ? "#0F1E38"
+                        : "#6B7280",
+                  }}
                 >
                   {label}
                 </button>
@@ -199,30 +219,29 @@ export function PatientSupportPage() {
             style={{ opacity: canScrollRight ? 1 : 0, pointerEvents: canScrollRight ? "auto" : "none" }}
           >
             <div
-              className="h-full w-20"
+              className="h-full w-12 rounded-r-2xl"
               style={{
                 background: navStuck
-                  ? "linear-gradient(to right, transparent, #0E1E38 70%)"
-                  : "linear-gradient(to right, transparent, white 70%)",
+                  ? "linear-gradient(to right, transparent, rgba(14,30,56,0.95) 70%)"
+                  : "linear-gradient(to right, transparent, rgba(255,255,255,0.9) 70%)",
               }}
             />
             <button
               onClick={scrollNavRight}
-              className="absolute right-2 flex items-center gap-1 rounded-full pl-2.5 pr-1.5 py-1 cursor-pointer transition-colors"
+              className="absolute right-1 flex items-center gap-1 rounded-full pl-2 pr-1.5 py-1 cursor-pointer transition-colors"
               style={{
-                backgroundColor: navStuck ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.9)",
-                boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
+                backgroundColor: navStuck ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.05)",
                 animation: "nudge-right 1.5s ease-in-out infinite",
               }}
               aria-label="Scroll to see more menu items"
             >
               <span
                 className="text-[10px] font-[500] whitespace-nowrap"
-                style={{ color: navStuck ? "rgba(255,255,255,0.6)" : "rgba(27,36,48,0.5)" }}
+                style={{ color: navStuck ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)" }}
               >
                 More
               </span>
-              <ChevronRight size={14} className={navStuck ? "text-white" : "text-[#0A8F8A]"} />
+              <ChevronRight size={14} style={{ color: navStuck ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.5)" }} />
             </button>
           </div>
         </div>
@@ -237,7 +256,7 @@ export function PatientSupportPage() {
 
       {/* ─── 3 START HERE ─── */}
       <section id="start-here" className="bg-white scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel>Getting Started</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Start therapy fast: 3 steps for offices
@@ -297,7 +316,7 @@ export function PatientSupportPage() {
       {/* ─── 4 HERE2ASSIST ─── */}
       {/* CHANGE D: Enrollment moved to top, added FRD CTA and branding copy */}
       <section id="here2assist" className="bg-white scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel>Program Overview</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Takeda Oncology Here2Assist®
@@ -350,7 +369,7 @@ export function PatientSupportPage() {
 
       {/* ─── 5 FINANCIAL SUPPORT (MOVED UP per Change E) ─── */}
       <section id="financial" className="bg-white scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel>Financial Assistance</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Financial support pathways
@@ -409,7 +428,7 @@ export function PatientSupportPage() {
 
       {/* ─── 6 COVERAGE, PA & APPEALS (was section 5, now after Financial) ─── */}
       <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel>Coverage Tools</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Coverage, PA and appeals support
@@ -516,7 +535,7 @@ export function PatientSupportPage() {
       {/* CHANGE H4: Unified background color */}
       <section id="foundation-care" className="scroll-mt-14" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
         {/* Navy callout band */}
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-10 md:py-14">
+        <div className="px-6 md:px-16 xl:px-20 py-10 md:py-14">
           <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
           <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Foundation Care® and ordering ICLUSIG
@@ -535,7 +554,7 @@ export function PatientSupportPage() {
         </div>
 
         {/* Two cards — CHANGE H4: same background */}
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 pb-12 md:pb-16">
+        <div className="px-6 md:px-16 xl:px-20 pb-12 md:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* AcariaHealth */}
             <div className="border border-white/20 rounded-lg overflow-hidden">
@@ -598,7 +617,7 @@ export function PatientSupportPage() {
 
       {/* ─── 8 TRANSITION OF CARE ─── */}
       <section id="transition" className="bg-[#F5F7FA] scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel>Continuity Planning</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Transition of care
@@ -646,7 +665,7 @@ export function PatientSupportPage() {
       {/* ─── 9 PHARMACISTS ─── */}
       {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
       <section id="pharmacist" className="bg-white scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel>Pharmacy Resources</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Pharmacists
@@ -708,7 +727,7 @@ export function PatientSupportPage() {
         className="scroll-mt-14"
         style={{ background: "linear-gradient(135deg, #0A2F4A 0%, #0B3A5C 100%)" }}
       >
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
+        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
           <SectionLabel light>Get in Touch</SectionLabel>
           <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-8">
             Contact support
@@ -915,7 +934,7 @@ function BulletItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 /* ── Divider ── */
 function Divider() {
   return (
-    <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <div className="px-6 md:px-16 xl:px-20">
       <div className="border-t border-[#E3E8EF]" />
     </div>
   );

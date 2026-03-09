@@ -15,7 +15,7 @@ const PDF_BASE = "https://test-iclusig-hcp-v2.pantheonsite.io";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 px-4 md:px-8 lg:px-12"
+      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -48,7 +48,7 @@ function AnchorNav() {
 
   return (
     <nav className="w-full bg-[#F5F7FA] border-b border-[#E3E8EF] overflow-x-auto">
-      <div className="flex gap-0 min-w-max px-4 md:px-8 lg:px-12">
+      <div className="flex gap-0 min-w-max px-4 md:px-16 xl:px-20">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -167,7 +167,7 @@ export function DosingOverviewPage() {
       <AnchorNav />
 
       {/* Convenient oral dosing section */}
-      <section id="convenient" className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section id="convenient" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             ICLUSIG is a single tablet taken orally once daily
@@ -211,7 +211,7 @@ export function DosingOverviewPage() {
       </section>
 
       {/* Optimized dosing strategy callout boxes */}
-      <section id="dosingstrategy" className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section id="dosingstrategy" className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl">
           <CalloutBox title="Optimized dosing strategy in CP-CML\u00B9">
             <ul className="list-none space-y-2">
@@ -270,7 +270,7 @@ export function DosingOverviewPage() {
       </section>
 
       {/* Guidance for dose modifications */}
-      <section id="dosemodification" className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section id="dosemodification" className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             Guidance for dose modifications
@@ -331,7 +331,7 @@ export function DosingOverviewPage() {
       </section>
 
       {/* Hepatic impairment */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
             Dosing for patients with hepatic impairment
@@ -353,7 +353,7 @@ export function DosingOverviewPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-4">
           <CtaCard
             title="CP-CML"
@@ -380,7 +380,7 @@ export function DosingOverviewPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8">
+      <section className="px-4 md:px-16 xl:px-20 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           ALT=alanine transaminase; ANC=absolute neutrophil count; AOE=arterial occlusive events;
           AP-CML=accelerated-phase chronic myeloid leukemia; AST=aspartate aminotransferase;

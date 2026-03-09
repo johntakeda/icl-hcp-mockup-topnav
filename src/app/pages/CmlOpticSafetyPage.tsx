@@ -10,7 +10,7 @@ import opticSummaryTreatment from "@/imports/pages/safety/summary-treatment_1020
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 px-4 md:px-8 lg:px-12"
+      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -61,7 +61,7 @@ export function CmlOpticSafetyPage() {
       <HeroBanner />
 
       {/* Main content */}
-      <section className="px-4 md:px-8 lg:px-12 py-8 md:py-12">
+      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
         <div className="max-w-4xl">
           {/* Section heading */}
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-2">
@@ -239,7 +239,7 @@ export function CmlOpticSafetyPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8 md:pb-12">
+      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="ICLUSIG demonstrated efficacy in CP-CML in OPTIC"
@@ -257,7 +257,7 @@ export function CmlOpticSafetyPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-4 md:px-8 lg:px-12 pb-8">
+      <section className="px-4 md:px-16 xl:px-20 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           AE=adverse event; AOE=arterial occlusive event; CP-CML=chronic-phase chronic
           myeloid leukemia; CTCAE=Common Terminology Criteria for Adverse Events;

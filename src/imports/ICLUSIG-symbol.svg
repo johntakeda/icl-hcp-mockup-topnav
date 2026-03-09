@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 161 132">
+  <defs>
+    <clipPath id="clippath">
+      <polygon points=".8 99.16 40.86 109.96 80.83 99.16 120.91 109.95 160.97 99.14 81.22 76.79 .8 99.16" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-644.59" y1="-881.04" x2="-640.65" y2="-881.04" gradientTransform="translate(26145.59 35828.25) scale(40.56)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".11" stop-color="#ecf4f9"/>
+      <stop offset=".33" stop-color="#bcd7eb"/>
+      <stop offset=".64" stop-color="#70abd4"/>
+      <stop offset=".92" stop-color="#247ebd"/>
+      <stop offset="1" stop-color="#247ebd"/>
+      <stop offset="1" stop-color="#247ebd"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <polygon points=".84 99.15 .84 99.17 40.86 109.96 80.83 99.16 120.91 109.95 160.97 99.15 160.97 99.14 81.22 76.79 .84 99.15" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient1" x1="-645.37" y1="-861.04" x2="-641.42" y2="-861.04" gradientTransform="translate(26128.37 -34821.72) scale(40.55 -40.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".1" stop-color="#eaf3f8"/>
+      <stop offset=".32" stop-color="#b6d4e9"/>
+      <stop offset=".62" stop-color="#64a3d0"/>
+      <stop offset=".84" stop-color="#247ebd"/>
+      <stop offset="1" stop-color="#247ebd"/>
+      <stop offset="1" stop-color="#247ebd"/>
+    </linearGradient>
+    <clipPath id="clippath-2">
+      <polygon points=".06 61.17 40.13 71.97 80.01 61.17 120.27 71.96 160.33 61.15 80.42 38.8 .06 61.17" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient2" x1="-645.42" y1="-860.35" x2="-641.47" y2="-860.35" gradientTransform="translate(26213.91 -34943.78) scale(40.68 -40.68)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".1" stop-color="#ecf3ee"/>
+      <stop offset=".3" stop-color="#bcd5c3"/>
+      <stop offset=".57" stop-color="#70a67f"/>
+      <stop offset=".83" stop-color="#25783c"/>
+      <stop offset="1" stop-color="#25783c"/>
+      <stop offset="1" stop-color="#25783c"/>
+    </linearGradient>
+    <clipPath id="clippath-3">
+      <polygon points="0 22.18 40.06 32.98 80.03 22.18 120.11 32.99 160.17 22.17 80.42 0 0 22.18" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient3" x1="-645.23" y1="-859.66" x2="-641.28" y2="-859.66" gradientTransform="translate(26263.14 -35014.57) scale(40.75 -40.75)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".82" stop-color="#f8d41b"/>
+      <stop offset=".89" stop-color="#f8d108"/>
+      <stop offset="1" stop-color="#f8d108"/>
+      <stop offset="1" stop-color="#f8d108"/>
+    </linearGradient>
+  </defs>
+  <g style="isolation: isolate;">
+    <g>
+      <g style="clip-path: url(#clippath);">
+        <rect x=".8" y="76.79" width="160.17" height="33.17" style="fill: url(#linear-gradient);"/>
+      </g>
+      <g style="clip-path: url(#clippath-1);">
+        <rect x=".84" y="76.79" width="160.13" height="33.17" style="fill: url(#linear-gradient1);"/>
+      </g>
+      <polygon points="40.86 109.96 80.83 99.15 80.83 121.27 40.78 131.88 40.86 109.96" style="fill: #818f8d;"/>
+      <polygon points="120.91 109.95 80.83 99.16 80.83 121.28 120.99 131.87 120.91 109.95" style="fill: #d1dad9;"/>
+      <polygon points=".8 121.28 40.78 131.88 40.86 109.96 .8 99.16 .8 121.28" style="fill: #d1dad9;"/>
+      <polygon points="120.91 109.95 160.97 99.14 160.97 121.26 120.99 131.87 120.91 109.95" style="fill: #0c415c;"/>
+      <g style="clip-path: url(#clippath-2);">
+        <rect x=".06" y="38.8" width="160.26" height="33.17" style="fill: url(#linear-gradient2);"/>
+      </g>
+      <polygon points="40.13 71.97 80.01 61.17 80.1 83.27 40.05 93.89 40.13 71.97" style="fill: #818f8d;"/>
+      <polygon points="120.27 71.96 80.01 61.17 80.1 83.27 120.27 93.88 120.27 71.96" style="fill: #d1dad9;"/>
+      <polygon points=".07 83.29 40.05 93.89 40.13 71.97 .07 61.17 .07 83.29" style="fill: #d1dad9;"/>
+      <polygon points="120.27 71.96 160.33 61.15 160.33 83.27 120.27 93.88 120.27 71.96" style="fill: #173a1e;"/>
+      <g style="clip-path: url(#clippath-3);">
+        <rect width="160.17" height="32.99" style="fill: url(#linear-gradient3);"/>
+      </g>
+      <polygon points="40.06 32.98 80.04 22.18 80.04 44.3 39.98 54.9 40.06 32.98" style="fill: #818f8d;"/>
+      <polygon points="120.11 32.99 80.03 22.18 80.03 44.3 120.2 54.91 120.11 32.99" style="fill: #d1dad9;"/>
+      <polygon points="0 44.3 39.98 54.9 40.06 32.99 0 22.17 0 44.3" style="fill: #d1dad9;"/>
+      <polygon points="120.11 32.99 160.17 22.16 160.17 44.28 120.2 54.91 120.11 32.99" style="fill: #82732e;"/>
+    </g>
+  </g>
+</svg>
