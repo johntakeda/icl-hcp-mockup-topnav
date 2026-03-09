@@ -17,7 +17,7 @@ export function Layout() {
       ([entry]) => {
         setIsiInView(entry.isIntersecting);
       },
-      { threshold: 0 }
+      { threshold: 0.1, rootMargin: "-52px 0px 0px 0px" }
     );
 
     observer.observe(el);

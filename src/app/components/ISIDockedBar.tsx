@@ -34,12 +34,16 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [expanded, userCollapsed]);
 
-  // When docked bar hides (inline ISI visible), collapse it so it reappears collapsed
+  // When docked bar reappears (navigated to new page), reset to expanded
+  const prevVisible = useRef(visible);
   useEffect(() => {
-    if (!visible && expanded) {
-      setExpanded(false);
+    if (visible && !prevVisible.current) {
+      // Bar just became visible again — expand it and reset user preference
+      setExpanded(true);
+      setUserCollapsed(false);
     }
-  }, [visible, expanded]);
+    prevVisible.current = visible;
+  }, [visible]);
 
   const toggleExpanded = useCallback(() => {
     setExpanded((prev) => {
