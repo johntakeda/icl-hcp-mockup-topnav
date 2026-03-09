@@ -1,4 +1,4 @@
-import heroImage from "@/imports/patient-image.jpg";
+import heroImage from "@/imports/ICL_LetTheDataLeadYou.jpg";
 import { IndicationChips } from "./IndicationChips";
 
 export function HeroSection() {
@@ -35,8 +35,8 @@ export function HeroSection() {
               lineHeight: 1.05,
             }}
           >
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]">Start Strong,</span>
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]">Fight Mutations</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] uppercase tracking-wide">Let the Data</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] uppercase tracking-wide">Lead You</span>
           </h1>
 
           {/* Chips - stacked on mobile, inline on larger */}
