@@ -82,7 +82,7 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
           boxShadow: expanded ? "0 -4px 20px rgba(0,0,0,0.08)" : "none",
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-3 flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-8 sm:px-20 lg:px-32 py-3 flex items-center justify-between">
           <h2 className="text-white text-[14px] sm:text-[16px] font-[700] tracking-wide uppercase">
             Important Safety Information
           </h2>
@@ -103,7 +103,7 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
           className="overflow-y-auto"
           style={{ maxHeight: "40vh" }}
         >
-          <div className="px-5 sm:px-8 lg:px-12 py-5 max-w-[1400px] mx-auto">
+          <div className="px-8 sm:px-20 lg:px-32 py-5 max-w-[1400px] mx-auto">
             <ISIContent />
           </div>
         </div>

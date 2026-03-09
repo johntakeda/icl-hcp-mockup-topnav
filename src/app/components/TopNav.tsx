@@ -156,7 +156,7 @@ export function TopNav() {
       style={{ fontFamily: "Inter, system-ui, sans-serif" }}
     >
       {/* Utility text row */}
-      <div className="flex items-center justify-end gap-4 px-16 xl:px-20 pt-3 pb-1">
+      <div className="flex items-center justify-end gap-4 px-20 xl:px-32 pt-3 pb-1">
         <span
           className="text-[11px] transition-colors duration-300"
           style={{ color: isDarkBg ? "rgba(255,255,255,0.6)" : "#6B7280" }}
@@ -178,7 +178,7 @@ export function TopNav() {
       </div>
 
       {/* Main nav area: logo left, floating nav right */}
-      <div className="flex items-start justify-between px-16 xl:px-20 pt-2 pb-4">
+      <div className="flex items-start justify-between px-20 xl:px-32 pt-2 pb-4">
         {/* Large logo — symbol never changes color, text switches */}
         <div
           ref={logoRef}

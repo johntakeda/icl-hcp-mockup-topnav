@@ -17,7 +17,7 @@ import dosing3RsImg from "@/imports/pages/ph-all/ph-3rs_013026.svg";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
+      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -46,8 +46,8 @@ function AnchorNav({ activeId }: { activeId: string }) {
   };
 
   return (
-    <nav className="sticky top-0 z-20 bg-white border-b border-[#E3E8EF] overflow-x-auto">
-      <div className="flex gap-0 min-w-max">
+    <nav className="sticky top-[88px] z-20 bg-white border-b border-[#E3E8EF] overflow-x-auto">
+      <div className="flex gap-0 min-w-max px-8 md:px-20 xl:px-32">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -150,7 +150,7 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       {/* STUDY DESIGN                                                  */}
       {/* ============================================================ */}
-      <section id="study" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section id="study" className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
             Study design: PhALLCON was the first head-to-head phase 3 clinical
@@ -238,7 +238,7 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       <section
         id="efficacy"
-        className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]"
+        className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]"
       >
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
@@ -439,7 +439,7 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       {/* SAFETY PROFILE                                                */}
       {/* ============================================================ */}
-      <section id="safety" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section id="safety" className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             Safety profile: In adults with newly diagnosed Ph+ ALL, ICLUSIG +
@@ -572,7 +572,7 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       <section
         id="dosing"
-        className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]"
+        className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]"
       >
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
@@ -600,7 +600,7 @@ export function PhAllFirstLinePage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Review the comprehensive ICLUSIG dosing guide for patients with newly diagnosed Ph+ ALL"

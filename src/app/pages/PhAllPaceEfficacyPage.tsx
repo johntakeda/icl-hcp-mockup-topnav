@@ -12,7 +12,7 @@ import cytogeneticBarImg from "@/imports/pages/efficacy/ph-all-cytogenetic-thirt
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 md:py-14 lg:pt-40 px-4 md:px-16 xl:px-20"
+      className="w-full py-10 md:py-14 lg:pt-40 px-8 md:px-20 xl:px-32"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -32,7 +32,7 @@ function HeroBanner() {
 function AnchorNav() {
   return (
     <nav className="border-b border-[#E3E8EF] bg-white">
-      <div className="px-4 md:px-16 xl:px-20">
+      <div className="px-8 md:px-20 xl:px-32">
         <ul className="flex gap-6 max-w-4xl">
           <li>
             <a
@@ -96,7 +96,7 @@ export function PhAllPaceEfficacyPage() {
       <AnchorNav />
 
       {/* Trial Design Section */}
-      <section id="trialdesign" className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section id="trialdesign" className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             ICLUSIG monotherapy helped difficult-to-treat patients with Ph+ ALL
@@ -183,7 +183,7 @@ export function PhAllPaceEfficacyPage() {
       </section>
 
       {/* Response Markers Section */}
-      <section id="responserates" className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
+      <section id="responserates" className="px-8 md:px-20 xl:px-32 pb-8 md:pb-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[16px] md:text-[20px] lg:text-[24px] font-[700] leading-snug uppercase tracking-wide mb-6">
             PATIENTS TAKING ICLUSIG REACHED IMPORTANT MARKERS OF RESPONSE
@@ -269,7 +269,7 @@ export function PhAllPaceEfficacyPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]">
+      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Review the safety profile in resistant/intolerant Ph+ ALL"
@@ -287,7 +287,7 @@ export function PhAllPaceEfficacyPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-4 md:px-16 xl:px-20 py-8">
+      <section className="px-8 md:px-20 xl:px-32 py-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           ANC=absolute neutrophil count; AP-CML=accelerated-phase chronic
           myeloid leukemia; CCyR=complete cytogenetic response; CHR=complete

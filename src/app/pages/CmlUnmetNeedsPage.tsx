@@ -8,7 +8,7 @@ import { ChevronRight } from "lucide-react";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
+      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -172,7 +172,7 @@ export function CmlUnmetNeedsPage() {
       <HeroBanner />
 
       {/* Stat cards */}
-      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <StatCard
             stat={"\u226418%"}
@@ -192,7 +192,7 @@ export function CmlUnmetNeedsPage() {
       </section>
 
       {/* Teal callout */}
-      <section className="px-4 md:px-16 xl:px-20 pb-8">
+      <section className="px-8 md:px-20 xl:px-32 pb-8">
         <div className="max-w-4xl">
           <TealCallout>
             Cycling through 2G TKIs after patients develop resistance to prior
@@ -203,7 +203,7 @@ export function CmlUnmetNeedsPage() {
       </section>
 
       {/* Footnotes */}
-      <section className="px-4 md:px-16 xl:px-20 pb-8">
+      <section className="px-8 md:px-20 xl:px-32 pb-8">
         <div className="max-w-4xl space-y-3">
           <p className="text-[#374151] text-[12px] md:text-[13px] leading-relaxed">
             *Data are from the Ibrahim et al [N=26], Garg et al [N=48], and
@@ -239,7 +239,7 @@ export function CmlUnmetNeedsPage() {
       </section>
 
       {/* Mutations section */}
-      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12 bg-[#F5F7FA]">
+      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-3">
             Resistance may be due to mutations within the BCR::ABL1 domain
@@ -255,7 +255,7 @@ export function CmlUnmetNeedsPage() {
       </section>
 
       {/* Early identification */}
-      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             Early identification of resistant mutations is crucial to informing
@@ -302,7 +302,7 @@ export function CmlUnmetNeedsPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
+      <section className="px-8 md:px-20 xl:px-32 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <CtaCard
             title="For patients heavily pretreated with TKIs, consider ICLUSIG"
@@ -326,7 +326,7 @@ export function CmlUnmetNeedsPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-4 md:px-16 xl:px-20 pb-8">
+      <section className="px-8 md:px-20 xl:px-32 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           2G=second generation; 2L=second line; 3L=third line; AP=accelerated
           phase; BP=blast phase; CCyR=complete cytogenetic response;

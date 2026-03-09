@@ -11,7 +11,7 @@ export function IndicationChips({ stacked = false }: IndicationChipsProps) {
           borderRadius: stacked ? "12px" : "12px 0 0 12px",
           fontFamily: "Inter, system-ui, sans-serif",
         }}
-      >for CML<span className="text-[16px] align-super">*</span></div>
+      >to CML<span className="text-[16px] align-super">*</span></div>
       <div
         className="bg-[#2E8762] text-white font-[700] px-5 py-2.5 text-[22px] sm:text-[26px] lg:text-[30px]"
         style={{

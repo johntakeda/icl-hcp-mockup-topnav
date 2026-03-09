@@ -8,7 +8,7 @@ import { ChevronRight } from "lucide-react";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-4 md:px-16 xl:px-20"
+      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
       <div className="max-w-4xl">
@@ -77,7 +77,7 @@ export function Here2AssistPage() {
       <HeroBanner />
 
       {/* Main content */}
-      <section className="px-4 md:px-16 xl:px-20 py-8 md:py-12">
+      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
         <div className="max-w-4xl">
 
           {/* ── Takeda Oncology Here2Assist section ── */}
@@ -243,7 +243,7 @@ export function Here2AssistPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-4 md:px-16 xl:px-20 pb-8 md:pb-12">
+      <section className="px-8 md:px-20 xl:px-32 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Download resources for your office, staff, and patients"

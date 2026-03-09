@@ -126,7 +126,7 @@ export function PatientSupportPage() {
             background: "linear-gradient(135deg, rgba(11,58,92,0.92) 0%, rgba(10,47,74,0.85) 50%, rgba(10,47,74,0.7) 100%)",
           }}
         />
-        <div className="relative z-10 px-6 md:px-16 xl:px-20 py-20 md:py-28 lg:pt-48 lg:pb-32">
+        <div className="relative z-10 px-8 md:px-20 xl:px-32 py-20 md:py-28 lg:pt-48 lg:pb-32">
           <p className="text-white/70 text-[13px] tracking-wide uppercase mb-4">For US Healthcare Professionals</p>
           <h1 className="text-white text-[32px] md:text-[40px] lg:text-[48px] font-[800] leading-[1.1] mb-5 max-w-[720px]">
             Patient Support &amp; Access
@@ -156,7 +156,7 @@ export function PatientSupportPage() {
       {/* ─── 2 FLOATING PILL SUB-NAV ─── */}
       <div
         ref={navRef}
-        className="sticky top-14 lg:top-[88px] z-30 flex justify-end px-4 md:px-16 xl:px-20 py-3 pointer-events-none"
+        className="sticky top-[88px] z-30 flex justify-end px-8 md:px-20 xl:px-32 py-3 pointer-events-none"
       >
         <div
           className="pointer-events-auto relative"
@@ -255,8 +255,8 @@ export function PatientSupportPage() {
       `}</style>
 
       {/* ─── 3 START HERE ─── */}
-      <section id="start-here" className="bg-white scroll-mt-14">
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+      <section id="start-here" className="bg-white scroll-mt-[140px]">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel>Getting Started</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Start therapy fast: 3 steps for offices
@@ -315,8 +315,8 @@ export function PatientSupportPage() {
 
       {/* ─── 4 HERE2ASSIST ─── */}
       {/* CHANGE D: Enrollment moved to top, added FRD CTA and branding copy */}
-      <section id="here2assist" className="bg-white scroll-mt-14">
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+      <section id="here2assist" className="bg-white scroll-mt-[140px]">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel>Program Overview</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Takeda Oncology Here2Assist®
@@ -368,8 +368,8 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 5 FINANCIAL SUPPORT (MOVED UP per Change E) ─── */}
-      <section id="financial" className="bg-white scroll-mt-14">
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+      <section id="financial" className="bg-white scroll-mt-[140px]">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel>Financial Assistance</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Financial support pathways
@@ -427,8 +427,8 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 6 COVERAGE, PA & APPEALS (was section 5, now after Financial) ─── */}
-      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-[140px]">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel>Coverage Tools</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Coverage, PA and appeals support
@@ -533,9 +533,9 @@ export function PatientSupportPage() {
 
       {/* ─── 7 FOUNDATION CARE & ORDERING ─── */}
       {/* CHANGE H4: Unified background color */}
-      <section id="foundation-care" className="scroll-mt-14" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
+      <section id="foundation-care" className="scroll-mt-[140px]" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
         {/* Navy callout band */}
-        <div className="px-6 md:px-16 xl:px-20 py-10 md:py-14">
+        <div className="px-8 md:px-20 xl:px-32 py-10 md:py-14">
           <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
           <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Foundation Care® and ordering ICLUSIG
@@ -554,7 +554,7 @@ export function PatientSupportPage() {
         </div>
 
         {/* Two cards — CHANGE H4: same background */}
-        <div className="px-6 md:px-16 xl:px-20 pb-12 md:pb-16">
+        <div className="px-8 md:px-20 xl:px-32 pb-12 md:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* AcariaHealth */}
             <div className="border border-white/20 rounded-lg overflow-hidden">
@@ -616,8 +616,8 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 8 TRANSITION OF CARE ─── */}
-      <section id="transition" className="bg-[#F5F7FA] scroll-mt-14">
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+      <section id="transition" className="bg-[#F5F7FA] scroll-mt-[140px]">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel>Continuity Planning</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Transition of care
@@ -664,8 +664,8 @@ export function PatientSupportPage() {
 
       {/* ─── 9 PHARMACISTS ─── */}
       {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
-      <section id="pharmacist" className="bg-white scroll-mt-14">
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+      <section id="pharmacist" className="bg-white scroll-mt-[140px]">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel>Pharmacy Resources</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Pharmacists
@@ -724,10 +724,10 @@ export function PatientSupportPage() {
       {/* ─── 10 CONTACT & DOWNLOADS ─── */}
       <section
         id="contact"
-        className="scroll-mt-14"
+        className="scroll-mt-[140px]"
         style={{ background: "linear-gradient(135deg, #0A2F4A 0%, #0B3A5C 100%)" }}
       >
-        <div className="px-6 md:px-16 xl:px-20 py-16 md:py-20">
+        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
           <SectionLabel light>Get in Touch</SectionLabel>
           <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-8">
             Contact support
@@ -934,7 +934,7 @@ function BulletItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 /* ── Divider ── */
 function Divider() {
   return (
-    <div className="px-6 md:px-16 xl:px-20">
+    <div className="px-8 md:px-20 xl:px-32">
       <div className="border-t border-[#E3E8EF]" />
     </div>
   );
