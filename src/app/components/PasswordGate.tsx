@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "hcp-demo-auth";
 const PASSWORD = "ICL!26hcp";
+const ACCESS_TOKEN = "ICL26";
 
 export function PasswordGate({ children }: { children: React.ReactNode }) {
   const [authenticated, setAuthenticated] = useState(false);
@@ -9,6 +10,12 @@ export function PasswordGate({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("access") === ACCESS_TOKEN) {
+      sessionStorage.setItem(STORAGE_KEY, "true");
+      setAuthenticated(true);
+      return;
+    }
     if (sessionStorage.getItem(STORAGE_KEY) === "true") {
       setAuthenticated(true);
     }
