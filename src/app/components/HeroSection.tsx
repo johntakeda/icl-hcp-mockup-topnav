@@ -35,8 +35,8 @@ export function HeroSection() {
               lineHeight: 1.05,
             }}
           >
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] uppercase tracking-wide">Let the Data</span>
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] uppercase tracking-wide">Lead You</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]  tracking-wide">LET THE DATA</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] tracking-wide">LEAD YOU</span>
           </h1>
 
           {/* Chips - stacked on mobile, inline on larger */}

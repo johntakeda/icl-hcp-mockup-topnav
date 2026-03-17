@@ -34,7 +34,7 @@ export function Layout() {
       <main className="flex flex-col min-h-0">
         <Outlet />
         <ISIInlineSection sectionRef={isiInlineRef} />
-        {!isiInView && <div className="h-[52px]" />}
+        {!isiInView && <div className="h-[25vh]" />}
       </main>
       <ISIDockedBar visible={!isiInView} />
     </div>

@@ -2,59 +2,44 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { ISIContent } from "./ISIContent";
 
+const ISI_HEADER_PX = 52;
+const ISI_TALL = "25vh";
+const ISI_SHORT = "15vh";
+
 interface ISIDockedBarProps {
   visible: boolean;
 }
 
 export function ISIDockedBar({ visible }: ISIDockedBarProps) {
   const [expanded, setExpanded] = useState(true);
-  const [userCollapsed, setUserCollapsed] = useState(false);
-  const lastScrollY = useRef(0);
+  const [scrolledPast, setScrolledPast] = useState(false);
 
-  // Auto-expand when user scrolls back to top, unless they manually collapsed
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const atTop = scrollY < 100;
-
-      if (atTop) {
-        // At the top of the page: auto-expand unless user explicitly collapsed
-        if (!userCollapsed) {
-          setExpanded(true);
-        }
-      } else if (scrollY > lastScrollY.current && expanded) {
-        // Scrolling down while expanded: auto-collapse
-        setExpanded(false);
-      }
-
-      lastScrollY.current = scrollY;
+      setScrolledPast(window.scrollY > 80);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [expanded, userCollapsed]);
+  }, []);
 
-  // When docked bar reappears (navigated to new page), reset to expanded
+  // When docked bar reappears (navigated to new page), reset to expanded + tall
   const prevVisible = useRef(visible);
   useEffect(() => {
     if (visible && !prevVisible.current) {
-      // Bar just became visible again — expand it and reset user preference
       setExpanded(true);
-      setUserCollapsed(false);
+      setScrolledPast(false);
     }
     prevVisible.current = visible;
   }, [visible]);
 
   const toggleExpanded = useCallback(() => {
-    setExpanded((prev) => {
-      const next = !prev;
-      if (!next) {
-        // User is explicitly collapsing — permanently disables auto-expand
-        setUserCollapsed(true);
-      }
-      return next;
-    });
+    setExpanded((prev) => !prev);
   }, []);
+
+  const totalHeight = scrolledPast ? ISI_SHORT : ISI_TALL;
+  const contentHeight = expanded
+    ? `calc(${totalHeight} - ${ISI_HEADER_PX}px)`
+    : "0px";
 
   return (
     <div
@@ -64,7 +49,7 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
         fontFamily: "Inter, system-ui, sans-serif",
       }}
     >
-      {/* Navy header bar - NOW AT THE TOP */}
+      {/* Navy header bar */}
       <div
         className="bg-[#0F1E38] cursor-pointer select-none"
         onClick={toggleExpanded}
@@ -92,17 +77,12 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
         </div>
       </div>
 
-      {/* Expandable content tray - BELOW the header */}
+      {/* Content tray — height driven by scroll position */}
       <div
-        className="bg-white border-t border-[#d0d0d0] overflow-hidden transition-[max-height] duration-500 ease-in-out"
-        style={{
-          maxHeight: expanded ? "40vh" : "0px",
-        }}
+        className="bg-white border-t border-[#d0d0d0] overflow-hidden transition-all duration-300 ease-in-out"
+        style={{ maxHeight: contentHeight }}
       >
-        <div
-          className="overflow-y-auto"
-          style={{ maxHeight: "40vh" }}
-        >
+        <div className="overflow-y-auto" style={{ maxHeight: contentHeight }}>
           <div className="px-8 sm:px-20 lg:px-32 py-5 max-w-[1400px] mx-auto">
             <ISIContent />
           </div>

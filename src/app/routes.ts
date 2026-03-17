@@ -17,6 +17,7 @@ import { DosingOverviewPage } from "./pages/DosingOverviewPage";
 import { CmlOptimizedDosingPage } from "./pages/CmlOptimizedDosingPage";
 import { Here2AssistPage } from "./pages/Here2AssistPage";
 import { ResourcesPage } from "./pages/ResourcesPage";
+import { GetStartedPage } from "./pages/GetStartedPage";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ export const router = createBrowserRouter([
       { path: "dosing/cml-optimized", Component: CmlOptimizedDosingPage },
       { path: "support/here2assist", Component: Here2AssistPage },
       { path: "support/resources", Component: ResourcesPage },
+      { path: "get-started", Component: GetStartedPage },
     ],
   },
 ]);

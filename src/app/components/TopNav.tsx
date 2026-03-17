@@ -332,6 +332,7 @@ export function TopNav() {
           {/* CTA inside the floating bar */}
           <div className="pl-1 pr-1">
             <button
+              onClick={() => navigate("/get-started")}
               className="h-9 rounded-xl text-[13px] xl:text-[14px] font-[600] transition-all duration-300 px-5 whitespace-nowrap"
               style={{
                 background: "#D4A800",

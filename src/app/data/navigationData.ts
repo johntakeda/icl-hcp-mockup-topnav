@@ -63,7 +63,6 @@ export const navItems: NavItem[] = [
     children: [
       { text: "Patient Support", href: "/patient-support" },
       { text: "Here2Assist", href: "/support/here2assist" },
-      { text: "Patient Profiles" },
     ],
   },
   {
@@ -71,8 +70,6 @@ export const navItems: NavItem[] = [
     shortLabel: "Resources",
     children: [
       { text: "Download Resources", href: "/support/resources" },
-      { text: "HCP and Patient Videos" },
-      { text: "Patient Profiles" },
     ],
   },
 ];
