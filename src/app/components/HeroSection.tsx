@@ -1,7 +1,10 @@
 import heroImage from "@/imports/ICL_LetTheDataLeadYou.jpg";
+import { useNavigate } from "react-router";
 import { IndicationChips } from "./IndicationChips";
 
 export function HeroSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative w-full overflow-hidden" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* Background image */}
@@ -10,17 +13,25 @@ export function HeroSection() {
           src={heroImage}
           alt="Couple enjoying life"
           className="w-full h-full object-cover"
-          style={{ objectPosition: "100% 60%" }}
+          style={{ objectPosition: "center 60%" }}
         />
       </div>
 
-      {/* Gradient overlay */}
+      {/* Gradient overlay — full cover on mobile, left-side fade on desktop */}
       <div
         className="absolute inset-0"
+        style={{
+          background: "linear-gradient(to bottom, rgba(11,26,51,0.7) 0%, rgba(11,26,51,0.85) 60%, #0B1A33 100%)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 hidden sm:block"
         style={{
           background:
             "linear-gradient(to right, #0B1A33 0%, #0B1A33 35%, rgba(11,26,51,0.85) 50%, rgba(11,26,51,0.4) 70%, transparent 90%)",
         }}
+        aria-hidden
       />
 
       {/* Content */}
@@ -62,8 +73,11 @@ export function HeroSection() {
 
           {/* Mobile-only CTA */}
           <div className="sm:hidden mt-6">
-            <button className="h-12 rounded-full border-2 border-[#c6a000] text-white text-[15px] font-[600] hover:bg-[#c6a000]/10 transition-colors px-6">
-              Download Start Form
+            <button
+              onClick={() => navigate("/get-started")}
+              className="h-12 rounded-full bg-[#D4A800] text-[#0F1E38] text-[15px] font-[700] hover:bg-[#E0B800] transition-colors px-6"
+            >
+              Get Started with ICLUSIG
             </button>
           </div>
         </div>
