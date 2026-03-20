@@ -202,11 +202,9 @@ export function TopNav() {
             alt="ICLUSIG® (ponatinib) tablets"
             className="h-12 xl:h-14 transition-all duration-300"
             style={{
-              filter: isDarkBg && !isScrolled
-                ? "brightness(0) invert(1)"
-                : isScrolled
-                  ? "none"
-                  : "drop-shadow(0 0 6px rgba(255,255,255,0.8)) drop-shadow(0 0 12px rgba(255,255,255,0.5))",
+              filter: isScrolled
+                ? "none"
+                : "brightness(0) invert(1)",
             }}
           />
         </div>
