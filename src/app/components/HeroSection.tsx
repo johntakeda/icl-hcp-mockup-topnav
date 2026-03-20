@@ -21,7 +21,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(11,26,51,0.7) 0%, rgba(11,26,51,0.85) 60%, #0B1A33 100%)",
+          background: "linear-gradient(to bottom, rgba(11,26,51,0.3) 0%, rgba(11,26,51,0.5) 60%, rgba(11,26,51,0.7) 100%)",
         }}
         aria-hidden
       />
@@ -29,7 +29,7 @@ export function HeroSection() {
         className="absolute inset-0 hidden sm:block"
         style={{
           background:
-            "linear-gradient(to right, #0B1A33 0%, #0B1A33 35%, rgba(11,26,51,0.85) 50%, rgba(11,26,51,0.4) 70%, transparent 90%)",
+            "linear-gradient(to right, #0B1A33 0%, #0B1A33 30%, rgba(11,26,51,0.6) 45%, rgba(11,26,51,0.2) 60%, transparent 75%)",
         }}
         aria-hidden
       />
@@ -46,8 +46,8 @@ export function HeroSection() {
               lineHeight: 1.05,
             }}
           >
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]  tracking-wide">LET THE DATA</span>
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] tracking-wide">LEAD YOU</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]  tracking-wide">Start Strong,</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] tracking-wide">Resist Mutations</span>
           </h1>
 
           {/* Chips - stacked on mobile, inline on larger */}

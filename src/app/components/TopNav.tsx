@@ -90,6 +90,7 @@ export function TopNav() {
   const [activeToggle, setActiveToggle] = useState<"hcp" | "patient">("hcp");
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [isDarkBg, setIsDarkBg] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
@@ -115,6 +116,7 @@ export function TopNav() {
     checkBackground();
 
     const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
       cancelAnimationFrame(rafRef.current);
       rafRef.current = requestAnimationFrame(checkBackground);
     };
@@ -153,13 +155,17 @@ export function TopNav() {
     <header
       ref={headerRef}
       className="hidden lg:block fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{ fontFamily: "Inter, system-ui, sans-serif" }}
+      style={{
+        fontFamily: "Inter, system-ui, sans-serif",
+        background: isScrolled ? "#FFFFFF" : "transparent",
+        boxShadow: isScrolled ? "0 1px 3px rgba(0,0,0,0.1)" : "none",
+      }}
     >
       {/* Utility text row */}
       <div className="flex items-center justify-end gap-4 px-20 xl:px-32 pt-3 pb-1">
         <span
           className="text-[11px] transition-colors duration-300"
-          style={{ color: isDarkBg ? "rgba(255,255,255,0.6)" : "#6B7280" }}
+          style={{ color: isDarkBg && !isScrolled ? "rgba(255,255,255,0.6)" : "#6B7280" }}
         >
           This site is for US Healthcare Professionals only.
         </span>
@@ -169,7 +175,7 @@ export function TopNav() {
           }
           className="text-[11px] font-[600] underline underline-offset-2 transition-colors duration-300"
           style={{
-            color: isDarkBg ? "rgba(255,255,255,0.85)" : "#0F1E38",
+            color: isDarkBg && !isScrolled ? "rgba(255,255,255,0.85)" : "#0F1E38",
             textDecorationColor: "#c6a000",
           }}
         >
@@ -182,7 +188,8 @@ export function TopNav() {
         {/* Large logo — symbol never changes color, text switches */}
         <div
           ref={logoRef}
-          className="flex-shrink-0 cursor-pointer pt-2 flex items-center gap-2"
+          className="flex-shrink-0 cursor-pointer pt-2 flex items-center gap-2 transition-transform duration-300 origin-left"
+          style={{ transform: isScrolled ? "scale(1)" : "scale(1.15)" }}
           onClick={() => navigate("/")}
         >
           <img
@@ -195,9 +202,11 @@ export function TopNav() {
             alt="ICLUSIG® (ponatinib) tablets"
             className="h-12 xl:h-14 transition-all duration-300"
             style={{
-              filter: isDarkBg
+              filter: isDarkBg && !isScrolled
                 ? "brightness(0) invert(1)"
-                : "drop-shadow(0 0 6px rgba(255,255,255,0.8)) drop-shadow(0 0 12px rgba(255,255,255,0.5))",
+                : isScrolled
+                  ? "none"
+                  : "drop-shadow(0 0 6px rgba(255,255,255,0.8)) drop-shadow(0 0 12px rgba(255,255,255,0.5))",
             }}
           />
         </div>
@@ -205,18 +214,23 @@ export function TopNav() {
         {/* Floating glass nav bar */}
         <div
           className="flex items-center gap-0.5 px-2 py-2 transition-all duration-300"
-          style={{
+          style={isScrolled ? {
+            background: "transparent",
+            border: "none",
+            borderRadius: "0",
+            boxShadow: "none",
+          } : {
             background: isDarkBg
-              ? "rgba(255, 255, 255, 0.12)"
+              ? "rgba(10, 25, 55, 0.85)"
               : "rgba(255, 255, 255, 0.72)",
             backdropFilter: "blur(20px) saturate(180%)",
             WebkitBackdropFilter: "blur(20px) saturate(180%)",
             border: isDarkBg
-              ? "1px solid rgba(255, 255, 255, 0.2)"
+              ? "1px solid rgba(255, 255, 255, 0.15)"
               : "1px solid rgba(255, 255, 255, 0.5)",
             borderRadius: "16px",
             boxShadow: isDarkBg
-              ? "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15)"
+              ? "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1)"
               : "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.6)",
           }}
         >
@@ -228,21 +242,22 @@ export function TopNav() {
               const isAccented = !!item.accentColor;
               const alignRight = index >= allNavItems.length - 3;
 
-              const textColor = isDarkBg
-                ? isOpen
-                  ? "rgba(255,255,255,1)"
-                  : "rgba(255,255,255,0.85)"
-                : isAccented
+              const useDarkText = isScrolled || !isDarkBg;
+              const textColor = useDarkText
+                ? isAccented
                   ? "#0F1E38"
                   : isOpen
                     ? "#237EBF"
-                    : "#374151";
+                    : "#374151"
+                : isOpen
+                  ? "rgba(255,255,255,1)"
+                  : "rgba(255,255,255,0.85)";
 
-              const chevronColor = isDarkBg
-                ? "rgba(255,255,255,0.5)"
-                : isAccented
+              const chevronColor = useDarkText
+                ? isAccented
                   ? "#6B7280"
-                  : "#9CA3AF";
+                  : "#9CA3AF"
+                : "rgba(255,255,255,0.5)";
 
               return (
                 <div
@@ -252,14 +267,14 @@ export function TopNav() {
                   onMouseLeave={scheduleClose}
                 >
                   <button
-                    className={`flex items-center gap-1 px-3 xl:px-4 py-2 rounded-xl text-[13px] xl:text-[14px] font-[500] transition-all whitespace-nowrap ${
+                    className={`flex items-center gap-1 px-3 xl:px-4 py-2 rounded-xl text-[16px] xl:text-[17px] font-[600] transition-all whitespace-nowrap ${
                       isOpen
-                        ? isDarkBg
-                          ? "bg-white/[0.12]"
-                          : "bg-black/[0.06]"
-                        : isDarkBg
-                          ? "hover:bg-white/[0.08]"
-                          : "hover:bg-black/[0.03]"
+                        ? useDarkText
+                          ? "bg-black/[0.06]"
+                          : "bg-white/[0.12]"
+                        : useDarkText
+                          ? "hover:bg-black/[0.03]"
+                          : "hover:bg-white/[0.08]"
                     }`}
                     style={{ color: textColor }}
                   >
@@ -333,7 +348,7 @@ export function TopNav() {
           <div className="pl-1 pr-1">
             <button
               onClick={() => navigate("/get-started")}
-              className="h-9 rounded-xl text-[13px] xl:text-[14px] font-[600] transition-all duration-300 px-5 whitespace-nowrap"
+              className="h-9 rounded-xl text-[16px] xl:text-[17px] font-[700] transition-all duration-300 px-5 whitespace-nowrap"
               style={{
                 background: "#D4A800",
                 color: "#0F1E38",
