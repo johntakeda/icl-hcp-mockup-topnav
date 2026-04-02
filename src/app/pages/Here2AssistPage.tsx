@@ -8,9 +8,10 @@ import { ChevronRight } from "lucide-react";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
+      className="w-full py-10 lg:pt-40"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
       <div className="max-w-4xl">
         <h1 className="text-white text-[22px] md:text-[28px] lg:text-[34px] font-[800] leading-tight mb-3">
           Takeda Patient Support offers a range of resources to help support your patients
@@ -18,6 +19,7 @@ function HeroBanner() {
         <p className="text-white/80 text-[15px] md:text-[17px] font-[600] leading-snug">
           Patient assistance can help with coverage, financial assistance, and more
         </p>
+      </div>
       </div>
     </section>
   );
@@ -77,7 +79,7 @@ export function Here2AssistPage() {
       <HeroBanner />
 
       {/* Main content */}
-      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl">
 
           {/* ── Takeda Oncology Here2Assist section ── */}
@@ -243,7 +245,7 @@ export function Here2AssistPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-8 md:px-20 xl:px-32 pb-8 md:pb-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Download resources for your office, staff, and patients"

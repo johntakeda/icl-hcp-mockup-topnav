@@ -22,7 +22,6 @@ import {
   Landmark,
   PackageCheck,
   TrendingUp,
-  BarChart3,
   Timer,
   DollarSign,
   BookOpen,
@@ -34,11 +33,11 @@ const SECTIONS = [
   { id: "start-here", label: "Start Here" },
   { id: "here2assist", label: "Here2Assist®" },
   { id: "financial", label: "Financial Support" },
-  { id: "coverage", label: "Coverage, PA & Appeals" },
-  { id: "foundation-care", label: "Ordering" },
+  { id: "coverage", label: "Coverage" },
+  { id: "foundation-care", label: "Order" },
   { id: "transition", label: "Transition of Care" },
   { id: "pharmacist", label: "Pharmacists" },
-  { id: "contact", label: "Contact & Downloads" },
+  { id: "contact", label: "Contact" },
 ] as const;
 
 /* ─── Main page ─── */
@@ -126,19 +125,18 @@ export function PatientSupportPage() {
             background: "linear-gradient(135deg, rgba(11,58,92,0.92) 0%, rgba(10,47,74,0.85) 50%, rgba(10,47,74,0.7) 100%)",
           }}
         />
-        <div className="relative z-10 px-8 md:px-20 xl:px-32 py-20 md:py-28 lg:pt-48 lg:pb-32">
-          <p className="text-white/70 text-[13px] tracking-wide uppercase mb-4">For US Healthcare Professionals</p>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pt-52 md:pt-60 lg:pt-72 pb-32 md:pb-40 lg:pb-48">
+       
           <h1 className="text-white text-[32px] md:text-[40px] lg:text-[48px] font-[800] leading-[1.1] mb-5 max-w-[720px]">
-            Patient Support &amp; Access
-
+            Access &amp; Patient Support
           </h1>
 
 
           {/* CTA row */}
           <div className="flex flex-wrap gap-3 mb-8">
-            <Btn variant="primary" onClick={() => scrollTo("here2assist")}>Enroll in Here2Assist®</Btn>
-            <Btn variant="secondary" onClick={() => scrollTo("coverage")}>Get Appeals Support Tools</Btn>
-            <Btn variant="secondary" onClick={() => scrollTo("foundation-care")}>Foundation Care® / Ordering</Btn>
+            <Btn variant="primary" onClick={() => scrollTo("start-here")}>Start Here</Btn>
+            <Btn variant="secondary" onClick={() => scrollTo("here2assist")}>Here2Assist®</Btn>
+            <Btn variant="secondary" onClick={() => scrollTo("foundation-care")}>Ordering</Btn>
           </div>
 
           {/* Utility links */}
@@ -153,59 +151,40 @@ export function PatientSupportPage() {
       {/* Sentinel for sticky detection */}
       <div ref={sentinelRef} className="h-0 w-full" aria-hidden="true" />
 
-      {/* ─── 2 FLOATING PILL SUB-NAV ─── */}
+      {/* ─── 2 STICKY ANCHOR NAV ─── */}
       <div
         ref={navRef}
-        className="sticky top-[88px] z-30 flex justify-end px-8 md:px-20 xl:px-32 py-3 pointer-events-none"
+        className="sticky z-30 transition-all duration-300"
+        style={{
+          top: navStuck ? "52px" : "0px",
+          backgroundColor: navStuck ? "#E5E7EB" : "#ffffff",
+          borderBottom: navStuck ? "1px solid #D1D5DB" : "1px solid #E3E8EF",
+          boxShadow: navStuck ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
+        }}
       >
-        <div
-          className="pointer-events-auto relative"
-          style={{
-            maxWidth: "calc(100vw - 32px)",
-          }}
-        >
+        <div className="relative max-w-[1200px] mx-auto">
           <div
             ref={scrollContainerRef}
-            className="flex items-center gap-0.5 px-2 py-1.5 overflow-x-auto scrollbar-hide transition-all duration-300"
+            className="overflow-x-auto scrollbar-hide"
             onScroll={checkOverflow}
-            style={{
-              background: navStuck
-                ? "rgba(14, 30, 56, 0.92)"
-                : "rgba(255, 255, 255, 0.85)",
-              backdropFilter: "blur(20px) saturate(180%)",
-              WebkitBackdropFilter: "blur(20px) saturate(180%)",
-              border: navStuck
-                ? "1px solid rgba(255, 255, 255, 0.12)"
-                : "1px solid rgba(255, 255, 255, 0.5)",
-              borderRadius: "16px",
-              boxShadow: navStuck
-                ? "0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.08)"
-                : "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.6)",
-            }}
           >
-            <nav className="flex items-center gap-0.5 min-w-max" aria-label="Page sections">
+            <nav className="flex items-end min-w-max px-6 md:px-10 lg:px-12 pt-1" aria-label="Page sections">
               {SECTIONS.map(({ id, label }) => (
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
-                  className={`whitespace-nowrap px-3 xl:px-4 py-2 rounded-xl text-[13px] xl:text-[14px] font-[500] transition-all ${
+                  className="whitespace-nowrap px-4 py-1.5 text-[13px] md:text-[14px] font-[600] rounded-t-lg transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]"
+                  style={
                     activeSection === id
-                      ? navStuck
-                        ? "bg-white/[0.15]"
-                        : "bg-black/[0.06]"
-                      : navStuck
-                        ? "hover:bg-white/[0.08]"
-                        : "hover:bg-black/[0.03]"
-                  }`}
-                  style={{
-                    color: navStuck
-                      ? activeSection === id
-                        ? "rgba(255,255,255,1)"
-                        : "rgba(255,255,255,0.55)"
-                      : activeSection === id
-                        ? "#0F1E38"
-                        : "#6B7280",
-                  }}
+                      ? {
+                          color: navStuck ? "#ffffff" : "#ffffff",
+                          backgroundColor: "#0B1A33",
+                        }
+                      : {
+                          color: navStuck ? "#4B5563" : "rgba(27,36,48,0.6)",
+                          backgroundColor: "transparent",
+                        }
+                  }
                 >
                   {label}
                 </button>
@@ -219,29 +198,30 @@ export function PatientSupportPage() {
             style={{ opacity: canScrollRight ? 1 : 0, pointerEvents: canScrollRight ? "auto" : "none" }}
           >
             <div
-              className="h-full w-12 rounded-r-2xl"
+              className="h-full w-20"
               style={{
                 background: navStuck
-                  ? "linear-gradient(to right, transparent, rgba(14,30,56,0.95) 70%)"
-                  : "linear-gradient(to right, transparent, rgba(255,255,255,0.9) 70%)",
+                  ? "linear-gradient(to right, transparent, #E5E7EB 70%)"
+                  : "linear-gradient(to right, transparent, white 70%)",
               }}
             />
             <button
               onClick={scrollNavRight}
-              className="absolute right-1 flex items-center gap-1 rounded-full pl-2 pr-1.5 py-1 cursor-pointer transition-colors"
+              className="absolute right-2 flex items-center gap-1 rounded-full pl-2.5 pr-1.5 py-1 cursor-pointer transition-colors"
               style={{
-                backgroundColor: navStuck ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.05)",
+                backgroundColor: navStuck ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.9)",
+                boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
                 animation: "nudge-right 1.5s ease-in-out infinite",
               }}
               aria-label="Scroll to see more menu items"
             >
               <span
                 className="text-[10px] font-[500] whitespace-nowrap"
-                style={{ color: navStuck ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)" }}
+                style={{ color: navStuck ? "#4B5563" : "rgba(27,36,48,0.5)" }}
               >
                 More
               </span>
-              <ChevronRight size={14} style={{ color: navStuck ? "rgba(255,255,255,0.7)" : "rgba(0,0,0,0.5)" }} />
+              <ChevronRight size={14} className={navStuck ? "text-[#4B5563]" : "text-[#0A8F8A]"} />
             </button>
           </div>
         </div>
@@ -255,8 +235,8 @@ export function PatientSupportPage() {
       `}</style>
 
       {/* ─── 3 START HERE ─── */}
-      <section id="start-here" className="bg-white scroll-mt-[140px]">
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+      <section id="start-here" className="bg-white scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel>Getting Started</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Start therapy fast: 3 steps for offices
@@ -315,8 +295,8 @@ export function PatientSupportPage() {
 
       {/* ─── 4 HERE2ASSIST ─── */}
       {/* CHANGE D: Enrollment moved to top, added FRD CTA and branding copy */}
-      <section id="here2assist" className="bg-white scroll-mt-[140px]">
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+      <section id="here2assist" className="bg-white scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel>Program Overview</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Takeda Oncology Here2Assist®
@@ -368,8 +348,8 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 5 FINANCIAL SUPPORT (MOVED UP per Change E) ─── */}
-      <section id="financial" className="bg-white scroll-mt-[140px]">
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+      <section id="financial" className="bg-white scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel>Financial Assistance</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Financial support pathways
@@ -383,9 +363,9 @@ export function PatientSupportPage() {
             <DollarSign size={18} className="text-[#0A8F8A] flex-shrink-0" />
             <div>
               <p className="text-[#1B2430] text-[15px] font-[600]">
-                Over [XX%] of patients pay [$x-$x] out of pocket. <span className="text-[#1B2430]/50 text-[13px] font-[400]">[PLACEHOLDER—pending PVA analytics + approval]</span>
+                ~90% of ICLUSIG patients pay $0-$1 out of pocket.*
               </p>
-              <p className="text-[#1B2430]/40 text-[11px]">Placeholder data and text to be changed</p>
+              <p className="text-[#1B2430]/50 text-[12px]">*Data on file; 2025.</p>
             </div>
           </div>
 
@@ -395,7 +375,7 @@ export function PatientSupportPage() {
             <FinanceCard
               icon={<HandCoins size={28} className="text-[#0A8F8A]" />}
               title="Copay support"
-              desc={<>Eligible commercially insured patients may pay as little as $0. <span className="text-[#1B2430]/40 text-[12px]">[PLACEHOLDER—final approved language required]</span></>}
+              desc="The Takeda Oncology Co-Pay Assistance Program may help eligible commercially insured patients pay as little as $0."
             />
             {/* Tile 2: Patient assistance — reduced prominence */}
             <div className="border border-[#E3E8EF] rounded-lg p-6">
@@ -427,8 +407,8 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 6 COVERAGE, PA & APPEALS (was section 5, now after Financial) ─── */}
-      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-[140px]">
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel>Coverage Tools</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Coverage, PA and appeals support
@@ -437,33 +417,27 @@ export function PatientSupportPage() {
           {/* CHANGE G2: Coverage confidence snapshot */}
           <div className="mb-12">
           
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
               <StatCard
                 icon={<TrendingUp size={22} className="text-[#0A8F8A]" />}
-                label="Coverage success"
-                value="~[8 out of 10 / XX%]"
-                desc="ICLUSIG commercial new starts are ultimately covered."
-              />
-              <StatCard
-                icon={<BarChart3 size={22} className="text-[#0A8F8A]" />}
-                label="PA approval"
-                value="[XX%]"
-                desc="New patient PA approval rate."
+                label="Approval Rate"
+                value=">95%"
+                desc="of claims for ICLUSIG patients are covered by payers."
               />
               <StatCard
                 icon={<Timer size={22} className="text-[#0A8F8A]" />}
-                label="Speed to therapy"
-                value="[XX days]"
-                desc="Time to first fill (target ≤ 10 days)."
+                label="Speed to Therapy"
+                value="7 days"
+                desc="Over half of ICLUSIG new patients receive ICLUSIG in 7 days after Rx (industry average for specialty oral is 8-10 days)."
               />
               <StatCard
                 icon={<DollarSign size={22} className="text-[#0A8F8A]" />}
-                label="Affordability"
-                value="[XX%]"
-                desc="Pay $0–$1 out of pocket."
+                label="Out of Pocket Cost"
+                value="~90%"
+                desc="of ICLUSIG patients pay $0-$1 out of pocket."
               />
             </div>
-            <p className="text-[#1B2430]/40 text-[12px] italic">Final metrics pending validation and approval.</p>
+            <p className="text-[#1B2430]/50 text-[12px]">*Data on file; 2025.</p>
           </div>
 
           <p className="text-[#0A8F8A] text-[18px] font-[600] mb-8">Appeals support tools</p>
@@ -533,28 +507,14 @@ export function PatientSupportPage() {
 
       {/* ─── 7 FOUNDATION CARE & ORDERING ─── */}
       {/* CHANGE H4: Unified background color */}
-      <section id="foundation-care" className="scroll-mt-[140px]" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
+      <section id="foundation-care" className="scroll-mt-14" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
         {/* Navy callout band */}
-        <div className="px-8 md:px-20 xl:px-32 py-10 md:py-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-10 md:py-14">
           <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
-          <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Foundation Care® and ordering ICLUSIG
+          <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-10">
+            How to order ICLUSIG
           </h2>
 
-         
-          {/* CHANGE H3: Text paragraphs above cards */}
-          <div className="space-y-4 mb-10">
-            <p className="text-white/90 text-[15px] leading-[1.7]">
-              ICLUSIG may be purchased directly from our distribution partner* and dispensed through accounts that have a medically integrated pharmacy.
-            </p>
-            <p className="text-white/90 text-[15px] leading-[1.7]">
-              ICLUSIG can be filled through AcariaHealth. If your institution does not have medically integrated dispensing capabilities or chooses not to fill a ICLUSIG prescription through your medically integrated pharmacy, ICLUSIG may be ordered and filled through AcariaHealth. Sending an ICLUSIG prescription to a pharmacy that is either not your institution's medically integrated pharmacy or an alternate pharmacy may result in delay or nonfulfillment of the prescription.
-            </p>
-          </div>
-        </div>
-
-        {/* Two cards — CHANGE H4: same background */}
-        <div className="px-8 md:px-20 xl:px-32 pb-12 md:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* AcariaHealth */}
             <div className="border border-white/20 rounded-lg overflow-hidden">
@@ -562,53 +522,54 @@ export function PatientSupportPage() {
                 <h3 className="text-white text-[18px] font-[700]">
                   AcariaHealth
                 </h3>
-                <p className="text-white/70 text-[13px]">Exclusive integrated specialty pharmacy</p>
+                <p className="text-white/70 text-[13px]">Integrated Specialty Pharmacy</p>
               </div>
               <div className="p-6">
+                <p className="text-white font-[600] text-[15px] mb-4">ICLUSIG is available through an exclusive, integrated specialty pharmacy:</p>
                 <ContactLineWhite icon={<Phone size={16} />} label="Phone" value="833-442-8911" />
+                <p className="text-white/70 text-[13px] mt-1">www.acariahealth.com</p>
                 <div className="mt-5 space-y-3">
-                  <h4 className="text-white text-[15px] font-[600]">Two ways to order:</h4>
+                  <h4 className="text-white text-[15px] font-[600]">There are 2 ways to order ICLUSIG via the AcariaHealth Specialty Pharmacy:</h4>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-[#0A8F8A] mt-0.5 flex-shrink-0" />
-                    <span className="text-white text-[15px]">E-prescribe to AcariaHealth</span>
+                    <span className="text-white text-[15px]">Submit the ICLUSIG prescription to any AcariaHealth in your e-prescribing system</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 size={18} className="text-[#0A8F8A] mt-0.5 flex-shrink-0" />
-                    <span className="text-white text-[15px]">Use referral form + fax as directed</span>
+                    <span className="text-white text-[15px]">Complete the ICLUSIG Referral Form provided by AcariaHealth at <a href="https://www.acariahealth.com/referral_forms.html" target="_blank" rel="noopener noreferrer" className="text-[#0A8F8A] underline underline-offset-2 hover:text-[#0cc5be]">acariahealth.com/referral_forms</a> and fax to AcariaHealth as directed on the form</span>
                   </div>
                 </div>
-                {/* Warning */}
-                <div className="mt-6 bg-[#FFF8E1] border-l-4 border-[#F2C94C] rounded-r-lg p-4 flex gap-3">
-                  <AlertTriangle size={20} className="text-[#c6a000] flex-shrink-0 mt-0.5" />
-                  <p className="text-[#1B2430] text-[13px] leading-[1.6]">
-                    <span className="font-[700]">Important:</span> ICLUSIG must be filled through
-                    AcariaHealth. Use of an alternate pharmacy may delay or result in nonfulfillment
-                    of the prescription.
-                  </p>
-                </div>
+                <p className="text-white/70 text-[14px] mt-5 leading-[1.6]">
+                  ICLUSIG can be filled through AcariaHealth. If your institution does not have medically integrated dispensing capabilities or chooses not to fill a ICLUSIG prescription through your medically integrated pharmacy, ICLUSIG may be ordered and filled through AcariaHealth. Sending an ICLUSIG prescription to a pharmacy that is either not your institution's medically integrated pharmacy or an alternate pharmacy may result in delay or nonfulfillment of the prescription.
+                </p>
               </div>
             </div>
 
             {/* Foundation Care */}
             <div className="border border-white/20 rounded-lg overflow-hidden">
-              <div className="bg-[#0A8F8A] px-6 py-4">
+              <div className="bg-white/10 px-6 py-4">
                 <h3 className="text-white text-[18px] font-[700]">
                   Foundation Care
                 </h3>
-                <p className="text-white/70 text-[13px]">ICLUSIGDirect Purchase Program</p>
+                <p className="text-white/70 text-[13px]">An AcariaHealth Solution — ICLUSIGDirect Purchase Program</p>
               </div>
               <div className="p-6">
+                <p className="text-white font-[600] text-[15px] mb-4">ICLUSIG may be purchased directly from our distribution partner:</p>
                 <ContactLineWhite icon={<Phone size={16} />} label="Phone" value="833-291-2773" />
-                <p className="text-white/70 text-[14px] mt-5 mb-6 max-w-[400px]">
-                  Distribution partner resources for purchasing and access. Contact Foundation Care
-                  for information about ICLUSIGDirect and institutional ordering.
+                <p className="text-white/70 text-[13px] mt-1">www.ICLUSIGDirect.com</p>
+                <p className="text-white font-[600] text-[14px] mt-5 mb-5 leading-[1.6]">
+                  ICLUSIG may be purchased directly from our distribution partner and dispensed through accounts that have a medically integrated pharmacy.
                 </p>
-                <Btn variant="primary">Request Foundation Care / ICLUSIGDirect Information</Btn>
+                <p className="text-white font-[600] text-[14px] mb-6 leading-[1.6]">
+                  If you need to set up an ICLUSIG Direct account, please use the below link to the application. Please contact Foundation Care directly at 833.291.2773 to place orders for ICLUSIG.
+                </p>
+                <a href="https://iclusigdirect.com/files/ICLUSIGdirect-CustomerApp_20240606v2Form.pdf" target="_blank" rel="noopener noreferrer">
+                  <Btn variant="primary" icon={<ExternalLink size={14} />}>ICLUSIGDirect Application</Btn>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* CHANGE H3: FRD CTA button */}
           <div className="flex justify-center">
             <Btn variant="secondary-light" onClick={() => {/* Opens Request form preselected to FRD */}}>Contact an FRD</Btn>
           </div>
@@ -616,8 +577,8 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 8 TRANSITION OF CARE ─── */}
-      <section id="transition" className="bg-[#F5F7FA] scroll-mt-[140px]">
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+      <section id="transition" className="bg-[#F5F7FA] scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel>Continuity Planning</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Transition of care
@@ -664,8 +625,8 @@ export function PatientSupportPage() {
 
       {/* ─── 9 PHARMACISTS ─── */}
       {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
-      <section id="pharmacist" className="bg-white scroll-mt-[140px]">
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+      <section id="pharmacist" className="bg-white scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel>Pharmacy Resources</SectionLabel>
           <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
             Pharmacists
@@ -724,10 +685,10 @@ export function PatientSupportPage() {
       {/* ─── 10 CONTACT & DOWNLOADS ─── */}
       <section
         id="contact"
-        className="scroll-mt-[140px]"
+        className="scroll-mt-14"
         style={{ background: "linear-gradient(135deg, #0A2F4A 0%, #0B3A5C 100%)" }}
       >
-        <div className="px-8 md:px-20 xl:px-32 py-16 md:py-20">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <SectionLabel light>Get in Touch</SectionLabel>
           <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-8">
             Contact support
@@ -934,7 +895,7 @@ function BulletItem({ icon, text }: { icon: React.ReactNode; text: string }) {
 /* ── Divider ── */
 function Divider() {
   return (
-    <div className="px-8 md:px-20 xl:px-32">
+    <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
       <div className="border-t border-[#E3E8EF]" />
     </div>
   );

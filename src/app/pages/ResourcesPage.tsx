@@ -138,10 +138,10 @@ const PATIENT_RESOURCES: ResourceItem[] = [
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
+      className="w-full py-10 lg:pt-40"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
-      <div className="max-w-4xl">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <h1 className="text-white text-[22px] md:text-[28px] lg:text-[34px] font-[800] leading-tight mb-3">
           ICLUSIG Patient Management Resources
         </h1>
@@ -160,7 +160,7 @@ function AnchorNav() {
 
   return (
     <nav className="w-full border-b border-[#E3E8EF] bg-white">
-      <div className="px-8 md:px-20 xl:px-32">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <div className="max-w-4xl flex flex-wrap gap-x-6 gap-y-1">
           <button
             onClick={() => scrollTo("hcp")}
@@ -249,7 +249,7 @@ export function ResourcesPage() {
       <AnchorNav />
 
       {/* Healthcare Professional Resources */}
-      <section id="hcp" className="px-8 md:px-20 xl:px-32 py-8 md:py-12 scroll-mt-16">
+      <section id="hcp" className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12 scroll-mt-16">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[700] leading-snug mb-8">
             Healthcare Professional Resources
@@ -266,7 +266,7 @@ export function ResourcesPage() {
       {/* Patient Access Resources */}
       <section
         id="patient"
-        className="px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA] scroll-mt-16"
+        className="py-8 md:py-12 bg-[#F5F7FA] scroll-mt-16"
       >
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[700] leading-snug mb-8">
@@ -282,7 +282,7 @@ export function ResourcesPage() {
       </section>
 
       {/* Additional resources callout */}
-      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-10">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-10">
         <div className="max-w-4xl">
           <p className="text-[#1B2430] text-[14px] md:text-[15px] font-[700] leading-relaxed">
             Additional resources for your patients can be found on the{" "}
@@ -300,7 +300,7 @@ export function ResourcesPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-8 md:px-20 xl:px-32 pb-8 md:pb-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Learn about Takeda Oncology Here2Assist\u00ae patient support program"

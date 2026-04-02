@@ -35,7 +35,7 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 px-8 sm:px-20 xl:px-32 py-12 sm:py-16 lg:py-20 min-h-screen flex flex-col justify-start pt-28 sm:pt-32 lg:pt-44">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-12 sm:py-16 lg:py-20 min-h-screen flex flex-col justify-start pt-28 sm:pt-32 lg:pt-44">
         <div className="max-w-[600px]">
           {/* Headline */}
           <h1

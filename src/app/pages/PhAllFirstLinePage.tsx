@@ -17,17 +17,19 @@ import dosing3RsImg from "@/imports/pages/ph-all/ph-3rs_013026.svg";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
+      className="w-full py-10 lg:pt-40"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
-      <div className="max-w-4xl">
-        <h1 className="text-white text-[22px] md:text-[28px] lg:text-[34px] font-[800] leading-tight mb-3">
-          Redefine Ph+ ALL treatment for newly diagnosed patients
-        </h1>
-        <p className="text-white/90 text-[14px] md:text-[16px] font-[700] leading-snug">
-          The FIRST and ONLY FDA-APPROVED TKI for adults with NEWLY DIAGNOSED
-          Ph+ ALL, in combination with chemotherapy<sup className="text-[60%]">1</sup>
-        </p>
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
+        <div className="max-w-4xl">
+          <h1 className="text-white text-[22px] md:text-[28px] lg:text-[34px] font-[800] leading-tight mb-3">
+            Redefine Ph+ ALL treatment for newly diagnosed patients
+          </h1>
+          <p className="text-white/90 text-[14px] md:text-[16px] font-[700] leading-snug">
+            The FIRST and ONLY FDA-APPROVED TKI for adults with NEWLY DIAGNOSED
+            Ph+ ALL, in combination with chemotherapy<sup className="text-[60%]">1</sup>
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -47,7 +49,7 @@ function AnchorNav({ activeId }: { activeId: string }) {
 
   return (
     <nav className="sticky top-[88px] z-20 bg-white border-b border-[#E3E8EF] overflow-x-auto">
-      <div className="flex gap-0 min-w-max px-8 md:px-20 xl:px-32">
+      <div className="flex gap-0 min-w-max max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -150,7 +152,7 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       {/* STUDY DESIGN                                                  */}
       {/* ============================================================ */}
-      <section id="study" className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section id="study" className="scroll-mt-[140px] max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
             Study design: PhALLCON was the first head-to-head phase 3 clinical
@@ -238,8 +240,9 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       <section
         id="efficacy"
-        className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]"
+        className="scroll-mt-[140px] py-8 md:py-12 bg-[#F5F7FA]"
       >
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
             ICLUSIG Efficacy: Significantly superior rate of MRD-negative CR with
@@ -434,12 +437,13 @@ export function PhAllFirstLinePage() {
             </Footnote>
           </div>
         </div>
+        </div>
       </section>
 
       {/* ============================================================ */}
       {/* SAFETY PROFILE                                                */}
       {/* ============================================================ */}
-      <section id="safety" className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section id="safety" className="scroll-mt-[140px] max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             Safety profile: In adults with newly diagnosed Ph+ ALL, ICLUSIG +
@@ -572,8 +576,9 @@ export function PhAllFirstLinePage() {
       {/* ============================================================ */}
       <section
         id="dosing"
-        className="scroll-mt-[140px] px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]"
+        className="scroll-mt-[140px] py-8 md:py-12 bg-[#F5F7FA]"
       >
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-6">
             Optimized dosing with ICLUSIG + chemotherapy for adults with newly
@@ -597,10 +602,11 @@ export function PhAllFirstLinePage() {
             />
           </div>
         </div>
+        </div>
       </section>
 
       {/* CTA cards */}
-      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="Review the comprehensive ICLUSIG dosing guide for patients with newly diagnosed Ph+ ALL"

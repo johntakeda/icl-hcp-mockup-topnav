@@ -8,9 +8,10 @@ import { ChevronRight } from "lucide-react";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
+      className="w-full py-10 lg:pt-40"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
       <div className="max-w-4xl">
         <h1 className="text-white text-[22px] md:text-[28px] lg:text-[34px] font-[800] leading-tight mb-4">
           T315I is the most common mutation in TKI-resistant CML
@@ -20,6 +21,7 @@ function HeroBanner() {
           Among patients with a BCR::ABL1 mutation, the frequency of the T315I
           mutation was 10-27%.<sup className="text-[60%]">2,4-6,a</sup>
         </p>
+      </div>
       </div>
     </section>
   );
@@ -120,7 +122,7 @@ export function CmlT315iMutationPage() {
       <HeroBanner />
 
       {/* Literature review findings */}
-      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#1B2430] text-[18px] md:text-[22px] lg:text-[26px] font-[700] leading-snug mb-4">
             Reviews of the clinical literature showed that:
@@ -184,7 +186,7 @@ export function CmlT315iMutationPage() {
       </section>
 
       {/* CTA cards */}
-      <section className="px-8 md:px-20 xl:px-32 pb-8 md:pb-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pb-8 md:pb-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="ICLUSIG 5-year safety data in CP-CML"
@@ -202,7 +204,7 @@ export function CmlT315iMutationPage() {
       </section>
 
       {/* Abbreviations */}
-      <section className="px-8 md:px-20 xl:px-32 pb-8">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           CCyR=complete cytogenetic response; CML=chronic myeloid leukemia;
           CP-CML=chronic phase chronic myeloid leukemia; MCyR=major cytogenetic

@@ -17,10 +17,10 @@ import opticDeathResponse from "@/imports/pages/efficacy/death-respnose_092625_0
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
+      className="w-full py-10 lg:pt-40"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
-      <div className="max-w-4xl">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <h1 className="text-white text-[22px] md:text-[28px] lg:text-[34px] font-[800] leading-tight mb-4">
           OPTIC: A trial built with an optimized dosing strategy to manage
           tolerability without compromising efficacy<sup className="text-[60%]">1</sup>
@@ -39,7 +39,7 @@ function HeroBanner() {
 function AnchorNav() {
   return (
     <nav className="w-full bg-[#F5F7FA] border-b border-[#E3E8EF]">
-      <div className="px-8 md:px-20 xl:px-32 max-w-4xl">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <ul className="flex flex-wrap gap-x-6 gap-y-2 py-3 text-[13px] md:text-[14px] font-[600] text-[#237EBF]">
           <li>
             <a href="#trialdesign" className="hover:underline">
@@ -201,7 +201,7 @@ export function CmlOpticEfficacyPage() {
       <AnchorNav />
 
       {/* ---- Trial Design ---- */}
-      <section id="trialdesign" className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section id="trialdesign" className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[800] uppercase tracking-wide mb-6">
             OPTIC Trial Design
@@ -255,7 +255,8 @@ export function CmlOpticEfficacyPage() {
       </section>
 
       {/* ---- Patient Characteristics ---- */}
-      <section id="optimizeddosingstrategy" className="px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]">
+      <section id="optimizeddosingstrategy" className="py-8 md:py-12 bg-[#F5F7FA]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[800] uppercase tracking-wide mb-2">
             Patient Characteristics Reveal High TKI Resistance and Mutations
@@ -300,10 +301,11 @@ export function CmlOpticEfficacyPage() {
             />
           </div>
         </div>
+        </div>
       </section>
 
       {/* ---- Primary Analysis: Response Rates ---- */}
-      <section id="primaryanalysis" className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section id="primaryanalysis" className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[800] leading-tight mb-4">
             Primary Analysis: ICLUSIG achieved and maintained a clinically
@@ -404,7 +406,8 @@ export function CmlOpticEfficacyPage() {
       </section>
 
       {/* ---- 5-Year Follow-up ---- */}
-      <section id="fiveyearfollowup" className="px-8 md:px-20 xl:px-32 py-8 md:py-12 bg-[#F5F7FA]">
+      <section id="fiveyearfollowup" className="py-8 md:py-12 bg-[#F5F7FA]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <div className="max-w-4xl">
           <h2 className="text-[#003865] text-[20px] md:text-[24px] lg:text-[28px] font-[800] leading-tight mb-4">
             Long-Term Efficacy Data: More than half of patients had a response by
@@ -534,10 +537,11 @@ export function CmlOpticEfficacyPage() {
             </button>
           </div>
         </div>
+        </div>
       </section>
 
       {/* ---- CTA Cards ---- */}
-      <section className="px-8 md:px-20 xl:px-32 py-8 md:py-12">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-8 md:py-12">
         <div className="max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-4">
           <CtaCard
             title="ICLUSIG safety profile in the OPTIC Trial"
@@ -555,7 +559,7 @@ export function CmlOpticEfficacyPage() {
       </section>
 
       {/* ---- Abbreviations ---- */}
-      <section className="px-8 md:px-20 xl:px-32 pb-8">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pb-8">
         <p className="text-[#6B7280] text-[11px] md:text-[12px] leading-relaxed max-w-4xl">
           BCR::ABL1<sup>IS</sup>=BCR::ABL1 international scale;
           CP-CML=chronic-phase chronic myeloid leukemia; ECOG PS=Eastern

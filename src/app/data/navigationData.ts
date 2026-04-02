@@ -61,8 +61,8 @@ export const navItems: NavItem[] = [
     label: "Access",
     shortLabel: "Access",
     children: [
-      { text: "Patient Support", href: "/patient-support" },
-      { text: "Here2Assist", href: "/support/here2assist" },
+      { text: "Access & Patient Support", href: "/patient-support" },
+      { text: "Here2Assist", href: "/patient-support#here2assist" },
     ],
   },
   {

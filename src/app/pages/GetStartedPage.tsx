@@ -7,10 +7,10 @@ import { useState } from "react";
 function HeroBanner() {
   return (
     <section
-      className="w-full py-10 lg:pt-40 px-8 md:px-20 xl:px-32"
+      className="w-full py-10 lg:pt-40"
       style={{ background: "linear-gradient(135deg, #003865 0%, #00507a 100%)" }}
     >
-      <div className="max-w-4xl">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12">
         <p className="text-white/70 text-[13px] font-[600] uppercase tracking-widest mb-2">
           For Healthcare Professionals
         </p>
@@ -70,7 +70,7 @@ export function GetStartedPage() {
     return (
       <div className="flex-1 bg-white min-w-0">
         <HeroBanner />
-        <section className="px-8 md:px-20 xl:px-32 py-12 md:py-16">
+        <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-12 md:py-16">
           <div className="max-w-2xl">
             <div className="bg-[#E6F4F1] border border-[#00A67E] rounded-lg p-8 text-center">
               <div className="w-12 h-12 rounded-full bg-[#00A67E] flex items-center justify-center mx-auto mb-4">
@@ -93,7 +93,7 @@ export function GetStartedPage() {
     <div className="flex-1 bg-white min-w-0">
       <HeroBanner />
 
-      <section className="px-8 md:px-20 xl:px-32 py-10 md:py-14">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-10 md:py-14">
         <div className="max-w-4xl grid grid-cols-1 lg:grid-cols-3 gap-10">
 
           {/* ── Form ── */}
@@ -288,7 +288,7 @@ export function GetStartedPage() {
       </section>
 
       {/* Indication */}
-      <section className="px-8 md:px-20 xl:px-32 pb-10">
+      <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pb-10">
         <div className="max-w-4xl border-t border-[#E3E8EF] pt-6">
           <p className="text-[#374151] text-[12px] leading-relaxed">
             <strong>INDICATION:</strong> ICLUSIG<sup className="text-[60%]">&reg;</sup> (ponatinib) is indicated for the treatment of adults with T315I-positive chronic myeloid leukemia (CML) (chronic phase, accelerated phase, or blast phase) or T315I-positive Philadelphia chromosome–positive acute lymphoblastic leukemia (Ph+ ALL); adults with chronic phase, accelerated phase, or blast phase CML or Ph+ ALL for whom no other kinase inhibitor therapy is indicated; and in combination with low-intensity chemotherapy in adults with newly diagnosed Ph+ ALL.

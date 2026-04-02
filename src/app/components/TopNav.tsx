@@ -161,8 +161,16 @@ export function TopNav() {
         boxShadow: isScrolled ? "0 1px 3px rgba(0,0,0,0.1)" : "none",
       }}
     >
-      {/* Utility text row */}
-      <div className="flex items-center justify-end gap-4 px-20 xl:px-32 pt-3 pb-1">
+      {/* Utility text row — collapses on scroll */}
+      <div
+        className="max-w-[1200px] mx-auto flex items-center justify-end gap-4 px-6 md:px-10 lg:px-12 transition-all duration-300 overflow-hidden"
+        style={{
+          paddingTop: isScrolled ? "0px" : "12px",
+          paddingBottom: isScrolled ? "0px" : "4px",
+          maxHeight: isScrolled ? "0px" : "40px",
+          opacity: isScrolled ? 0 : 1,
+        }}
+      >
         <span
           className="text-[11px] transition-colors duration-300"
           style={{ color: isDarkBg && !isScrolled ? "rgba(255,255,255,0.6)" : "#6B7280" }}
@@ -184,12 +192,15 @@ export function TopNav() {
       </div>
 
       {/* Main nav area: logo left, floating nav right */}
-      <div className="flex items-start justify-between px-20 xl:px-32 pt-2 pb-4">
+      <div
+        className="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-12 transition-all duration-300"
+        style={{ paddingTop: isScrolled ? "0px" : "8px", paddingBottom: isScrolled ? "0px" : "16px" }}
+      >
         {/* Large logo — symbol never changes color, text switches */}
         <div
           ref={logoRef}
-          className="flex-shrink-0 cursor-pointer pt-2 flex items-center gap-2 transition-transform duration-300 origin-left"
-          style={{ transform: isScrolled ? "scale(1)" : "scale(1.15)" }}
+          className="flex-shrink-0 cursor-pointer flex items-center gap-2 transition-all duration-300 origin-left"
+          style={{ transform: isScrolled ? "scale(0.65)" : "scale(1.15)" }}
           onClick={() => navigate("/")}
         >
           <img
@@ -211,13 +222,17 @@ export function TopNav() {
 
         {/* Floating glass nav bar */}
         <div
-          className="flex items-center gap-0.5 px-2 py-2 transition-all duration-300"
+          className="flex items-center gap-0.5 px-2 transition-all duration-300"
           style={isScrolled ? {
+            paddingTop: "2px",
+            paddingBottom: "2px",
             background: "transparent",
             border: "none",
             borderRadius: "0",
             boxShadow: "none",
           } : {
+            paddingTop: "8px",
+            paddingBottom: "8px",
             background: isDarkBg
               ? "rgba(10, 25, 55, 0.85)"
               : "rgba(255, 255, 255, 0.72)",
@@ -265,7 +280,7 @@ export function TopNav() {
                   onMouseLeave={scheduleClose}
                 >
                   <button
-                    className={`flex items-center gap-1 px-3 xl:px-4 py-2 rounded-xl text-[16px] xl:text-[17px] font-[600] transition-all whitespace-nowrap ${
+                    className={`flex items-center gap-1 rounded-xl font-[600] transition-all whitespace-nowrap ${
                       isOpen
                         ? useDarkText
                           ? "bg-black/[0.06]"
@@ -274,7 +289,14 @@ export function TopNav() {
                           ? "hover:bg-black/[0.03]"
                           : "hover:bg-white/[0.08]"
                     }`}
-                    style={{ color: textColor }}
+                    style={{
+                      color: textColor,
+                      fontSize: isScrolled ? "13px" : "14px",
+                      paddingLeft: isScrolled ? "12px" : "10px",
+                      paddingRight: isScrolled ? "12px" : "10px",
+                      paddingTop: isScrolled ? "3px" : "6px",
+                      paddingBottom: isScrolled ? "3px" : "6px",
+                    }}
                   >
                     <span className="relative">
                       {displayLabel}
@@ -346,8 +368,10 @@ export function TopNav() {
           <div className="pl-1 pr-1">
             <button
               onClick={() => navigate("/get-started")}
-              className="h-9 rounded-xl text-[16px] xl:text-[17px] font-[700] transition-all duration-300 px-5 whitespace-nowrap"
+              className="rounded-xl font-[700] transition-all duration-300 px-5 whitespace-nowrap"
               style={{
+                height: isScrolled ? "28px" : "32px",
+                fontSize: isScrolled ? "13px" : "14px",
                 background: "#D4A800",
                 color: "#0F1E38",
                 border: "none",
