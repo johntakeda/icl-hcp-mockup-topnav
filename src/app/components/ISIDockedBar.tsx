@@ -2,10 +2,6 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { ISIContent } from "./ISIContent";
 
-const ISI_HEADER_PX = 52;
-const ISI_TALL = "25vh";
-const ISI_SHORT = "15vh";
-
 interface ISIDockedBarProps {
   visible: boolean;
 }
@@ -16,7 +12,7 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolledPast(window.scrollY > 80);
+      setScrolledPast(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -36,22 +32,24 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
     setExpanded((prev) => !prev);
   }, []);
 
-  const totalHeight = scrolledPast ? ISI_SHORT : ISI_TALL;
-  const contentHeight = expanded
-    ? `calc(${totalHeight} - ${ISI_HEADER_PX}px)`
-    : "0px";
+  const height = expanded
+    ? scrolledPast
+      ? "15vh"
+      : "25vh"
+    : "52px";
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 transition-transform duration-500 ease-in-out w-full"
+      className="fixed bottom-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out w-full flex flex-col"
       style={{
+        height,
         transform: visible ? "translateY(0)" : "translateY(100%)",
         fontFamily: "Inter, system-ui, sans-serif",
       }}
     >
-      {/* Navy header bar */}
+      {/* Navy header bar — fixed size */}
       <div
-        className="bg-[#0F1E38] cursor-pointer select-none"
+        className="flex-shrink-0 bg-[#0F1E38] cursor-pointer select-none"
         onClick={toggleExpanded}
         role="button"
         tabIndex={0}
@@ -77,15 +75,10 @@ export function ISIDockedBar({ visible }: ISIDockedBarProps) {
         </div>
       </div>
 
-      {/* Content tray — height driven by scroll position */}
-      <div
-        className="bg-white border-t border-[#d0d0d0] overflow-hidden transition-all duration-300 ease-in-out"
-        style={{ maxHeight: contentHeight }}
-      >
-        <div className="overflow-y-auto" style={{ maxHeight: contentHeight }}>
-          <div className="px-8 sm:px-20 lg:px-32 py-5 max-w-[1400px] mx-auto">
-            <ISIContent />
-          </div>
+      {/* Content tray — fills remaining space, scrolls internally */}
+      <div className="flex-1 min-h-0 overflow-y-auto bg-white border-t border-[#d0d0d0]">
+        <div className="px-8 sm:px-20 lg:px-32 py-5 max-w-[1400px] mx-auto">
+          <ISIContent />
         </div>
       </div>
     </div>
