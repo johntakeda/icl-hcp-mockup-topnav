@@ -8,12 +8,10 @@ import { type NavItem, cmlItem, phAllItem, navItems } from "@/app/data/navigatio
 const allNavItems: NavItem[] = [cmlItem, phAllItem, ...navItems];
 
 const dropdownGlassStyle = {
-  background: "rgba(255, 255, 255, 0.85)",
-  backdropFilter: "blur(24px) saturate(180%)",
-  WebkitBackdropFilter: "blur(24px) saturate(180%)",
-  border: "1px solid rgba(255, 255, 255, 0.4)",
+  background: "#ffffff",
+  border: "1px solid #E5E7EB",
   borderRadius: "12px",
-  boxShadow: "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+  boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
 } as const;
 
 /** Parse rgb/rgba and return perceived luminance 0–1 */

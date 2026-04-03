@@ -61,8 +61,13 @@ export const navItems: NavItem[] = [
     label: "Access",
     shortLabel: "Access",
     children: [
-      { text: "Access & Patient Support", href: "/patient-support" },
+      { text: "Patient Access", href: "/patient-support" },
       { text: "Here2Assist", href: "/patient-support#here2assist" },
+      { text: "Formulary Kit", href: "/patient-support#formulary-kit" },
+      { text: "Financial Support", href: "/patient-support#financial" },
+      { text: "Coverage", href: "/patient-support#coverage" },
+      { text: "Ordering", href: "/patient-support#foundation-care" },
+      { text: "Pharmacists", href: "/patient-support#pharmacist" },
     ],
   },
   {

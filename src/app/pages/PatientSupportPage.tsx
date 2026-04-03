@@ -42,8 +42,8 @@ const SECTIONS = [
   { id: "financial", label: "Financial Support" },
   { id: "coverage", label: "Coverage" },
   { id: "foundation-care", label: "Order" },
-  { id: "transition", label: "Transition of Care" },
   { id: "pharmacist", label: "Pharmacists" },
+  { id: "formulary-kit", label: "Formulary Kit" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -284,8 +284,8 @@ export function PatientSupportPage() {
                 num={2}
                 icon={<ShieldCheck size={28} />}
                 title="Use coverage, PA and appeals tools"
-                desc="For PA/coverage questions, FRDs can help offices navigate next steps."
-                cta="Get access support now"
+                desc="For PA/coverage questions, Field Reimbursement Directors (FRDs) can help offices navigate next steps."
+                cta="Get access support"
                 onCtaClick={() => {/* Opens Request form preselected to FRD */}}
               />
               <StepCard
@@ -301,7 +301,7 @@ export function PatientSupportPage() {
             {/* Need help card */}
             <div className="min-[1345px]:w-[280px] flex-shrink-0">
               <div className="bg-[#F5F7FA] border border-[#E3E8EF] rounded-lg p-6">
-                <h3 className="text-[#0B3A5C] text-[16px] font-[700] mb-4">Need help now?</h3>
+                <h3 className="text-[#0B3A5C] text-[16px] font-[700] mb-4">Need help?</h3>
                 <div className="space-y-3 mb-5">
                   <ContactLine icon={<Phone size={16} />} label="Phone" value="1-844-HERE-2-ASSIST" />
                   <ContactLine icon={<Printer size={16} />} label="Fax" value="1-844-269-3038" />
@@ -328,7 +328,7 @@ export function PatientSupportPage() {
           </ScrollReveal>
 
           <p className="text-[#0A8F8A] text-[15px] font-[500] mb-10 max-w-[700px]">
-            Here2Assist provides coverage support and financial support services; for access/reimbursement questions, connect with an FRD.
+            Here2Assist provides coverage support and financial support services; for access/reimbursement questions, connect with a Field Reimbursement Director (FRD).
           </p>
 
           {/* CHANGE D1: Enrollment steps moved to TOP */}
@@ -341,7 +341,7 @@ export function PatientSupportPage() {
             </ol>
             <div className="flex flex-wrap gap-3">
               <Btn variant="primary" icon={<Download size={16} />}>Download Enrollment Form</Btn>
-              <Btn variant="secondary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support now</Btn>
+              <Btn variant="secondary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support</Btn>
             </div>
           </div>
 
@@ -376,7 +376,7 @@ export function PatientSupportPage() {
       <section id="financial" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
-            <SectionLabel>Financial Assistance</SectionLabel>
+            <SectionLabel>Here2Assist</SectionLabel>
             <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
               Financial support pathways
             </h2>
@@ -407,24 +407,22 @@ export function PatientSupportPage() {
               desc="The Takeda Oncology Co-Pay Assistance Program may help eligible commercially insured patients pay as little as $0."
             />
             {/* Tile 2: Patient assistance — reduced prominence */}
-            <div className="border border-[#E3E8EF] rounded-lg p-6">
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
               <span className="mb-4 block"><HeartHandshake size={28} className="text-[#0A8F8A]" /></span>
               <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">Patient assistance</h3>
-              <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-2">
+              <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-2 flex-1">
                 Uninsured or underinsured patients may qualify for free medication through Takeda's patient assistance program.
               </p>
-              <p className="text-[#1B2430]/40 text-[12px] italic">
-                [PAP prominence to be aligned with hub strategy; keep high-level only]
-              </p>
+
             </div>
             {/* Tile 3: Additional support options (replaces Independent foundations) */}
-            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
               <span className="mb-4 block"><Landmark size={28} className="text-[#0A8F8A]" /></span>
               <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">Additional support options</h3>
               <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-5 flex-1">
-                For guidance on available support pathways, contact an FRD.
+                For guidance on available support pathways, contact a Field Reimbursement Director (FRD).
               </p>
-              <Btn variant="primary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support now</Btn>
+              <Btn variant="primary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support</Btn>
             </div>
           </StaggerGroup>
 
@@ -476,68 +474,50 @@ export function PatientSupportPage() {
             <p className="text-[#1B2430]/50 text-[12px]">*Data on file; 2025.</p>
           </div>
 
-          <p className="text-[#0A8F8A] text-[18px] font-[600] mb-8">Appeals support tools</p>
-
-          {/* CHANGE G1/G3: Updated download tiles */}
-          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 min-[1345px]:grid-cols-3 gap-5 mb-12">
-            {/* PA submission checklist with disclaimer */}
-            <div
-              className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
-              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
-            >
-              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
-                <FileText size={20} className="text-[#0A8F8A]" />
+          {/* Coverage resource cards — teal inverted */}
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {/* PA submission checklist */}
+            <div className="bg-[#0A8F8A] rounded-lg p-5 flex flex-col h-full">
+              <div className="w-10 h-10 rounded bg-white/20 flex items-center justify-center mb-4">
+                <FileText size={20} className="text-white" />
               </div>
-              <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">PA submission checklist</h4>
-              <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-2 flex-1">Use when submitting a prior authorization request</p>
-              <p className="text-amber-600 text-[12px] font-[500] mb-4 italic">Placeholder, may remove</p>
-              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
+              <div className="flex-1 mb-4">
+                <h4 className="text-white text-[15px] font-[700] mb-2">PA submission checklist</h4>
+                <p className="text-white/80 text-[13px] leading-[1.5]">Use when submitting a prior authorization request</p>
+              </div>
+              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-white border border-white/40 rounded hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white mt-auto">
                 <Download size={14} /> Download
               </button>
             </div>
-            {/* LMN template — brand-agnostic label */}
-            <div
-              className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
-              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
-            >
-              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
-                <FileText size={20} className="text-[#0A8F8A]" />
+            {/* LMN template */}
+            <div className="bg-[#0A8F8A] rounded-lg p-5 flex flex-col h-full">
+              <div className="w-10 h-10 rounded bg-white/20 flex items-center justify-center mb-4">
+                <FileText size={20} className="text-white" />
               </div>
-              <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">Letter of medical necessity template</h4>
-              <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-1 flex-1">Use to support prior authorization and appeals</p>
-              <p className="text-[#1B2430]/40 text-[12px] mb-4">Brand-agnostic tool hosted on Here2Assist.</p>
-              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
+              <div className="flex-1 mb-4">
+                <h4 className="text-white text-[15px] font-[700] mb-2">Letter of medical necessity template</h4>
+                <p className="text-white/80 text-[13px] leading-[1.5] mb-1">Use to support prior authorization and appeals</p>
+                <p className="text-white/60 text-[12px]">Brand-agnostic tool hosted on Here2Assist.</p>
+              </div>
+              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-white border border-white/40 rounded hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white mt-auto">
                 <ExternalLink size={14} /> View on Here2Assist
               </button>
             </div>
-            {/* Appeal letter template — brand-agnostic label */}
-            <div
-              className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
-              style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
-            >
-              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center mb-4">
-                <FileText size={20} className="text-[#0A8F8A]" />
+            {/* Appeal letter template */}
+            <div className="bg-[#0A8F8A] rounded-lg p-5 flex flex-col h-full">
+              <div className="w-10 h-10 rounded bg-white/20 flex items-center justify-center mb-4">
+                <FileText size={20} className="text-white" />
               </div>
-              <h4 className="text-[#1B2430] text-[15px] font-[700] mb-2">Appeal letter template</h4>
-              <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] mb-1 flex-1">Use to draft a formal appeal of a coverage denial</p>
-              <p className="text-[#1B2430]/40 text-[12px] mb-4">Brand-agnostic tool hosted on Here2Assist.</p>
-              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-[#0A8F8A] border border-[#0A8F8A] rounded hover:bg-[#0A8F8A]/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A8F8A]">
+              <div className="flex-1 mb-4">
+                <h4 className="text-white text-[15px] font-[700] mb-2">Appeal letter template</h4>
+                <p className="text-white/80 text-[13px] leading-[1.5] mb-1">Use to draft a formal appeal of a coverage denial</p>
+                <p className="text-white/60 text-[12px]">Brand-agnostic tool hosted on Here2Assist.</p>
+              </div>
+              <button className="inline-flex items-center gap-2 min-h-[44px] px-4 text-[13px] font-[600] text-white border border-white/40 rounded hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white mt-auto">
                 <ExternalLink size={14} /> View on Here2Assist
               </button>
             </div>
           </StaggerGroup>
-
-          {/* CHANGE G4: Replaced FAQ with single "Need help?" panel */}
-          <div className="bg-white border border-[#E3E8EF] rounded-lg p-6 md:p-8">
-            <h3 className="text-[#0B3A5C] text-[20px] font-[700] mb-3">Need help with a PA, coverage, or an appeal?</h3>
-            <p className="text-[#1B2430]/70 text-[15px] mb-6 max-w-[600px]">
-              Connect with an FRD for access &amp; reimbursement support or Here2Assist for enrollment/support services.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Btn variant="primary" onClick={() => {/* Dead link for now */}}>Get access support now</Btn>
-              <Btn variant="secondary" onClick={() => scrollTo("here2assist")}>Enroll in Here2Assist</Btn>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -609,59 +589,12 @@ export function PatientSupportPage() {
           </div>
 
           <div className="flex justify-center">
-            <Btn variant="secondary-light" onClick={() => {/* Opens Request form preselected to FRD */}}>Contact an FRD</Btn>
+            <Btn variant="secondary-light" onClick={() => {/* Opens Request form preselected to FRD */}}>Contact a Field Reimbursement Director</Btn>
           </div>
         </div>
       </section>
 
-      {/* ─── 8 TRANSITION OF CARE ─── */}
-      <section id="transition" className="bg-[#F5F7FA] scroll-mt-14">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <ScrollReveal>
-            <SectionLabel>Continuity Planning</SectionLabel>
-            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-              Transition of care
-            </h2>
-            <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
-              Inpatient to outpatient — ensure continuity of ICLUSIG therapy at discharge.
-            </p>
-          </ScrollReveal>
-
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left: bullets */}
-            <div className="flex-1 min-w-0">
-              <ul className="space-y-4">
-                <BulletItem icon={<ClipboardList size={20} />} text="Discharge checklist — ensure all documentation is complete before patient leaves" />
-                <BulletItem icon={<FileText size={20} />} text="Discharge summary support — template for communicating treatment plan to outpatient providers" />
-                <BulletItem icon={<Pill size={20} />} text="Outpatient dispensing steps — route the prescription to AcariaHealth before discharge" />
-              </ul>
-              <div className="mt-8">
-                <Btn variant="secondary" icon={<Phone size={16} />} onClick={() => scrollTo("contact")}>
-                  Contact Support for Inpatient Workflow Questions
-                </Btn>
-              </div>
-            </div>
-
-            {/* CHANGE I1/I2: Replaced toolkit download with placeholder module */}
-            <div className="lg:w-[320px] flex-shrink-0">
-              <div className="bg-white border-2 border-dashed border-[#E3E8EF] rounded-lg p-6" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
-                <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mb-4">
-                  <AlertTriangle size={24} className="text-amber-500" />
-                </div>
-                <h3 className="text-[#1B2430] text-[18px] font-[700] mb-2">
-                  Transition of care resources (in development)
-                </h3>
-                <p className="text-[#1B2430]/60 text-[14px] mb-3">
-                  [PLACEHOLDER - exploring the minimum transition-of-care content that can be approved (USRC)]
-                </p>
-                <p className="text-[#1B2430]/40 text-[12px] italic">
-                  Will consult with Dr. Jabbour on inputs and approval pathway.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ─── 8 TRANSITION OF CARE (HIDDEN) ─── */}
 
       {/* ─── 9 PHARMACISTS ─── */}
       {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
@@ -680,7 +613,30 @@ export function PatientSupportPage() {
 
           {/* CHANGE J1: Updated cards with explicit resource links */}
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
+              <span className="mb-4 block"><FolderOpen size={28} className="text-[#0A8F8A]" /></span>
+              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-3">Formulary kit</h3>
+              <ul className="space-y-2 mb-6 flex-1">
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Summary sheet</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Billing/coding guide</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Product monograph</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1B2430]/70 text-[14px]">Access Guide</span>
+                </li>
+              </ul>
+              <Btn variant="secondary" onClick={() => scrollTo("formulary-kit")}>View Formulary Kit</Btn>
+            </div>
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
               <span className="mb-4 block"><BookOpen size={28} className="text-[#0A8F8A]" /></span>
               <h3 className="text-[#1B2430] text-[17px] font-[700] mb-3">Dosing & adverse event resources</h3>
               <ul className="space-y-2 mb-6 flex-1">
@@ -695,32 +651,73 @@ export function PatientSupportPage() {
               </ul>
               <Btn variant="secondary">View Dosing Resources</Btn>
             </div>
-            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
-              <span className="mb-4 block"><FolderOpen size={28} className="text-[#0A8F8A]" /></span>
-              <h3 className="text-[#1B2430] text-[17px] font-[700] mb-3">Formulary kit & ordering</h3>
-              <ul className="space-y-2 mb-6 flex-1">
-                <li className="flex items-start gap-2">
-                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
-                  <span className="text-[#1B2430]/70 text-[14px]">Summary sheet</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
-                  <span className="text-[#1B2430]/70 text-[14px]">Billing/coding guide</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight size={14} className="text-[#0A8F8A] mt-1 flex-shrink-0" />
-                  <span className="text-[#1B2430]/70 text-[14px]">Product monograph</span>
-                </li>
-              </ul>
-              <Btn variant="secondary">View Formulary Kit</Btn>
-            </div>
-            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+            <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
               <span className="mb-4 block"><Stethoscope size={28} className="text-[#0A8F8A]" /></span>
               <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">Request support</h3>
               <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-6 flex-1">Connect with a Takeda Oncology representative for personalized assistance with your pharmacy needs.</p>
               <Btn variant="secondary">Request Resources</Btn>
             </div>
           </StaggerGroup>
+        </div>
+      </section>
+
+      {/* ─── FORMULARY KIT ─── */}
+      <section id="formulary-kit" className="bg-[#F5F7FA] scroll-mt-14">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
+          <ScrollReveal>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Formulary Kit
+            </h2>
+            <p className="text-[#1B2430]/70 text-[16px] mb-2 max-w-[600px]">
+              Download the resources below to support formulary decisions and ordering.
+            </p>
+            <a href="#" className="text-[#0A8F8A] text-[15px] font-[600] underline underline-offset-2 hover:text-[#088580] transition-colors mb-10 inline-block">
+              Download all resources listed here
+            </a>
+          </ScrollReveal>
+
+          <div className="flex flex-col gap-4 max-w-[600px]">
+            <a href="#" className="flex items-center gap-4 bg-white border border-[#E3E8EF] rounded-lg p-5 hover:border-[#0A8F8A]/40 hover:shadow-sm transition-all group">
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center flex-shrink-0">
+                <Download size={20} className="text-[#0A8F8A]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-[#1B2430] text-[15px] font-[700] group-hover:text-[#0A8F8A] transition-colors">Summary Sheet</h4>
+                <p className="text-[#1B2430]/50 text-[13px]">PDF Download</p>
+              </div>
+              <ArrowRight size={16} className="text-[#0A8F8A] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+            <a href="#" className="flex items-center gap-4 bg-white border border-[#E3E8EF] rounded-lg p-5 hover:border-[#0A8F8A]/40 hover:shadow-sm transition-all group">
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center flex-shrink-0">
+                <Download size={20} className="text-[#0A8F8A]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-[#1B2430] text-[15px] font-[700] group-hover:text-[#0A8F8A] transition-colors">Billing and Coding Guide</h4>
+                <p className="text-[#1B2430]/50 text-[13px]">PDF Download</p>
+              </div>
+              <ArrowRight size={16} className="text-[#0A8F8A] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+            <a href="#" className="flex items-center gap-4 bg-white border border-[#E3E8EF] rounded-lg p-5 hover:border-[#0A8F8A]/40 hover:shadow-sm transition-all group">
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center flex-shrink-0">
+                <Download size={20} className="text-[#0A8F8A]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-[#1B2430] text-[15px] font-[700] group-hover:text-[#0A8F8A] transition-colors">Product Monograph</h4>
+                <p className="text-[#1B2430]/50 text-[13px]">PDF Download</p>
+              </div>
+              <ArrowRight size={16} className="text-[#0A8F8A] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+            <a href="#" className="flex items-center gap-4 bg-white border border-[#E3E8EF] rounded-lg p-5 hover:border-[#0A8F8A]/40 hover:shadow-sm transition-all group">
+              <div className="w-10 h-10 rounded bg-[#0A8F8A]/10 flex items-center justify-center flex-shrink-0">
+                <Download size={20} className="text-[#0A8F8A]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-[#1B2430] text-[15px] font-[700] group-hover:text-[#0A8F8A] transition-colors">Access Guide</h4>
+                <p className="text-[#1B2430]/50 text-[13px]">PDF Download</p>
+              </div>
+              <ArrowRight size={16} className="text-[#0A8F8A] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -838,7 +835,7 @@ function StepCard({
   onCtaClick?: () => void;
 }) {
   return (
-    <div className="bg-[#F5F7FA] border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
+    <div className="bg-[#F5F7FA] border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
       <div className="flex items-center gap-3 mb-4">
         <span className="w-8 h-8 rounded-full bg-[#0A8F8A] text-white text-[14px] font-[700] flex items-center justify-center flex-shrink-0">
           {num}
@@ -882,7 +879,7 @@ function ContactLineWhite({ icon, label, value }: { icon: React.ReactNode; label
 /* ── Icon list item ── */
 function IconListItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-start gap-4 p-4 bg-[#F5F7FA] border border-[#E3E8EF] rounded-lg">
+    <div className="flex items-start gap-4 p-4 bg-[#F5F7FA] border border-[#E3E8EF] rounded-lg h-full">
       <span className="mt-0.5 flex-shrink-0">{icon}</span>
       <p className="text-[#1B2430] text-[15px] leading-[1.6]">{text}</p>
     </div>
@@ -925,7 +922,7 @@ function StatCard({
 
   return (
     <div
-      className="bg-white border border-[#E3E8EF] rounded-lg p-5"
+      className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
       style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
     >
       <div className="flex items-center gap-2 mb-3">
@@ -933,7 +930,7 @@ function StatCard({
         <span className="text-[#1B2430]/50 text-[12px] font-[600] uppercase tracking-wide">{label}</span>
       </div>
       <p ref={ref} className="text-[#0B3A5C] text-[24px] font-[800] mb-1">{display}</p>
-      <p className="text-[#1B2430]/60 text-[13px] leading-[1.5]">{desc}</p>
+      <p className="text-[#1B2430]/60 text-[13px] leading-[1.5] flex-1">{desc}</p>
     </div>
   );
 }
@@ -941,10 +938,10 @@ function StatCard({
 /* ── Finance card ── */
 function FinanceCard({ icon, title, desc }: { icon: React.ReactNode; title: string; desc: React.ReactNode }) {
   return (
-    <div className="border border-[#E3E8EF] rounded-lg p-6">
+    <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col h-full">
       <span className="mb-4 block">{icon}</span>
       <h3 className="text-[#1B2430] text-[17px] font-[700] mb-2">{title}</h3>
-      <p className="text-[#1B2430]/60 text-[14px] leading-[1.6]">{desc}</p>
+      <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] flex-1">{desc}</p>
     </div>
   );
 }

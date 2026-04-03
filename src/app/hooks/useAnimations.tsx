@@ -136,7 +136,7 @@ export function StaggerGroup({
       variants={parentVariants}
     >
       {Children.map(children, (child) => (
-        <motion.div variants={childVariants} className="flex flex-col">{child}</motion.div>
+        <motion.div variants={childVariants} className="flex flex-col h-full">{child}</motion.div>
       ))}
     </motion.div>
   );
