@@ -1,4 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { motion } from "motion/react";
+import {
+  useAnimatedNumber,
+  ScrollReveal,
+  StaggerGroup,
+  EASE_OUT_EXPO,
+} from "@/app/hooks/useAnimations";
 import heroImage from "@/imports/patient-image.jpg";
 import {
   Phone,
@@ -127,24 +134,38 @@ export function PatientSupportPage() {
         />
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pt-52 md:pt-60 lg:pt-72 pb-32 md:pb-40 lg:pb-48">
        
-          <h1 className="text-white text-[32px] md:text-[40px] lg:text-[48px] font-[800] leading-[1.1] mb-5 max-w-[720px]">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.1 }}
+            className="text-white text-[32px] md:text-[40px] lg:text-[48px] font-[800] leading-[1.1] mb-5 max-w-[720px]"
+          >
             Access &amp; Patient Support
-          </h1>
-
+          </motion.h1>
 
           {/* CTA row */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.3 }}
+            className="flex flex-wrap gap-3 mb-8"
+          >
             <Btn variant="primary" onClick={() => scrollTo("start-here")}>Start Here</Btn>
             <Btn variant="secondary" onClick={() => scrollTo("here2assist")}>Here2Assist®</Btn>
             <Btn variant="secondary" onClick={() => scrollTo("foundation-care")}>Ordering</Btn>
-          </div>
+          </motion.div>
 
           {/* Utility links */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: EASE_OUT_EXPO, delay: 0.45 }}
+            className="flex flex-wrap gap-x-6 gap-y-2"
+          >
             <UtilLink>Prescribing Information</UtilLink>
             <UtilLink onClick={() => scrollTo("here2assist")}>Download Enrollment Form</UtilLink>
             <UtilLink onClick={() => scrollTo("contact")}>Contact Support</UtilLink>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -237,17 +258,19 @@ export function PatientSupportPage() {
       {/* ─── 3 START HERE ─── */}
       <section id="start-here" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel>Getting Started</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Start therapy fast: 3 steps for offices
-          </h2>
-          <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
-            Follow these steps to help your patients begin ICLUSIG as quickly as possible.
-          </p>
+          <ScrollReveal>
+            <SectionLabel>Getting Started</SectionLabel>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Start therapy fast: 3 steps for offices
+            </h2>
+            <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
+              Follow these steps to help your patients begin ICLUSIG as quickly as possible.
+            </p>
+          </ScrollReveal>
 
           <div className="flex flex-col min-[1345px]:flex-row gap-10">
             {/* Stepper */}
-            <div className="flex-1 min-w-0 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StaggerGroup className="flex-1 min-w-0 grid grid-cols-1 md:grid-cols-3 gap-6">
               <StepCard
                 num={1}
                 icon={<ClipboardList size={28} />}
@@ -273,7 +296,7 @@ export function PatientSupportPage() {
                 cta="Ordering Info"
                 onCtaClick={() => scrollTo("foundation-care")}
               />
-            </div>
+            </StaggerGroup>
 
             {/* Need help card */}
             <div className="min-[1345px]:w-[280px] flex-shrink-0">
@@ -297,10 +320,12 @@ export function PatientSupportPage() {
       {/* CHANGE D: Enrollment moved to top, added FRD CTA and branding copy */}
       <section id="here2assist" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel>Program Overview</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Takeda Oncology Here2Assist®
-          </h2>
+          <ScrollReveal>
+            <SectionLabel>Program Overview</SectionLabel>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Takeda Oncology Here2Assist®
+            </h2>
+          </ScrollReveal>
 
           <p className="text-[#0A8F8A] text-[15px] font-[500] mb-10 max-w-[700px]">
             Here2Assist provides coverage support and financial support services; for access/reimbursement questions, connect with an FRD.
@@ -350,27 +375,31 @@ export function PatientSupportPage() {
       {/* ─── 5 FINANCIAL SUPPORT (MOVED UP per Change E) ─── */}
       <section id="financial" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel>Financial Assistance</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Financial support pathways
-          </h2>
-          <p className="text-[#1B2430]/70 text-[16px] mb-6 max-w-[600px]">
-            For eligible patients — multiple programs may help reduce out-of-pocket costs.
-          </p>
+          <ScrollReveal>
+            <SectionLabel>Financial Assistance</SectionLabel>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Financial support pathways
+            </h2>
+            <p className="text-[#1B2430]/70 text-[16px] mb-6 max-w-[600px]">
+              For eligible patients — multiple programs may help reduce out-of-pocket costs.
+            </p>
+          </ScrollReveal>
 
           {/* CHANGE F3: Affordability metric placeholder callout */}
-          <div className="bg-[#E8F5F4] border border-[#0A8F8A]/20 rounded-lg px-5 py-3 mb-10 flex items-center gap-3">
-            <DollarSign size={18} className="text-[#0A8F8A] flex-shrink-0" />
-            <div>
-              <p className="text-[#1B2430] text-[15px] font-[600]">
-                ~90% of ICLUSIG patients pay $0-$1 out of pocket.*
-              </p>
-              <p className="text-[#1B2430]/50 text-[12px]">*Data on file; 2025.</p>
+          <ScrollReveal direction="none" duration={0.6}>
+            <div className="bg-[#E8F5F4] border border-[#0A8F8A]/20 rounded-lg px-5 py-3 mb-10 flex items-center gap-3">
+              <DollarSign size={18} className="text-[#0A8F8A] flex-shrink-0" />
+              <div>
+                <p className="text-[#1B2430] text-[15px] font-[600]">
+                  ~90% of ICLUSIG patients pay $0-$1 out of pocket.*
+                </p>
+                <p className="text-[#1B2430]/50 text-[12px]">*Data on file; 2025.</p>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* CHANGE F1/F2: Updated tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {/* Tile 1: Copay support — primary */}
             <FinanceCard
               icon={<HandCoins size={28} className="text-[#0A8F8A]" />}
@@ -397,7 +426,7 @@ export function PatientSupportPage() {
               </p>
               <Btn variant="primary" onClick={() => {/* Opens Request form preselected to FRD */}}>Get access support now</Btn>
             </div>
-          </div>
+          </StaggerGroup>
 
           <div className="flex flex-wrap gap-3">
             <Btn variant="primary" onClick={() => scrollTo("here2assist")}>Start Here2Assist Enrollment</Btn>
@@ -409,41 +438,48 @@ export function PatientSupportPage() {
       {/* ─── 6 COVERAGE, PA & APPEALS (was section 5, now after Financial) ─── */}
       <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel>Coverage Tools</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Coverage, PA and appeals support
-          </h2>
+          <ScrollReveal>
+            <SectionLabel>Coverage Tools</SectionLabel>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Coverage, PA and appeals support
+            </h2>
+          </ScrollReveal>
 
           {/* CHANGE G2: Coverage confidence snapshot */}
           <div className="mb-12">
           
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
+            <StaggerGroup className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
               <StatCard
                 icon={<TrendingUp size={22} className="text-[#0A8F8A]" />}
                 label="Approval Rate"
-                value=">95%"
+                numericValue={95}
+                prefix=">"
+                suffix="%"
                 desc="of claims for ICLUSIG patients are covered by payers."
               />
               <StatCard
                 icon={<Timer size={22} className="text-[#0A8F8A]" />}
                 label="Speed to Therapy"
-                value="7 days"
+                numericValue={7}
+                suffix=" days"
                 desc="Over half of ICLUSIG new patients receive ICLUSIG in 7 days after Rx (industry average for specialty oral is 8-10 days)."
               />
               <StatCard
                 icon={<DollarSign size={22} className="text-[#0A8F8A]" />}
                 label="Out of Pocket Cost"
-                value="~90%"
+                numericValue={90}
+                prefix="~"
+                suffix="%"
                 desc="of ICLUSIG patients pay $0-$1 out of pocket."
               />
-            </div>
+            </StaggerGroup>
             <p className="text-[#1B2430]/50 text-[12px]">*Data on file; 2025.</p>
           </div>
 
           <p className="text-[#0A8F8A] text-[18px] font-[600] mb-8">Appeals support tools</p>
 
           {/* CHANGE G1/G3: Updated download tiles */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 min-[1345px]:grid-cols-3 gap-5 mb-12">
+          <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 min-[1345px]:grid-cols-3 gap-5 mb-12">
             {/* PA submission checklist with disclaimer */}
             <div
               className="bg-white border border-[#E3E8EF] rounded-lg p-5 flex flex-col"
@@ -489,7 +525,7 @@ export function PatientSupportPage() {
                 <ExternalLink size={14} /> View on Here2Assist
               </button>
             </div>
-          </div>
+          </StaggerGroup>
 
           {/* CHANGE G4: Replaced FAQ with single "Need help?" panel */}
           <div className="bg-white border border-[#E3E8EF] rounded-lg p-6 md:p-8">
@@ -510,10 +546,12 @@ export function PatientSupportPage() {
       <section id="foundation-care" className="scroll-mt-14" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
         {/* Navy callout band */}
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-10 md:py-14">
-          <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
-          <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-10">
-            How to order ICLUSIG
-          </h2>
+          <ScrollReveal>
+            <SectionLabel light>Ordering &amp; Dispensing</SectionLabel>
+            <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-10">
+              How to order ICLUSIG
+            </h2>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             {/* AcariaHealth */}
@@ -579,13 +617,15 @@ export function PatientSupportPage() {
       {/* ─── 8 TRANSITION OF CARE ─── */}
       <section id="transition" className="bg-[#F5F7FA] scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel>Continuity Planning</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Transition of care
-          </h2>
-          <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
-            Inpatient to outpatient — ensure continuity of ICLUSIG therapy at discharge.
-          </p>
+          <ScrollReveal>
+            <SectionLabel>Continuity Planning</SectionLabel>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Transition of care
+            </h2>
+            <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
+              Inpatient to outpatient — ensure continuity of ICLUSIG therapy at discharge.
+            </p>
+          </ScrollReveal>
 
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left: bullets */}
@@ -627,17 +667,19 @@ export function PatientSupportPage() {
       {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
       <section id="pharmacist" className="bg-white scroll-mt-14">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel>Pharmacy Resources</SectionLabel>
-          <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
-            Pharmacists
-          </h2>
-          {/* CHANGE J2: Purpose copy */}
-          <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
-            Resources to support dosing adjustments, access workflows, and procurement.
-          </p>
+          <ScrollReveal>
+            <SectionLabel>Pharmacy Resources</SectionLabel>
+            <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
+              Pharmacists
+            </h2>
+            {/* CHANGE J2: Purpose copy */}
+            <p className="text-[#1B2430]/70 text-[16px] mb-10 max-w-[600px]">
+              Resources to support dosing adjustments, access workflows, and procurement.
+            </p>
+          </ScrollReveal>
 
           {/* CHANGE J1: Updated cards with explicit resource links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="border border-[#E3E8EF] rounded-lg p-6 flex flex-col">
               <span className="mb-4 block"><BookOpen size={28} className="text-[#0A8F8A]" /></span>
               <h3 className="text-[#1B2430] text-[17px] font-[700] mb-3">Dosing & adverse event resources</h3>
@@ -678,7 +720,7 @@ export function PatientSupportPage() {
               <p className="text-[#1B2430]/60 text-[14px] leading-[1.6] mb-6 flex-1">Connect with a Takeda Oncology representative for personalized assistance with your pharmacy needs.</p>
               <Btn variant="secondary">Request Resources</Btn>
             </div>
-          </div>
+          </StaggerGroup>
         </div>
       </section>
 
@@ -689,10 +731,12 @@ export function PatientSupportPage() {
         style={{ background: "linear-gradient(135deg, #0A2F4A 0%, #0B3A5C 100%)" }}
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
-          <SectionLabel light>Get in Touch</SectionLabel>
-          <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-8">
-            Contact support
-          </h2>
+          <ScrollReveal>
+            <SectionLabel light>Get in Touch</SectionLabel>
+            <h2 className="text-white text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-8">
+              Contact support
+            </h2>
+          </ScrollReveal>
 
           <div className="flex flex-wrap gap-3 mb-10">
             <Btn variant="primary" onClick={() => scrollTo("here2assist")}>Enroll in Here2Assist®</Btn>
@@ -858,14 +902,37 @@ function EnrollStep({ num, text }: { num: number; text: string }) {
 }
 
 /* ── Stat card (for Coverage confidence) ── */
-function StatCard({ icon, label, value, desc }: { icon: React.ReactNode; label: string; value: string; desc: string }) {
+function StatCard({
+  icon,
+  label,
+  desc,
+  numericValue,
+  prefix = "",
+  suffix = "",
+}: {
+  icon: React.ReactNode;
+  label: string;
+  desc: string;
+  numericValue: number;
+  prefix?: string;
+  suffix?: string;
+}) {
+  const { ref, display } = useAnimatedNumber({
+    target: numericValue,
+    prefix,
+    suffix,
+  });
+
   return (
-    <div className="bg-white border border-[#E3E8EF] rounded-lg p-5" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}>
+    <div
+      className="bg-white border border-[#E3E8EF] rounded-lg p-5"
+      style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.04)" }}
+    >
       <div className="flex items-center gap-2 mb-3">
         {icon}
         <span className="text-[#1B2430]/50 text-[12px] font-[600] uppercase tracking-wide">{label}</span>
       </div>
-      <p className="text-[#0B3A5C] text-[24px] font-[800] mb-1">{value}</p>
+      <p ref={ref} className="text-[#0B3A5C] text-[24px] font-[800] mb-1">{display}</p>
       <p className="text-[#1B2430]/60 text-[13px] leading-[1.5]">{desc}</p>
     </div>
   );
