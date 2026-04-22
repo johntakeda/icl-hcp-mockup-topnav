@@ -1,229 +1,333 @@
 import iclusigLogo from "@/imports/ICLUSIG.svg";
-import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { useNavigate } from "react-router";
-import { cmlItem, phAllItem, navItems } from "@/app/data/navigationData";
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { useNavigate, useLocation } from "react-router";
+import { type NavItem, cmlItem, phAllItem, navItems } from "@/app/data/navigationData";
+
+const allNavItems: NavItem[] = [cmlItem, phAllItem, ...navItems];
+
+const NAV_BG = "#FFFFFF";
+const NAV_HOVER_BG = "#F3F8FF";
+const NAV_TEXT = "#003A7D";
+const UTILITY_BG = "#003A7D";
+const UTILITY_TEXT = "#FFFFFF";
+const ACCENT = "#E8B830";
+const CTA_TEXT = "#133358";
+const BORDER = "#CDD1D6";
+const TEXT_ICON = "#465666";
+const MAIN_NAV_SHADOW = "0 4px 9px rgba(0,0,0,0.12)";
+
+const manifoldStack = '"Manifold CF", "Inter", system-ui, sans-serif';
+
+const HEADER_HEIGHT = 32 + 71; // utility + main nav
+
+type UtilityItem =
+  | { kind: "link"; label: string; href?: string; arrow?: boolean }
+  | { kind: "dropdown"; label: string; children: { text: string; href?: string }[] };
+
+const utilityItems: UtilityItem[] = [
+  { kind: "link", label: "Important Safety Information", href: "#" },
+  {
+    kind: "dropdown",
+    label: "Prescribing Information",
+    children: [
+      { text: "English", href: "#" },
+      { text: "Español", href: "#" },
+    ],
+  },
+  { kind: "link", label: "Medication Information", href: "#" },
+  { kind: "link", label: "For Patient/Caregivers", href: "#", arrow: true },
+];
+
+function pathsMatchItem(pathname: string, item: NavItem): boolean {
+  return item.children.some((child) => {
+    if (!child.href) return false;
+    const base = child.href.split("#")[0];
+    return base && base !== "/" && pathname.startsWith(base);
+  });
+}
 
 export function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
-  const [activeToggle, setActiveToggle] = useState<"hcp" | "patient">("hcp");
+  const [openUtility, setOpenUtility] = useState<string | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleSection = (label: string) => {
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+    setOpenSection(null);
+    setOpenUtility(null);
+  }, [location.pathname]);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      const original = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = original;
+      };
+    }
+  }, [menuOpen]);
+
+  // On open, auto-expand the section matching the current route
+  useEffect(() => {
+    if (!menuOpen) return;
+    const match = allNavItems.find((item) => pathsMatchItem(location.pathname, item));
+    if (match) setOpenSection(match.label);
+  }, [menuOpen, location.pathname]);
+
+  const toggleSection = (label: string) =>
     setOpenSection((prev) => (prev === label ? null : label));
-  };
+
+  const toggleUtility = (label: string) =>
+    setOpenUtility((prev) => (prev === label ? null : label));
 
   const handleNavigate = (href: string) => {
     navigate(href);
     setMenuOpen(false);
     setOpenSection(null);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-    setOpenSection(null);
+    setOpenUtility(null);
   };
 
   return (
-    <>
-      {/* Header bar */}
-      <header
-        className="sticky top-0 z-50 text-[#0F1E38] flex items-center justify-between px-4 h-14 lg:hidden"
-        style={{
-          fontFamily: "Inter, system-ui, sans-serif",
-          background: "rgba(255, 255, 255, 0.72)",
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
-        }}
-      >
-        <div className="flex items-center gap-2">
-          <img
-            src={iclusigLogo}
-            alt="ICLUSIG®"
-            className="h-7"
-            style={{ filter: "drop-shadow(0 0 4px rgba(255,255,255,0.7))" }}
-          />
+    <div className="lg:hidden" style={{ fontFamily: manifoldStack }}>
+      {/* Sticky header: utility strip + main nav */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        {/* Utility nav */}
+        <div
+          className="w-full flex items-center px-4"
+          style={{ background: UTILITY_BG, color: UTILITY_TEXT, height: 32 }}
+        >
+          <span className="text-[14px] leading-[20px]">
+            This site is for US Healthcare Professionals only.
+          </span>
         </div>
 
-        <div className="flex items-center gap-3">
-          {/* Compact HCP/Patient toggle */}
-          <div
-            className="flex items-center gap-1.5 rounded-full px-2 py-1"
-            style={{ background: "rgba(0,0,0,0.05)" }}
+        {/* Main nav */}
+        <div
+          className="w-full flex items-center justify-between px-4"
+          style={{
+            background: NAV_BG,
+            height: 71,
+            paddingTop: 8,
+            paddingBottom: 8,
+            boxShadow: MAIN_NAV_SHADOW,
+          }}
+        >
+          <button
+            type="button"
+            className="flex items-center"
+            onClick={() => navigate("/")}
+            aria-label="ICLUSIG home"
+            style={{ height: 55 }}
           >
-            <button
-              onClick={() => setActiveToggle("hcp")}
-              className={`text-[11px] font-[600] px-1.5 py-0.5 rounded-full transition-colors ${
-                activeToggle === "hcp"
-                  ? "text-[#0F1E38] bg-[#c6a000]"
-                  : "text-[#9CA3AF]"
-              }`}
-            >
-              HCP
-            </button>
-            <button
-              onClick={() => setActiveToggle("patient")}
-              className={`text-[11px] font-[600] px-1.5 py-0.5 rounded-full transition-colors ${
-                activeToggle === "patient"
-                  ? "text-[#0F1E38] bg-[#c6a000]"
-                  : "text-[#9CA3AF]"
-              }`}
-            >
-              Patient
-            </button>
-          </div>
+            <img
+              src={iclusigLogo}
+              alt="ICLUSIG® (ponatinib) tablets"
+              className="block"
+              style={{ width: 171, height: 55, objectFit: "contain", objectPosition: "left center" }}
+            />
+          </button>
 
           <button
-            onClick={() => {
-              setMenuOpen((prev) => !prev);
-              if (menuOpen) setOpenSection(null);
-            }}
-            className="p-1 text-[#0F1E38]"
+            type="button"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="flex items-center justify-center rounded-full"
+            style={{ width: 44, height: 44, color: NAV_TEXT }}
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
           </button>
         </div>
       </header>
 
-      {/* Dropdown + backdrop */}
+      {/* Spacer so page content sits below the fixed header */}
+      <div style={{ height: HEADER_HEIGHT }} />
+
+      {/* Drawer */}
       {menuOpen && (
         <>
-          {/* Transparent backdrop — closes menu on tap outside */}
           <div
-            className="fixed inset-0 z-[40] top-14 lg:hidden"
-            onClick={closeMenu}
+            className="fixed inset-0 z-[60]"
+            style={{ top: HEADER_HEIGHT, background: "rgba(0,0,0,0.25)" }}
+            onClick={() => {
+              setMenuOpen(false);
+              setOpenSection(null);
+              setOpenUtility(null);
+            }}
           />
 
-          {/* Dropdown panel */}
           <div
-            className="fixed left-0 right-0 z-[45] lg:hidden bg-white overflow-y-auto"
+            className="fixed left-0 right-0 z-[65] overflow-y-auto"
             style={{
-              top: "56px",
-              maxHeight: "calc(75vh - 56px)",
-              boxShadow: "0 8px 24px rgba(0,0,0,0.14)",
-              borderBottom: "1px solid rgba(0,0,0,0.08)",
-              fontFamily: "Inter, system-ui, sans-serif",
+              top: HEADER_HEIGHT,
+              maxHeight: `calc(100dvh - ${HEADER_HEIGHT}px)`,
+              background: NAV_BG,
             }}
           >
-            <div className="px-4 py-4">
-              {/* CTA */}
-              <button className="w-full h-11 rounded-lg border-2 border-[#c6a000] text-[#0F1E38] text-[14px] font-[600] hover:bg-[#c6a000]/10 transition-colors px-4 text-left mb-3">
-                Get Started / Request Rep
-              </button>
+            {/* Main category items */}
+            {allNavItems.map((item) => {
+              const isOpen = openSection === item.label;
+              const isSelected = pathsMatchItem(location.pathname, item);
+              const displayLabel = item.shortLabel || item.label;
+              const showAccent = isOpen || isSelected;
 
-              {/* CML */}
-              <div className="mb-2">
-                <button
-                  className={`w-full h-11 flex items-center justify-between px-4 text-[14px] font-[700] border-2 border-[#237EBF] transition-colors ${
-                    openSection === "CML"
-                      ? "bg-[#237EBF]/10 text-[#237EBF] rounded-t-lg"
-                      : "text-[#237EBF] rounded-lg"
-                  }`}
-                  onClick={() => toggleSection("CML")}
-                >
-                  CML
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform duration-200 ${
-                      openSection === "CML" ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openSection === "CML" && (
-                  <div className="border-2 border-t-0 border-[#237EBF] rounded-b-lg px-4 py-2">
-                    {cmlItem.children.map((child) => (
-                      <button
-                        key={child.text}
-                        className="block w-full text-left py-2 text-[13px] text-[#4B5563] hover:text-[#237EBF] transition-colors"
-                        onClick={() => child.href && handleNavigate(child.href)}
-                      >
-                        {child.text}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Ph+ ALL */}
-              <div className="mb-3">
-                <button
-                  className={`w-full h-11 flex items-center justify-between px-4 text-[14px] font-[700] border-2 border-[#2E8762] transition-colors ${
-                    openSection === "Ph+ ALL"
-                      ? "bg-[#2E8762]/10 text-[#2E8762] rounded-t-lg"
-                      : "text-[#2E8762] rounded-lg"
-                  }`}
-                  onClick={() => toggleSection("Ph+ ALL")}
-                >
-                  Ph+ ALL
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform duration-200 ${
-                      openSection === "Ph+ ALL" ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openSection === "Ph+ ALL" && (
-                  <div className="border-2 border-t-0 border-[#2E8762] rounded-b-lg px-4 py-2">
-                    {phAllItem.children.map((child) => (
-                      <button
-                        key={child.text}
-                        className="block w-full text-left py-2 text-[13px] text-[#4B5563] hover:text-[#2E8762] transition-colors"
-                        onClick={() => child.href && handleNavigate(child.href)}
-                      >
-                        {child.text}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Nav items */}
-              <div className="border-t border-[#E5E7EB] pt-1">
-                {navItems.map((item) => (
-                  <div
-                    key={item.label}
-                    className="border-b border-[#E5E7EB] last:border-b-0"
+              return (
+                <div key={item.label}>
+                  <button
+                    type="button"
+                    onClick={() => toggleSection(item.label)}
+                    className="w-full flex items-center justify-between px-4"
+                    style={{
+                      background: NAV_BG,
+                      height: 60,
+                      borderBottom: showAccent
+                        ? `4px solid ${ACCENT}`
+                        : `1px solid ${BORDER}`,
+                      color: NAV_TEXT,
+                      fontWeight: 700,
+                      fontSize: 16,
+                      lineHeight: 1.2,
+                    }}
                   >
-                    <button
-                      className="w-full flex items-center justify-between py-3 px-2 text-[14px] font-[600] text-[#0F1E38] text-left"
-                      onClick={() => toggleSection(item.label)}
-                    >
-                      <span>{item.shortLabel || item.label}</span>
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-200 ${
-                          openSection === item.label
-                            ? "rotate-180 text-[#237EBF]"
-                            : "text-[#9CA3AF]"
-                        }`}
-                      />
-                    </button>
-                    {openSection === item.label && (
-                      <div className="pb-2 px-2">
-                        {item.children.map((child) => (
-                          <button
-                            key={child.text}
-                            className="block w-full text-left py-2 pl-3 text-[13px] text-[#4B5563] hover:text-[#237EBF] border-l-2 border-[#E5E7EB] hover:border-[#237EBF] transition-colors"
-                            onClick={() =>
-                              child.href && handleNavigate(child.href)
-                            }
-                          >
-                            {child.text}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+                    <span>{displayLabel}</span>
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-200 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                      style={{ color: NAV_TEXT }}
+                    />
+                  </button>
+
+                  {isOpen &&
+                    item.children.map((child) => (
+                      <button
+                        key={child.text}
+                        type="button"
+                        onClick={() => child.href && handleNavigate(child.href)}
+                        className="w-full flex items-center text-left px-4"
+                        style={{
+                          background: NAV_HOVER_BG,
+                          height: 60,
+                          borderBottom: `1px solid ${BORDER}`,
+                          color: NAV_TEXT,
+                          fontWeight: 400,
+                          fontSize: 16,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        {child.text}
+                      </button>
+                    ))}
+                </div>
+              );
+            })}
+
+            {/* Request a Rep CTA */}
+            <div
+              className="flex items-center justify-center"
+              style={{ background: NAV_BG, paddingLeft: 8, paddingRight: 8, paddingTop: 24, paddingBottom: 24 }}
+            >
+              <button
+                type="button"
+                onClick={() => handleNavigate("/get-started")}
+                className="flex items-center justify-center w-full"
+                style={{
+                  background: ACCENT,
+                  color: CTA_TEXT,
+                  fontWeight: 800,
+                  fontSize: 16,
+                  lineHeight: 1,
+                  height: 44,
+                  borderRadius: 16,
+                  border: "none",
+                }}
+              >
+                Request a Rep
+              </button>
             </div>
+
+            {/* Utility links */}
+            {utilityItems.map((item) => {
+              if (item.kind === "link") {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href || "#"}
+                    className="w-full flex items-center px-4 gap-1"
+                    style={{
+                      background: NAV_BG,
+                      height: 44,
+                      borderTop: `1px solid ${BORDER}`,
+                      borderBottom: `1px solid ${BORDER}`,
+                      color: TEXT_ICON,
+                      fontWeight: 400,
+                      fontSize: 12,
+                      lineHeight: "16px",
+                    }}
+                  >
+                    {item.label}
+                    {item.arrow && <ArrowRight size={12} className="ml-1" />}
+                  </a>
+                );
+              }
+
+              const isOpen = openUtility === item.label;
+              return (
+                <div key={item.label}>
+                  <button
+                    type="button"
+                    onClick={() => toggleUtility(item.label)}
+                    className="w-full flex items-center justify-between px-4"
+                    style={{
+                      background: NAV_BG,
+                      height: 44,
+                      borderTop: `1px solid ${BORDER}`,
+                      borderBottom: isOpen ? `4px solid ${ACCENT}` : `1px solid ${BORDER}`,
+                      color: isOpen ? NAV_TEXT : TEXT_ICON,
+                      fontWeight: isOpen ? 700 : 400,
+                      fontSize: 12,
+                      lineHeight: "16px",
+                    }}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-200 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                      style={{ color: isOpen ? NAV_TEXT : TEXT_ICON }}
+                    />
+                  </button>
+                  {isOpen &&
+                    item.children.map((child) => (
+                      <a
+                        key={child.text}
+                        href={child.href || "#"}
+                        className="w-full flex items-center px-4"
+                        style={{
+                          background: NAV_HOVER_BG,
+                          height: 44,
+                          borderBottom: `1px solid ${BORDER}`,
+                          color: NAV_TEXT,
+                          fontWeight: 400,
+                          fontSize: 12,
+                          lineHeight: "16px",
+                        }}
+                      >
+                        {child.text}
+                      </a>
+                    ))}
+                </div>
+              );
+            })}
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }

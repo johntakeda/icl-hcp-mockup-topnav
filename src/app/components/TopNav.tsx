@@ -1,132 +1,50 @@
-import iclusigSymbol from "@/imports/ICLUSIG-symbol.svg";
-import iclusigText from "@/imports/ICLUSIG_text_only.svg";
+import iclusigLogo from "@/imports/ICLUSIG.svg";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { useNavigate, useLocation } from "react-router";
 import { type NavItem, cmlItem, phAllItem, navItems } from "@/app/data/navigationData";
 
 const allNavItems: NavItem[] = [cmlItem, phAllItem, ...navItems];
 
-const dropdownGlassStyle = {
-  background: "#ffffff",
-  border: "1px solid #E5E7EB",
-  borderRadius: "12px",
-  boxShadow: "0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)",
-} as const;
+const NAV_BG = "#FFFFFF";
+const NAV_HOVER_BG = "#F3F8FF";
+const NAV_TEXT = "#003A7D";
+const UTILITY_BG = "#003A7D";
+const UTILITY_TEXT = "#FFFFFF";
+const ACCENT = "#E8B830";
+const CTA_TEXT = "#133358";
+const NAV_SHADOW = "0 4px 9px rgba(0,0,0,0.15)";
+const DROPDOWN_SHADOW = "0 4px 4px rgba(0,0,0,0.15)";
 
-/** Parse rgb/rgba and return perceived luminance 0–1 */
-function getLuminance(color: string): number | null {
-  const match = color.match(/rgba?\(\s*(\d+),\s*(\d+),\s*(\d+)/);
-  if (!match) return null;
-  const r = parseInt(match[1]);
-  const g = parseInt(match[2]);
-  const b = parseInt(match[3]);
-  // Also check alpha — if mostly transparent, skip
-  const alphaMatch = color.match(/rgba\(\s*\d+,\s*\d+,\s*\d+,\s*([\d.]+)/);
-  if (alphaMatch && parseFloat(alphaMatch[1]) < 0.3) return null;
-  return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-}
+const manifoldStack = '"Manifold CF", "Inter", system-ui, sans-serif';
 
-/**
- * Check all elements at (x,y) for dark backgrounds.
- * Uses elementsFromPoint to catch absolutely-positioned overlays and gradients.
- */
-function isDarkAtPoint(x: number, y: number, header: HTMLElement): boolean {
-  // Move header out of the way so we hit the content behind it
-  const origPointerEvents = header.style.pointerEvents;
-  const origZIndex = header.style.zIndex;
-  header.style.pointerEvents = "none";
-  header.style.zIndex = "-1";
+type UtilityDropdownItem = { text: string; href?: string };
 
-  const elements = document.elementsFromPoint(x, y);
+const prescribingDropdown: UtilityDropdownItem[] = [
+  { text: "English", href: "#" },
+  { text: "Espanol", href: "#" },
+];
 
-  header.style.pointerEvents = origPointerEvents;
-  header.style.zIndex = origZIndex;
-
-  for (const el of elements) {
-    // Skip header and its children
-    if (header.contains(el)) continue;
-
-    const styles = getComputedStyle(el);
-
-    // Check background-image for gradients with dark colors
-    const bgImage = styles.backgroundImage;
-    if (bgImage && bgImage !== "none") {
-      // Extract first rgb/rgba color from the gradient
-      const colorMatches = bgImage.matchAll(/rgba?\(\s*(\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/g);
-      for (const m of colorMatches) {
-        const alpha = m[4] !== undefined ? parseFloat(m[4]) : 1;
-        if (alpha < 0.3) continue;
-        const r = parseInt(m[1]);
-        const g = parseInt(m[2]);
-        const b = parseInt(m[3]);
-        const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-        if (lum < 0.4) return true;
-      }
-    }
-
-    // Check solid background-color
-    const bg = styles.backgroundColor;
-    if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") {
-      const lum = getLuminance(bg);
-      if (lum !== null && lum < 0.4) return true;
-      // If it's a solid light background, we can stop — nothing behind matters
-      if (lum !== null && lum > 0.6) return false;
-    }
-
-    // An <img> tag likely means a photo — could be dark
-    if (el.tagName === "IMG" && el.closest("section")) {
-      // Don't immediately call it dark — let gradient overlay above handle it
-      continue;
-    }
-  }
-
-  return false;
+function pathsMatchItem(pathname: string, item: NavItem): boolean {
+  return item.children.some((child) => {
+    if (!child.href) return false;
+    const base = child.href.split("#")[0];
+    return base && base !== "/" && pathname.startsWith(base);
+  });
 }
 
 export function TopNav() {
-  const [activeToggle, setActiveToggle] = useState<"hcp" | "patient">("hcp");
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
-  const [isDarkBg, setIsDarkBg] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [hoveredUtility, setHoveredUtility] = useState<string | null>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const headerRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>(0);
+  const utilityCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Detect background color behind the logo by sampling elements at its position
-  const checkBackground = useCallback(() => {
-    const logo = logoRef.current;
-    const header = headerRef.current;
-    if (!logo || !header) return;
-
-    const rect = logo.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
-
-    setIsDarkBg(isDarkAtPoint(x, y, header));
-  }, []);
-
   useEffect(() => {
-    // Check on mount + route change
-    checkBackground();
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(checkBackground);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, [checkBackground, location.pathname]);
+    setHoveredMenu(null);
+    setHoveredUtility(null);
+  }, [location.pathname]);
 
   const openMenu = useCallback((label: string) => {
     if (closeTimerRef.current) {
@@ -137,9 +55,7 @@ export function TopNav() {
   }, []);
 
   const scheduleClose = useCallback(() => {
-    closeTimerRef.current = setTimeout(() => {
-      setHoveredMenu(null);
-    }, 200);
+    closeTimerRef.current = setTimeout(() => setHoveredMenu(null), 150);
   }, []);
 
   const cancelClose = useCallback(() => {
@@ -149,182 +65,180 @@ export function TopNav() {
     }
   }, []);
 
+  const openUtility = useCallback((label: string) => {
+    if (utilityCloseTimerRef.current) {
+      clearTimeout(utilityCloseTimerRef.current);
+      utilityCloseTimerRef.current = null;
+    }
+    setHoveredUtility(label);
+  }, []);
+
+  const scheduleCloseUtility = useCallback(() => {
+    utilityCloseTimerRef.current = setTimeout(() => setHoveredUtility(null), 150);
+  }, []);
+
+  const cancelCloseUtility = useCallback(() => {
+    if (utilityCloseTimerRef.current) {
+      clearTimeout(utilityCloseTimerRef.current);
+      utilityCloseTimerRef.current = null;
+    }
+  }, []);
+
   return (
     <header
-      ref={headerRef}
-      className="hidden lg:block fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        fontFamily: "Inter, system-ui, sans-serif",
-        background: isScrolled ? "#FFFFFF" : "transparent",
-        boxShadow: isScrolled ? "0 1px 3px rgba(0,0,0,0.1)" : "none",
-      }}
+      className="hidden lg:block fixed top-0 left-0 right-0 z-50"
+      style={{ fontFamily: manifoldStack, background: NAV_BG, boxShadow: NAV_SHADOW }}
     >
-      {/* Utility text row — collapses on scroll */}
+      {/* Utility navigation — dark blue 32px strip */}
       <div
-        className="max-w-[1200px] mx-auto flex items-center justify-end gap-4 px-6 md:px-10 lg:px-12 transition-all duration-300 overflow-hidden"
-        style={{
-          paddingTop: isScrolled ? "0px" : "12px",
-          paddingBottom: isScrolled ? "0px" : "4px",
-          maxHeight: isScrolled ? "0px" : "40px",
-          opacity: isScrolled ? 0 : 1,
-        }}
+        className="w-full"
+        style={{ background: UTILITY_BG, color: UTILITY_TEXT, height: 32 }}
       >
-        <span
-          className="text-[11px] transition-colors duration-300"
-          style={{ color: isDarkBg && !isScrolled ? "rgba(255,255,255,0.6)" : "#6B7280" }}
-        >
-          This site is for US Healthcare Professionals only.
-        </span>
-        <button
-          onClick={() =>
-            setActiveToggle(activeToggle === "hcp" ? "patient" : "hcp")
-          }
-          className="text-[11px] font-[600] underline underline-offset-2 transition-colors duration-300"
-          style={{
-            color: isDarkBg && !isScrolled ? "rgba(255,255,255,0.85)" : "#0F1E38",
-            textDecorationColor: "#c6a000",
-          }}
-        >
-          {activeToggle === "hcp" ? "For Healthcare Providers" : "For Patients"}
-        </button>
+        <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between px-[60px]">
+          <span className="text-[14px] leading-[20px]">
+            This site is for US Healthcare Professionals only.
+          </span>
+          <div className="flex items-stretch gap-6 h-full">
+            <a
+              href="#"
+              className="flex items-center px-1 text-[14px] leading-[20px] hover:underline"
+              style={{ color: UTILITY_TEXT }}
+            >
+              Important Safety Information
+            </a>
+
+            {/* Prescribing Information dropdown */}
+            <div
+              className="relative flex items-stretch"
+              onMouseEnter={() => openUtility("prescribing")}
+              onMouseLeave={scheduleCloseUtility}
+            >
+              <button
+                type="button"
+                className="flex items-center gap-1 px-1 text-[14px] leading-[20px]"
+                style={{ color: UTILITY_TEXT }}
+              >
+                <span className="hover:underline">Prescribing Information</span>
+                <ChevronDown
+                  size={12}
+                  className={`transition-transform duration-150 ${
+                    hoveredUtility === "prescribing" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {hoveredUtility === "prescribing" && (
+                <div
+                  className="absolute right-0 top-full min-w-[172px] flex flex-col"
+                  style={{ background: NAV_BG, boxShadow: DROPDOWN_SHADOW, zIndex: 60 }}
+                  onMouseEnter={cancelCloseUtility}
+                  onMouseLeave={scheduleCloseUtility}
+                >
+                  {prescribingDropdown.map((child) => (
+                    <a
+                      key={child.text}
+                      href={child.href || "#"}
+                      className="flex items-center h-12 px-6 text-[16px] leading-[24px] transition-colors"
+                      style={{ color: NAV_TEXT }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = NAV_HOVER_BG;
+                        e.currentTarget.style.fontWeight = "700";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.fontWeight = "400";
+                      }}
+                    >
+                      {child.text}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <a
+              href="#"
+              className="flex items-center px-1 text-[14px] leading-[20px] hover:underline"
+              style={{ color: UTILITY_TEXT }}
+            >
+              Medical Information
+            </a>
+            <a
+              href="#"
+              className="flex items-center gap-1 px-1 text-[14px] leading-[20px] hover:underline"
+              style={{ color: UTILITY_TEXT }}
+            >
+              For Patient/Caregivers
+              <ArrowRight size={12} />
+            </a>
+          </div>
+        </div>
       </div>
 
-      {/* Main nav area: logo left, floating nav right */}
-      <div
-        className="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-12 transition-all duration-300"
-        style={{ paddingTop: isScrolled ? "0px" : "8px", paddingBottom: isScrolled ? "0px" : "16px" }}
-      >
-        {/* Large logo — symbol never changes color, text switches */}
-        <div
-          ref={logoRef}
-          className="flex-shrink-0 cursor-pointer flex items-center gap-2 transition-all duration-300 origin-left"
-          style={{ transform: isScrolled ? "scale(0.65)" : "scale(1.15)" }}
-          onClick={() => navigate("/")}
-        >
-          <img
-            src={iclusigSymbol}
-            alt=""
-            className="h-6 xl:h-7"
-          />
-          <img
-            src={iclusigText}
-            alt="ICLUSIG® (ponatinib) tablets"
-            className="h-12 xl:h-14 transition-all duration-300"
-            style={{
-              filter: isScrolled
-                ? "none"
-                : "brightness(0) invert(1)",
-            }}
-          />
-        </div>
+      {/* Main navigation — white 80px */}
+      <div className="w-full" style={{ background: NAV_BG }}>
+        <div className="max-w-[1440px] mx-auto h-20 flex items-center gap-10 xl:gap-16 px-[60px]">
+          {/* Logo */}
+          <div
+            className="flex-shrink-0 cursor-pointer flex items-center"
+            onClick={() => navigate("/")}
+            style={{ height: 64 }}
+          >
+            <img
+              src={iclusigLogo}
+              alt="ICLUSIG® (ponatinib) tablets"
+              className="block"
+              style={{ width: 154, height: 64, objectFit: "contain" }}
+            />
+          </div>
 
-        {/* Floating glass nav bar */}
-        <div
-          className="flex items-center gap-0.5 px-2 transition-all duration-300"
-          style={isScrolled ? {
-            paddingTop: "2px",
-            paddingBottom: "2px",
-            background: "transparent",
-            border: "none",
-            borderRadius: "0",
-            boxShadow: "none",
-          } : {
-            paddingTop: "8px",
-            paddingBottom: "8px",
-            background: isDarkBg
-              ? "rgba(10, 25, 55, 0.85)"
-              : "rgba(255, 255, 255, 0.72)",
-            backdropFilter: "blur(20px) saturate(180%)",
-            WebkitBackdropFilter: "blur(20px) saturate(180%)",
-            border: isDarkBg
-              ? "1px solid rgba(255, 255, 255, 0.15)"
-              : "1px solid rgba(255, 255, 255, 0.5)",
-            borderRadius: "16px",
-            boxShadow: isDarkBg
-              ? "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1)"
-              : "0 8px 32px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.6)",
-          }}
-        >
-          <nav className="flex items-center gap-0.5">
+          {/* Category links */}
+          <nav className="flex-1 h-full flex items-stretch justify-center gap-3">
             {allNavItems.map((item, index) => {
               const isOpen = hoveredMenu === item.label;
               const displayLabel = item.shortLabel || item.label;
-              const accent = item.accentColor || "#0F1E38";
-              const isAccented = !!item.accentColor;
+              const isSelected = pathsMatchItem(location.pathname, item);
               const alignRight = index >= allNavItems.length - 3;
 
-              const useDarkText = isScrolled || !isDarkBg;
-              const textColor = useDarkText
-                ? isAccented
-                  ? "#0F1E38"
-                  : isOpen
-                    ? "#237EBF"
-                    : "#374151"
-                : isOpen
-                  ? "rgba(255,255,255,1)"
-                  : "rgba(255,255,255,0.85)";
-
-              const chevronColor = useDarkText
-                ? isAccented
-                  ? "#6B7280"
-                  : "#9CA3AF"
-                : "rgba(255,255,255,0.5)";
+              const bg = isOpen ? NAV_HOVER_BG : "transparent";
 
               return (
                 <div
                   key={item.label}
-                  className="relative"
+                  className="relative flex items-stretch"
                   onMouseEnter={() => openMenu(item.label)}
                   onMouseLeave={scheduleClose}
                 >
                   <button
-                    className={`flex items-center gap-1 rounded-xl font-[600] transition-all whitespace-nowrap ${
-                      isOpen
-                        ? useDarkText
-                          ? "bg-black/[0.06]"
-                          : "bg-white/[0.12]"
-                        : useDarkText
-                          ? "hover:bg-black/[0.03]"
-                          : "hover:bg-white/[0.08]"
-                    }`}
+                    type="button"
+                    className="flex items-center gap-1 h-full px-4 whitespace-nowrap transition-colors"
                     style={{
-                      color: textColor,
-                      fontSize: isScrolled ? "13px" : "14px",
-                      paddingLeft: isScrolled ? "12px" : "10px",
-                      paddingRight: isScrolled ? "12px" : "10px",
-                      paddingTop: isScrolled ? "3px" : "6px",
-                      paddingBottom: isScrolled ? "3px" : "6px",
+                      background: bg,
+                      color: NAV_TEXT,
+                      fontWeight: 700,
+                      fontSize: 16,
+                      lineHeight: 1.2,
+                      borderBottom: isSelected ? `4px solid ${ACCENT}` : "4px solid transparent",
                     }}
                   >
-                    <span className="relative">
-                      {displayLabel}
-                      {isAccented && (
-                        <span
-                          className="absolute bottom-[-4px] left-[15%] w-[70%] h-[2px] rounded-full"
-                          style={{ background: accent }}
-                        />
-                      )}
-                    </span>
+                    <span>{displayLabel}</span>
                     <ChevronDown
-                      size={14}
-                      className={`flex-shrink-0 transition-transform duration-200 ${
+                      size={16}
+                      className={`transition-transform duration-150 ${
                         isOpen ? "rotate-180" : ""
                       }`}
-                      style={{ color: chevronColor }}
+                      style={{ color: NAV_TEXT }}
                     />
                   </button>
 
-                  {/* Dropdown panel */}
                   {isOpen && (
                     <div
-                      className={`absolute top-full mt-2 min-w-[280px] py-2 z-[55] ${
+                      className={`absolute top-full min-w-[260px] flex flex-col ${
                         alignRight ? "right-0" : "left-0"
                       }`}
                       style={{
-                        ...dropdownGlassStyle,
-                        ...(isAccented
-                          ? { borderTop: `2px solid ${accent}` }
-                          : {}),
+                        background: NAV_BG,
+                        boxShadow: DROPDOWN_SHADOW,
+                        zIndex: 60,
                       }}
                       onMouseEnter={cancelClose}
                       onMouseLeave={scheduleClose}
@@ -333,16 +247,15 @@ export function TopNav() {
                         <a
                           key={child.text}
                           href={child.href || "#"}
-                          className="block px-4 py-2.5 text-[13px] text-[#4B5563] transition-colors rounded-lg mx-1"
+                          className="flex items-center h-12 px-6 text-[16px] leading-[24px] transition-colors"
+                          style={{ color: NAV_TEXT, fontWeight: 400 }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.color = accent;
-                            e.currentTarget.style.backgroundColor =
-                              "rgba(0,0,0,0.03)";
+                            e.currentTarget.style.background = NAV_HOVER_BG;
+                            e.currentTarget.style.fontWeight = "700";
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.color = "#4B5563";
-                            e.currentTarget.style.backgroundColor =
-                              "transparent";
+                            e.currentTarget.style.background = "transparent";
+                            e.currentTarget.style.fontWeight = "400";
                           }}
                           onClick={(e) => {
                             if (child.href) {
@@ -362,26 +275,32 @@ export function TopNav() {
             })}
           </nav>
 
-          {/* CTA inside the floating bar */}
-          <div className="pl-1 pr-1">
+          {/* CTA */}
+          <div className="flex-shrink-0">
             <button
+              type="button"
               onClick={() => navigate("/get-started")}
-              className="rounded-xl font-[700] transition-all duration-300 px-5 whitespace-nowrap"
+              className="flex items-center justify-center whitespace-nowrap transition-colors"
               style={{
-                height: isScrolled ? "28px" : "32px",
-                fontSize: isScrolled ? "13px" : "14px",
-                background: "#D4A800",
-                color: "#0F1E38",
+                background: ACCENT,
+                color: CTA_TEXT,
+                fontWeight: 800,
+                fontSize: 16,
+                lineHeight: 1,
+                height: 44,
+                paddingLeft: 24,
+                paddingRight: 24,
+                borderRadius: 16,
                 border: "none",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#E0B800";
-              }}
-              onMouseLeave={(e) => {
                 e.currentTarget.style.background = "#D4A800";
               }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = ACCENT;
+              }}
             >
-              Get Started
+              Request a Rep
             </button>
           </div>
         </div>
