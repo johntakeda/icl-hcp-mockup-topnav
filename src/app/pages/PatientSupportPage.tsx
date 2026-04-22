@@ -79,7 +79,7 @@ export function PatientSupportPage() {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(id);
         },
-        { rootMargin: "-120px 0px -60% 0px", threshold: 0 }
+        { rootMargin: "-156px 0px -60% 0px", threshold: 0 }
       );
       obs.observe(el);
       observers.push(obs);
@@ -87,13 +87,17 @@ export function PatientSupportPage() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  /* Sticky detection — observe a sentinel above the nav, not the nav itself */
+  /* Sticky detection — observe a sentinel above the nav, not the nav itself.
+     rootMargin matches the fixed header height so navStuck flips exactly when
+     the anchor nav tucks under the main nav (103px mobile, 112px desktop). */
   useEffect(() => {
     const el = sentinelRef.current;
     if (!el) return;
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    const headerOffset = isDesktop ? 112 : 103;
     const obs = new IntersectionObserver(
       ([entry]) => setNavStuck(!entry.isIntersecting),
-      { threshold: 0 }
+      { threshold: 0, rootMargin: `-${headerOffset}px 0px 0px 0px` }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -175,9 +179,8 @@ export function PatientSupportPage() {
       {/* ─── 2 STICKY ANCHOR NAV ─── */}
       <div
         ref={navRef}
-        className="sticky z-30 transition-all duration-300"
+        className="sticky z-30 top-[103px] lg:top-[112px] transition-[background-color,border-color,box-shadow] duration-300"
         style={{
-          top: navStuck ? "52px" : "0px",
           backgroundColor: navStuck ? "#E5E7EB" : "#ffffff",
           borderBottom: navStuck ? "1px solid #D1D5DB" : "1px solid #E3E8EF",
           boxShadow: navStuck ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
@@ -256,7 +259,7 @@ export function PatientSupportPage() {
       `}</style>
 
       {/* ─── 3 START HERE ─── */}
-      <section id="start-here" className="bg-white scroll-mt-14">
+      <section id="start-here" className="bg-white scroll-mt-[144px] lg:scroll-mt-[156px]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
             <SectionLabel>Getting Started</SectionLabel>
@@ -318,7 +321,7 @@ export function PatientSupportPage() {
 
       {/* ─── 4 HERE2ASSIST ─── */}
       {/* CHANGE D: Enrollment moved to top, added FRD CTA and branding copy */}
-      <section id="here2assist" className="bg-white scroll-mt-14">
+      <section id="here2assist" className="bg-white scroll-mt-[144px] lg:scroll-mt-[156px]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
             <SectionLabel>Program Overview</SectionLabel>
@@ -373,7 +376,7 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 5 FINANCIAL SUPPORT (MOVED UP per Change E) ─── */}
-      <section id="financial" className="bg-white scroll-mt-14">
+      <section id="financial" className="bg-white scroll-mt-[144px] lg:scroll-mt-[156px]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
             <SectionLabel>Here2Assist</SectionLabel>
@@ -434,7 +437,7 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── 6 COVERAGE, PA & APPEALS (was section 5, now after Financial) ─── */}
-      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-14">
+      <section id="coverage" className="bg-[#F5F7FA] scroll-mt-[144px] lg:scroll-mt-[156px]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
             <SectionLabel>Coverage Tools</SectionLabel>
@@ -523,7 +526,7 @@ export function PatientSupportPage() {
 
       {/* ─── 7 FOUNDATION CARE & ORDERING ─── */}
       {/* CHANGE H4: Unified background color */}
-      <section id="foundation-care" className="scroll-mt-14" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
+      <section id="foundation-care" className="scroll-mt-[144px] lg:scroll-mt-[156px]" style={{ background: "linear-gradient(135deg, #0B3A5C 0%, #0A2F4A 100%)" }}>
         {/* Navy callout band */}
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-10 md:py-14">
           <ScrollReveal>
@@ -598,7 +601,7 @@ export function PatientSupportPage() {
 
       {/* ─── 9 PHARMACISTS ─── */}
       {/* CHANGE J3: Title updated from "For pharmacists and pharmacy decision-makers (PHDMs)" */}
-      <section id="pharmacist" className="bg-white scroll-mt-14">
+      <section id="pharmacist" className="bg-white scroll-mt-[144px] lg:scroll-mt-[156px]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
             <SectionLabel>Pharmacy Resources</SectionLabel>
@@ -662,7 +665,7 @@ export function PatientSupportPage() {
       </section>
 
       {/* ─── FORMULARY KIT ─── */}
-      <section id="formulary-kit" className="bg-[#F5F7FA] scroll-mt-14">
+      <section id="formulary-kit" className="bg-[#F5F7FA] scroll-mt-[144px] lg:scroll-mt-[156px]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
           <ScrollReveal>
             <h2 className="text-[#1B2430] text-[26px] md:text-[32px] font-[700] leading-[1.2] mb-3">
@@ -724,7 +727,7 @@ export function PatientSupportPage() {
       {/* ─── 10 CONTACT & DOWNLOADS ─── */}
       <section
         id="contact"
-        className="scroll-mt-14"
+        className="scroll-mt-[144px] lg:scroll-mt-[156px]"
         style={{ background: "linear-gradient(135deg, #0A2F4A 0%, #0B3A5C 100%)" }}
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-16 md:py-20">
