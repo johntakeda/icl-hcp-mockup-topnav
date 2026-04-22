@@ -1,6 +1,5 @@
 import heroImage from "@/imports/ICL_LetTheDataLeadYou.jpg";
 import { useNavigate } from "react-router";
-import { IndicationChips } from "./IndicationChips";
 
 export function HeroSection() {
   const navigate = useNavigate();
@@ -8,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* Background image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-">
         <img
           src={heroImage}
           alt="Couple enjoying life"
@@ -35,7 +34,7 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-12 sm:py-16 lg:py-20 min-h-screen flex flex-col justify-start pt-28 sm:pt-32 lg:pt-44">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 py-12 sm:py-16 lg:py-20 min-h-screen flex flex-col justify-start pt-12 sm:pt-16 lg:pt-40">
         <div className="max-w-[600px]">
           {/* Headline */}
           <h1
@@ -46,18 +45,32 @@ export function HeroSection() {
               lineHeight: 1.05,
             }}
           >
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]  tracking-wide">Start Strong,</span>
-            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] tracking-wide">Resist Mutations</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px]  tracking-wide">Let The Data</span>
+            <span className="block text-[38px] sm:text-[52px] lg:text-[68px] tracking-wide">Lead You</span>
           </h1>
 
-          {/* Chips - stacked on mobile, inline on larger */}
-          <div className="mb-6">
-            <div className="hidden sm:block">
-              <IndicationChips stacked={false} />
-            </div>
-            <div className="sm:hidden">
-              <IndicationChips stacked={true} />
-            </div>
+          {/* Efficacy buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <button
+              onClick={() => navigate("/efficacy/cml-optic-trial")}
+              className="px-6 py-3 rounded-lg text-white font-[700] text-[16px] sm:text-[18px] transition-colors"
+              style={{ background: "#237EBF" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "#1b6fa8"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "#237EBF"; }}
+            >
+              View CML Efficacy
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block ml-2"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+            <button
+              onClick={() => navigate("/ph-all/first-line")}
+              className="px-6 py-3 rounded-lg text-white font-[700] text-[16px] sm:text-[18px] transition-colors"
+              style={{ background: "#2E8762" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "#257350"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "#2E8762"; }}
+            >
+              View Ph+ ALL Efficacy
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="inline-block ml-2"><path d="M2 7H12M12 7L7.5 2.5M12 7L7.5 11.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
           </div>
 
           {/* Footnotes */}
